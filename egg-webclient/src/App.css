@@ -1,0 +1,68 @@
+@import '~antd/dist/antd.css';
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+body {
+  background-color: blue;
+}
+#components-form-demo-normal-login .login-form {
+  max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+  float: right;
+}
+#components-form-demo-normal-login .login-form-button {
+  width: 100%;
+}
+.ant-form-item-control{
+  margin-left: 50px;
+}
+.ant-input-affix-wrapper{
+  width: 350px;
+}
+
+.login-form{
+  width: 500px;
+  height: 375px;
+  margin: 200px auto;
+  border-radius: 8px;
+  background: white;
+}
+
+.login-form-forgot{
+  margin-left: 30px;
+}
+
+.ant-checkbox-wrapper{
+  display: block;
+  margin-left: 30px;
+}
+
+.formitem{
+  padding-top: 30px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
