@@ -7,16 +7,16 @@ export const sliderBar = [{
         {
         id: "Add",
         name: "添加试题",
-        path: "/test/addQuestion"
+        path: "/main/test/addQuestion"
     },
     {
         id: "Testlist",
         name: "试题分类",
-        path: "/test/testlist"
+        path: "/main/test/testlist"
     },{
         id: "CheckQuest",
         name: "查看试题",
-        path: "/test/checkQuestion"
+        path: "/main/test/checkQuestion"
     }]
 },
 {
@@ -28,11 +28,11 @@ export const sliderBar = [{
         {
             id: "Adduser",
             name: "添加用户",
-            path: "/management/adduser"
+            path: "/main/management/adduser"
         },{
             id: "Show",
             name: "用户展示",
-            path: "/management/showuser"
+            path: "/main/management/showuser"
         }
     ]
 },
@@ -45,12 +45,12 @@ export const sliderBar = [{
         {
             id: "addExaminations",
             name: "添加考试",
-            path: "/examinations/addExaminations"
+            path: "/main/examinations/addExaminations"
         },
         {
             id: "listExaminations",
             name: "添加考试",
-            path: "/examinations/listExaminations"
+            path: "/main/examinations/listExaminations"
         }
     ]
 },
@@ -63,17 +63,17 @@ export const sliderBar = [{
         {
             id: "classRoom",
             name: "班级管理",
-            path: "/classManagement/classRoom"
+            path: "/main/classManagement/classRoom"
         },
         {
             id: "classment",
             name: "教室管理",
-            path: "/classManagement/classment"
+            path: "/main/classManagement/classment"
         },
         {
             id: "studentManagement",
             name: "学生管理",
-            path: "/classManagement/studentManagement"
+            path: "/main/classManagement/studentManagement"
         }
     ]
 },{
@@ -85,7 +85,7 @@ export const sliderBar = [{
         {
             id: "Marking",
             name: "待批班级",
-            path: "/classManagement/Marking"
+            path: "/main/classManagement/Marking"
         }
     ]
 }]

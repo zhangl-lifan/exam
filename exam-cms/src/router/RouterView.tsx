@@ -2,13 +2,13 @@ import * as React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 
 interface PropsInfo {
-    routes:Array<object>
+    routes:any
 }
 
 class RouterView extends React.Component<PropsInfo> {
    public render() {
-        let {routes} = this.props;
         console.log(this.props)
+        let {routes} = this.props;
         const RedirectArr = routes.filter((item:any)=>item.redirect);
 
         const redirectArr = RedirectArr.map((item:any,index:number)=>{

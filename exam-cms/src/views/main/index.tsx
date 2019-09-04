@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { sliderBar } from '../../config/index';
+import RouterView from '../../router/RouterView';
 const { Header, Sider, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 
@@ -10,6 +11,7 @@ import './index.css';
 interface BooleanInfo {
     collapsed: boolean;
     collapsible: boolean;
+    props:any
 }
 
 class Main extends React.Component<BooleanInfo> {
@@ -24,6 +26,7 @@ class Main extends React.Component<BooleanInfo> {
     };
 
     public render() {
+        console.log(this.props)
         return (
             <Layout>
                 <Header>
@@ -85,7 +88,7 @@ class Main extends React.Component<BooleanInfo> {
                         </Menu>
                     </Sider>
                     <Content style={{ padding: '0 24px', minHeight: 280, background:"#f0f2f5" }}>
-                        Content
+                         <RouterView routes={this.props.children}></RouterView>
                     </Content>
                 </Layout>
             </Layout>
