@@ -7,10 +7,10 @@
  * @LastEditTime: 2019-09-03 20:23:01
  */
 
-//引入子模块
+// 引入子模块
 import User from './modules/user';
 
-//实例化模块
+// 实例化模块
 const user = new User();
 
 export default {

@@ -15,12 +15,17 @@
         "object-literal-sort-keys": false,
         "member-access": false,
         "array-type": [true, "generic"],
+        "prefer-const": false,
         "ordered-imports": [
             false,
             {
                 "import-sources-order": "lowercase-last",
                 "named-imports-order": "lowercase-first"
             }
+        ],
+        "comment-format": [
+            false,
+            "check-space"
         ]
     }
 }

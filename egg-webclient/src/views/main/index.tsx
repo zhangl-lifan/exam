@@ -15,6 +15,7 @@ interface BooleanInfo {
 }
 
 class Main extends React.Component<BooleanInfo> {
+    props: any;
     state = {
         sliderBar,
         collapsed: false
@@ -24,7 +25,6 @@ class Main extends React.Component<BooleanInfo> {
         console.log(collapsed);
         this.setState({ collapsed });
     };
-    props: any;
 
     public render() {
         return (

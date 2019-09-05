@@ -1,13 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-<<<<<<< HEAD
-import App from './App';
-import './index.css';
-import registerServiceWorker from './registerServiceWorker';
-
-ReactDOM.render(
-  <App />,
-=======
 import registerServiceWorker from './registerServiceWorker';
 
 import routes from './router/routes';
@@ -29,7 +21,6 @@ ReactDOM.render(
           <RouterView routes={routes}></RouterView>
       </BrowserRouter>
   </Provider>,
->>>>>>> ce723308093660ede837ab104f754d07ec318f25
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();

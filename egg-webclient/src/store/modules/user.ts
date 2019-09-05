@@ -19,16 +19,16 @@ class User {
     @observable isLogin: boolean = false;
     @observable account: any = account;
 
-    @action async login(form: LoginForm): Promise<any> {
+    @action async login(form: any): Promise<any> {
         let result: any = await login(form);
         if (result.code === 1) {
-            //记住密码
+            // 记住密码
             if (form.remember) {
                 window.localStorage.setItem('account', JSON.stringify(form));
             } else {
                 window.localStorage.removeItem('account');
             }
-            //七天免登陆
+            // 七天免登陆
             if (form.autologin) {
                 setToken(result.token)
             }
@@ -36,7 +36,7 @@ class User {
         }
         return result;
     }
-    //退出登陆，移除token
+    // 退出登陆，移除token
     @action async loginout(): Promise<any> {
         removeToken()
     }
