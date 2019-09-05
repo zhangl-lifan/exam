@@ -9,8 +9,8 @@
 export interface LoginForm {
     user_name: string,
     user_pwd: string,
-    remember: Boolean,
-    autologin: Boolean
+    remember: boolean,
+    autologin: boolean
 }
 export enum HttpType {
     object,

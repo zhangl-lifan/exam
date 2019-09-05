@@ -5,7 +5,7 @@ import {subject} from '../../service/index';
 
 class Subject{
 
-    @action async sumbject(): Promise<any>{
+    @action async subject(): Promise<any>{
         const result: any = await subject();
         return result;
     }

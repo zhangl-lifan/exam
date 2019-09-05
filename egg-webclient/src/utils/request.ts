@@ -11,8 +11,9 @@ import axios from 'axios';
 import { AxiosResponse } from 'axios/index';
 import { getToken } from './index';
 
+
 const instance = axios.create({
-    baseURL: 'http://169.254.88.18:7001',
+    baseURL: 'http://127.0.0.1:7001',
     timeout: 1000,
     headers: { 'authorization': getToken() }
 })
@@ -26,7 +27,6 @@ instance.interceptors.request.use((config: any) => {
 
 //响应拦截器
 instance.interceptors.response.use((Response: AxiosResponse<any>) => {
-    console.log(Response);
     return Response.data;
 }, (error) => {
     return Promise.reject(error);

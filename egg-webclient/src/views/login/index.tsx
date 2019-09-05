@@ -46,18 +46,18 @@ class Login extends React.Component<Propsinfo>{
     public handleSubmit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
         this.props.form.validateFields(async (err: Error, values: any) => {
-            console.log(values);
+            // console.log(values);
             if (!err) {
                 const params = {
                     user_name: values.user_name,
                     user_pwd: values.user_pwd,
-                    remember: values.remember
+                    remember: values.remember,
+                    autologin:values.autologin
                 }
                 const result = await this.props.user.login(params);
-                console.log('......result', result);
                 if (result.code === 1) {
                     success()
-                    this.props.history.push('/userhome');
+                    this.props.history.push('/main');
                 } else {
                     warning()
                     values.username = '';

@@ -15,6 +15,7 @@ interface BooleanInfo {
 }
 
 class Main extends React.Component<BooleanInfo> {
+    props: any;
     state = {
         sliderBar,
         collapsed: false
@@ -24,16 +25,15 @@ class Main extends React.Component<BooleanInfo> {
         console.log(collapsed);
         this.setState({ collapsed });
     };
-    props: any;
 
     public render() {
         return (
             <Layout>
-                <Header>
+                <Header className="title">
                     北京八维研修学院
                 </Header>
                 <Layout style={{ minHeight: '90vh' }}>
-                    <Sider trigger={null} collapsed={this.state.collapsed}>
+                    <Sider className="slider" trigger={null} collapsed={this.state.collapsed}>
                         <Menu
                             theme="dark"
                             defaultSelectedKeys={['1']}
@@ -87,7 +87,7 @@ class Main extends React.Component<BooleanInfo> {
                             })}
                         </Menu>
                     </Sider>
-                    <Content style={{ padding: '0 24px', minHeight: 280, background:"#f0f2f5" }}>
+                    <Content className="content" style={{ padding: '0 24px', background:"#f0f2f5"}}>
                          <RouterView routes={this.props.children}></RouterView>
                     </Content>
                 </Layout>

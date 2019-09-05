@@ -1,47 +1,53 @@
 import * as React from 'react';
 import {observer, inject} from 'mobx-react';
 import "./index.css"
-import { listenerCount } from 'cluster';
 
 interface Listinfo{
     list:Array<object>,
     question:any,
-    data:Array<object>
+    data:Array<object>,
+    subject:any
 }
 
-// sumbject
-@inject('question')
+
+@inject('question',"subject")
 @observer
 
 class CheckQuestion extends React.Component<Listinfo> {
     
     state = {
-        list:[]
+        list:[],
+        subjectList:[]
     }
 
     constructor(props: any){
         super(props);
-        // sumbject().then((res:any)=>{
-        //     const subject = res.data
-        //     console.log(res.data)
-        // })
+        
     }
-
-    
 
     componentDidMount(){
         this.getQuestion()
+        this.getSubject()
     }
    getQuestion=async ()=>{
         const {question} = this.props.question;
         const result = await question();
+        
         this.setState({
             list:result.data
         })
     }
 
+    getSubject=async ()=>{
+        const {subject} = this.props.subject;
+        const result = await subject();
+        console.log(result)
+        this.setState({
+            subjectList:result.data
+        })
+    }
+
     public render() {
-        console.log(this.state.list)
         const {list} = this.state
 
         return (

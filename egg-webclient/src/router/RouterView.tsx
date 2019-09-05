@@ -7,7 +7,6 @@ interface PropsInfo {
 
 class RouterView extends React.Component<PropsInfo> {
    public render() {
-        console.log(this.props)
         let {routes} = this.props;
         const RedirectArr = routes.filter((item:any)=>item.redirect);
 
