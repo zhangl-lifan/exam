@@ -14,3 +14,11 @@
     margin-bottom: 1px;
     float: left;
 }
+
+.ant-menu-submenu a {
+    color: #fff;
+}
+
+.ant-menu-submenu-active a {
+    color: #fff;
+}

@@ -21,7 +21,7 @@ export default [{
                 children:[
                     {
                         path: '/main/test',
-                        redirect: '/main/test/addQuestion'
+                        redirect: '/main/test/checkQuestion'
                     },
                     {
                         component: AddQuestion,

@@ -26,7 +26,6 @@ class Main extends React.Component<BooleanInfo> {
     };
 
     public render() {
-        console.log(this.props)
         return (
             <Layout>
                 <Header>
