@@ -22,7 +22,8 @@ const warning = () => {
 
 interface Propsinfo {
     form: any,
-    user: any
+    user: any,
+    props:any
 }
 
 interface Propsinfo extends FormComponentProps {
@@ -33,6 +34,7 @@ interface Propsinfo extends FormComponentProps {
 @observer
 
 class Login extends React.Component<Propsinfo>{
+    props: any;
     constructor(props: any) {
         super(props);
     }
