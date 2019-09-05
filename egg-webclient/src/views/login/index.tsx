@@ -4,12 +4,13 @@
  * @Author: sueRimn
  * @Date: 2019-09-02 20:11:41
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-05 07:49:30
+ * @LastEditTime: 2019-09-05 09:16:15
  */
 import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
+import './index.css';
 
 const success = () => {
     message.success('login succeed!');
@@ -48,11 +49,11 @@ class Login extends React.Component<Propsinfo>{
                 const params = {
                     user_name: values.user_name,
                     user_pwd: values.user_pwd,
-                    remember:values.remember
+                    remember: values.remember
                 }
                 const result = await this.props.user.login(params);
                 console.log('......result', result);
-                if (result === 1) {
+                if (result.code === 1) {
                     success()
                     this.props.history.push('/userhome');
                 } else {
@@ -68,6 +69,7 @@ class Login extends React.Component<Propsinfo>{
         const { getFieldDecorator } = this.props.form;
         const { user_name, user_pwd } = this.props.user.account;
         return (
+            <div className='allju'>
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <Form.Item className='formitem'>
                     {getFieldDecorator('user_name', {
@@ -84,12 +86,10 @@ class Login extends React.Component<Propsinfo>{
                     {getFieldDecorator('user_pwd', {
                         initialValue: user_pwd,
                         rules: [{ required: true, message: 'Please input your Password!' }],
-
                     })(
                         <Input
                             prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                             placeholder="Password"
-
                         />,
                     )}
                 </Form.Item>
@@ -111,6 +111,7 @@ class Login extends React.Component<Propsinfo>{
                     Or <a href="">register now!</a>
                 </Form.Item>
             </Form>
+            </div>
         );
     }
 }
