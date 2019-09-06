@@ -1,0 +1,24 @@
+.TypePage {
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+    font-size: 20px;
+}
+
+.type-content {
+    width: 100%;
+    background: rgb(255, 255, 255);
+    padding: 24px;
+    margin: 0px 0px 20px;
+    border-radius: 10px;
+}
+
+.btn-type-add {
+    margin-bottom: 30px;
+}

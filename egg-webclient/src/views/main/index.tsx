@@ -44,11 +44,9 @@ class Main extends React.Component<BooleanInfo> {
                                     slider.children.length < 1 ? (
                                     <Menu.Item key={slider.id}>
                                         <Icon type={slider.icon} />
-                                        <span>
                                             <NavLink to={slider.path}>
                                                 {slider.name}
                                             </NavLink>
-                                        </span>
                                     </Menu.Item>
                                 ) : (
                                     <SubMenu
@@ -56,11 +54,9 @@ class Main extends React.Component<BooleanInfo> {
                                         title={
                                             <div>
                                                 <Icon type={slider.icon} />
-                                                <span>
                                                     <NavLink to={slider.path}>
                                                         {slider.name}
                                                     </NavLink>
-                                                </span>
                                             </div>
                                         }
                                     >
@@ -70,7 +66,6 @@ class Main extends React.Component<BooleanInfo> {
                                                     <Menu.Item
                                                         key={children.id}
                                                     >
-                                                        <span>
                                                             <NavLink
                                                                 to={
                                                                     children.path
@@ -78,7 +73,6 @@ class Main extends React.Component<BooleanInfo> {
                                                             >
                                                                 {children.name}
                                                             </NavLink>
-                                                        </span>
                                                     </Menu.Item>
                                                 );
                                             })}
