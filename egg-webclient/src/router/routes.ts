@@ -11,6 +11,7 @@ import CheckQuestion from 'src/views/main/test/checkQuestion';
 import ClassRoom from 'src/views/main/classManagement/classRoom';
 import Classment from 'src/views/main/classManagement/classment';
 import StudentManagement from 'src/views/main/classManagement/studentManagement';
+import TestDatail from 'src/views/main/test/testDatail';
 
 export default [{
         component: Login,
@@ -38,6 +39,10 @@ export default [{
                         component: CheckQuestion,
                         path: '/main/test/checkQuestion'
                     },
+                    {
+                        component: TestDatail,
+                        path: '/main/test/testDatail'
+                    }
                 ]
             },
             {

@@ -22,3 +22,17 @@
 .btn-type-add {
     margin-bottom: 30px;
 }
+
+.anyd-modal {
+    text-align: center;
+}
+
+.ant-modal-content {
+    padding: 20px;
+}
+
+.anyd-modal input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+}

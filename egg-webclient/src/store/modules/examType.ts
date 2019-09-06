@@ -1,6 +1,6 @@
 // examType
 import {observable, action} from 'mobx';
-import {examType} from '../../service/index';
+import {examType,insertQuestionsType} from '../../service/index';
 
 // 引入mobx
 class ExamType{

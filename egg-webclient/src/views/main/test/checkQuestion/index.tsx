@@ -8,7 +8,8 @@ interface Listinfo {
     data: Array<object>;
     subject: any;
     questionsType:any;
-    examType:any
+    examType:any,
+    history:any
 }
 
 @inject('question', 'subject',"examType","questionsType")
@@ -33,6 +34,7 @@ class CheckQuestion extends React.Component<Listinfo> {
         this.getExamType();
         this.getQuestionsType()
     }
+
     getQuestion = async () => {
         const { question } = this.props.question;
         const result = await question();
@@ -71,6 +73,12 @@ class CheckQuestion extends React.Component<Listinfo> {
             questionsTypeList: result.data
         });
     };
+     
+    dropDatil = (id:any,item:any)=>{
+        //   console.log(id);
+          this.props.history.push({pathname:"/main/test/testDatail",state:{id,item}})
+          
+    }
 
     public render() {
         const { list, subjectList,examTypeList,questionsTypeList } = this.state;
@@ -160,7 +168,7 @@ class CheckQuestion extends React.Component<Listinfo> {
                         {list &&
                             list.map((item: any) => {
                                 return (
-                                    <li key={item.questions_id}>
+                                    <li key={item.questions_id} onClick={this.dropDatil.bind(this,item.questions_id,item)}>
                                         <div>
                                             <span>{item.title}</span>
                                         </div>

@@ -49,7 +49,7 @@ export const sliderBar = [{
         },
         {
             id: "listExaminations",
-            name: "添加考试",
+            name: "试卷列表",
             path: "/main/examinations/listExaminations"
         }
     ]
