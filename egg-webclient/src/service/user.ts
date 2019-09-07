@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-03 20:36:10
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-03 20:37:21
+ * @LastEditTime: 2019-09-07 08:45:56
  */
 import request from '../utils/request';
 
@@ -12,3 +12,4 @@ import request from '../utils/request';
 export function login(params: object) {
     return request.post('/user/login', params);
 }
+

@@ -11,7 +11,7 @@ import './index.css';
 interface BooleanInfo {
     collapsed: boolean;
     collapsible: boolean;
-    props:any
+    props: any
 }
 
 class Main extends React.Component<BooleanInfo> {

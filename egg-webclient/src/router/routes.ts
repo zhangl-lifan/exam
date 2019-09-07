@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-09-05 15:43:06
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-09-07 01:52:57
+ */
 import Login from "../views/login";
 import Main from '../views/main';
 import Test from 'src/views/main/test';

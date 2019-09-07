@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-09-05 15:43:06
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-09-06 23:55:37
+ */
 export const sliderBar = [{
     id: "test",
     name: "试题管理",

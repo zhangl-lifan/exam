@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 interface PropsInfo {
-    routes:any
+    routes: any
 }
 
 class RouterView extends React.Component<PropsInfo> {
@@ -14,20 +14,20 @@ class RouterView extends React.Component<PropsInfo> {
             return <Redirect key={index} from={item.path} to={item.redirect}/>
         })
 
-        routes = routes.filter((item:any)=>!item.redirect)
+        routes = routes.filter((item: any) => !item.redirect)
 
         return (
             <Switch>
-                 {
-                     routes.map((item:any,index:number)=>{
-                         return <Route key={index} path={item.path} render={(props)=>{
-                             return <item.component {...props} children={item.children}></item.component>
-                         }}></Route>
-                     })
-                 }
-                 {
-                     redirectArr.length!==0&&redirectArr
-                 }
+                {
+                    routes.map((item: any, index: number) => {
+                        return <Route key={index} path={item.path} render={(props) => {
+                            return <item.component {...props} children={item.children}></item.component>
+                        }}></Route>
+                    })
+                }
+                {
+                    redirectArr.length !== 0 && redirectArr
+                }
             </Switch>
         );
     }

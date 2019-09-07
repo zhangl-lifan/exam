@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-02 20:11:41
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-05 09:16:15
+ * @LastEditTime: 2019-09-05 16:13:59
  */
 import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
@@ -23,7 +23,7 @@ const warning = () => {
 interface Propsinfo {
     form: any,
     user: any,
-    props:any
+    props: any
 }
 
 interface Propsinfo extends FormComponentProps {
@@ -72,47 +72,47 @@ class Login extends React.Component<Propsinfo>{
         const { user_name, user_pwd } = this.props.user.account;
         return (
             <div className='allju'>
-            <Form onSubmit={this.handleSubmit} className="login-form">
-                <Form.Item className='formitem'>
-                    {getFieldDecorator('user_name', {
-                        initialValue: user_name,
-                        rules: [{ required: true, message: 'Please input your username!' }],
-                    })(
-                        <Input
-                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                            placeholder="Username"
-                        />,
-                    )}
-                </Form.Item>
-                <Form.Item className='formitem'>
-                    {getFieldDecorator('user_pwd', {
-                        initialValue: user_pwd,
-                        rules: [{ required: true, message: 'Please input your Password!' }],
-                    })(
-                        <Input
-                            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                            placeholder="Password"
-                        />,
-                    )}
-                </Form.Item>
-                <Form.Item className='formitem'>
-                    {getFieldDecorator('remember', {
-                        valuePropName: 'checked',
-                        initialValue: true,
-                    })(<Checkbox>Remember me</Checkbox>)}
-                    {getFieldDecorator('autologin', {
-                        valuePropName: 'checked',
-                        initialValue: true,
-                    })(<Checkbox>auto login in 7 days</Checkbox>)}
-                    <a className="login-form-forgot" href="">
-                        Forgot password
+                <Form onSubmit={this.handleSubmit} className="login-form">
+                    <Form.Item className='formitem'>
+                        {getFieldDecorator('user_name', {
+                            initialValue: user_name,
+                            rules: [{ required: true, message: 'Please input your username!' }],
+                        })(
+                            <Input
+                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                placeholder="Username"
+                            />,
+                        )}
+                    </Form.Item>
+                    <Form.Item className='formitem'>
+                        {getFieldDecorator('user_pwd', {
+                            initialValue: user_pwd,
+                            rules: [{ required: true, message: 'Please input your Password!' }],
+                        })(
+                            <Input
+                                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                placeholder="Password"
+                            />,
+                        )}
+                    </Form.Item>
+                    <Form.Item className='formitem'>
+                        {getFieldDecorator('remember', {
+                            valuePropName: 'checked',
+                            initialValue: true,
+                        })(<Checkbox>Remember me</Checkbox>)}
+                        {getFieldDecorator('autologin', {
+                            valuePropName: 'checked',
+                            initialValue: true,
+                        })(<Checkbox>auto login in 7 days</Checkbox>)}
+                        <a className="login-form-forgot" href="">
+                            Forgot password
               </a>
-                    <Button type="primary" htmlType="submit" className="login-form-button">
-                        Log in
+                        <Button type="primary" htmlType="submit" className="login-form-button">
+                            Log in
               </Button>
-                    Or <a href="">register now!</a>
-                </Form.Item>
-            </Form>
+                        Or <a href="">register now!</a>
+                    </Form.Item>
+                </Form>
             </div>
         );
     }
