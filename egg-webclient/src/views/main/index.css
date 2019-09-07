@@ -4,10 +4,6 @@
     margin: 16px;
 }
 
-.ant-layout {
-    position: relative; 
-}
-
 .ant-layout .ant-layout-header {
     background: #fff;
     border-bottom: 1px solid #ccc;
@@ -15,14 +11,7 @@
     float: left;
     width: 100%;
     height: 65px;
-}
-
-.ant-layout .title {
-    width: 100%;
-    height: 65px;
     position: fixed;
-    z-index: 99;
-    color:black;
 }
 
 .slider {
@@ -33,7 +22,7 @@
     width: 200px;
 }
 
-.content {
+.ant-layout-content {
     position: fixed;
     top: 65px;
     right: 0;

@@ -25,10 +25,8 @@ class Marking extends React.Component<Props>{
     };
     
   }
-    
     public render() {
-      
-       
+        
       const {newarr,num,obj}:any=this.state;
      
       return (
@@ -63,15 +61,16 @@ class Marking extends React.Component<Props>{
             </div>
         )
     }
+
     componentDidMount(){
       const result=this.props.mark.getmark();
       result.then((res:any)=>{
       
         if(res.code===1){
           const arr=res.exam[0].grade_name;
-          for(let i =2;i<33;i++){
-           arr.push(i);
-          }
+          // for(let i =2;i<33;i++){
+          //  arr.push(i);
+          // }
          this.setState({num:arr.length});
           const newarr=Object.create(arr).splice(0,10);
           this.setState({newarr});
