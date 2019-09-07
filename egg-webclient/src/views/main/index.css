@@ -4,6 +4,10 @@
     margin: 16px;
 }
 
+.ant-layout {
+    position: relative;
+}
+
 .ant-layout .ant-layout-header {
     background: #fff;
     border-bottom: 1px solid #ccc;

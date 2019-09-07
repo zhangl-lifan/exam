@@ -35,8 +35,6 @@ class User {
             } else {
                 setOnceToken(result.token);
             }
-
-
         }
         return result;
     }

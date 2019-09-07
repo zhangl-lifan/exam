@@ -1,13 +1,13 @@
 import * as React from 'react';
-
-class Marking extends React.Component {
+import RouterView from '../../../router/RouterView';
+class Management extends React.Component {
     public render() {
         return (
             <div>
-                this is Marking
+              <RouterView routes={this.props.children}></RouterView>
             </div>
         )
     }
 }
 
-export default Marking;
+export default Management;

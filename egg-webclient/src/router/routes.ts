@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-07 01:52:57
+ * @LastEditTime: 2019-09-07 14:54:04
  */
 import Login from "../views/login";
 import Main from '../views/main';
@@ -25,44 +25,46 @@ import UserShow from 'src/views/main/management/usershow';
 import AddUser from 'src/views/main/management/examcomponent';
 import Examguan from 'src/views/main/examinations/examguan';
 import AddExam from 'src/views/main/examinations/addexam';
+import Page from '../views/main/Marking/mark';
+import Detail from '../views/main/Marking/detail';
 
 
 export default [{
-        component: Login,
-        path: '/login'
-    },
-    {
-        children: [
-            {
-                component: Test,
-                path: '/main/test',
-                children:[
-                    {
-                        path: '/main/test',
-                        redirect: '/main/test/checkQuestion'
-                    },
-                    {
-                        component: AddQuestion,
-                        path: '/main/test/addQuestion'
-                    },
-                    {
-                        component: Testlist,
-                        path: '/main/test/testlist'
-                    },
-                    {
-                        component: CheckQuestion,
-                        path: '/main/test/checkQuestion'
-                    },
-                    {
-                        component: TestDatail,
-                        path: '/main/test/testDatail'
-                    },{
-                        component: RiWite,
-                        path: '/main/test/reWrite'
-                    }
-                ]
-            },
-            {
+    component: Login,
+    path: '/login'
+},
+{
+    children: [
+        {
+            component: Test,
+            path: '/main/test',
+            children: [
+                {
+                    path: '/main/test',
+                    redirect: '/main/test/checkQuestion'
+                },
+                {
+                    component: AddQuestion,
+                    path: '/main/test/addQuestion'
+                },
+                {
+                    component: Testlist,
+                    path: '/main/test/testlist'
+                },
+                {
+                    component: CheckQuestion,
+                    path: '/main/test/checkQuestion'
+                },
+                {
+                    component: TestDatail,
+                    path: '/main/test/testDatail'
+                }, {
+                    component: RiWite,
+                    path: '/main/test/reWrite'
+                }
+            ]
+        },
+        {
             component: Management,
             path: '/main/management',
             children: [
@@ -82,51 +84,64 @@ export default [{
             ],
 
         },
-            {
-                component: Examinations,
-                path: '/main/examinations',
-                children: [
-                    {
-                        path: '/main/examinations',
-                        redirect: '/main/examinations/addExaminations'
-                    },
-                    {
-                        path: '/main/examinations/addExaminations',
-                        component: AddExam
-                    },
-                    {
-                        path: '/main/examinations/listExaminations',
-                        component: Examguan
-                    },
-                ]
-            },
-    
-            {
-                component: ClassManagement,
-                path: '/main/classManagement',
-                children:[
-                    {
-                        path: '/main/classManagement',
-                        redirect: '/main/classManagement/classRoom'
-                    },
-                    { path: '/main/classManagement/classRoom', component: ClassRoom },
-                    { path: '/main/classManagement/classment', component: Classment },
-                    { path: '/main/classManagement/studentManagement', component: StudentManagement }
-                ]
-            },
-            {
-                component: Marking,
-                path: '/main/Marking'
-            },
-            
-        ],
-        component: Main,
-        path: '/main'
-    },
-    {
-        path: '/',
-        redirect: '/login'
-    }
+        {
+            component: Examinations,
+            path: '/main/examinations',
+            children: [
+                {
+                    path: '/main/examinations',
+                    redirect: '/main/examinations/addExaminations'
+                },
+                {
+                    path: '/main/examinations/addExaminations',
+                    component: AddExam
+                },
+                {
+                    path: '/main/examinations/listExaminations',
+                    component: Examguan
+                },
+            ]
+        },
+
+        {
+            component: ClassManagement,
+            path: '/main/classManagement',
+            children: [
+                {
+                    path: '/main/classManagement',
+                    redirect: '/main/classManagement/classRoom'
+                },
+                { path: '/main/classManagement/classRoom', component: ClassRoom },
+                { path: '/main/classManagement/classment', component: Classment },
+                { path: '/main/classManagement/studentManagement', component: StudentManagement }
+            ]
+        },
+        {
+            component: Marking,
+            path: '/main/Marking',
+            children: [
+                {
+                    path: '/main/Marking',
+                    redirect: '/main/Marking/Page'
+                },
+                {
+                    path: '/main/marking/Page',
+                    component: Page
+                }, {
+                    path: '/main/marking/detail',
+                    component: Detail
+                }
+            ]
+        },
+
+    ],
+    component: Main,
+    path: '/main'
+},
+{
+    path: '/',
+    redirect: '/login'
+}
 
 ]
 

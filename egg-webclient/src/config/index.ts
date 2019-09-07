@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-06 23:55:37
+ * @LastEditTime: 2019-09-07 14:50:44
  */
 export const sliderBar = [{
     id: "test",
@@ -93,7 +93,7 @@ export const sliderBar = [{
         {
             id: "Marking",
             name: "待批班级",
-            path: "/main/classManagement/Marking"
+            path: "/main/marking/page"
         }
     ]
 }]
