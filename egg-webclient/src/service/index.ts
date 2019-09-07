@@ -8,7 +8,7 @@
  */
 export * from "./user";
 export * from "./question";
-export * from "./subject";
+// export * from "./subject";
 export * from './getexamlist';
 export * from './getclasslist';
 export * from './userview';

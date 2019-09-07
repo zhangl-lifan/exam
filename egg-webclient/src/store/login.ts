@@ -64,7 +64,7 @@ export default {
     insertQuestionsType,
     addQuestions,
     getUser,
-    questionUpdate
+    questionUpdate,
     getexamtype,
     getcourselist,
     getclasslist,

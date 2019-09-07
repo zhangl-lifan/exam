@@ -179,16 +179,17 @@ class CheckQuestion extends React.Component<Listinfo> {
                                         <div>
                                             <span>{item.title}</span>
                                         </div>
-                                        <div  onClick={this.dropDatil.bind(this,item.questions_id,item)}>
-                                            <p>
+                                        <div  >
+                                            <p onClick={this.dropDatil.bind(this,item.questions_id,item)}> 
                                                 <span>
                                                     {item.questions_type_text}
                                                 </span>
                                                 <span>{item.subject_text}</span>
                                                 <span>{item.exam_name}</span>
                                             </p>
+                                            <span className="write-box" onClick={this.reWriteFn.bind(this,item.questions_id,item)}>编辑</span>
                                         </div>
-                                        <span className="write-box" onClick={this.reWriteFn.bind(this,item.questions_id,item)}>编辑</span>
+                                        
                                         <div>
                                             <span>{item.user_name}发布</span>
                                         </div>

@@ -21,6 +21,11 @@ import Classment from 'src/views/main/classManagement/classment';
 import StudentManagement from 'src/views/main/classManagement/studentManagement';
 import TestDatail from 'src/views/main/test/testDatail';
 import RiWite from 'src/views/main/test/reWrite';
+import UserShow from 'src/views/main/management/usershow';
+import AddUser from 'src/views/main/management/examcomponent';
+import Examguan from 'src/views/main/examinations/examguan';
+import AddExam from 'src/views/main/examinations/addexam';
+
 
 export default [{
         component: Login,
@@ -58,13 +63,44 @@ export default [{
                 ]
             },
             {
-                component: Management,
-                path: '/main/management'
-            },
+            component: Management,
+            path: '/main/management',
+            children: [
+                {
+                    path: '/main/management',
+                    redirect: '/main/management/adduser'
+                },
+                {
+                    path: "/main/management/adduser",
+                    component: AddUser
+                },
+                {
+                    path: "/main/management/showuser",
+                    component: UserShow
+                }
+
+            ],
+
+        },
             {
                 component: Examinations,
-                path: '/main/examinations'
+                path: '/main/examinations',
+                children: [
+                    {
+                        path: '/main/examinations',
+                        redirect: '/main/examinations/addExaminations'
+                    },
+                    {
+                        path: '/main/examinations/addExaminations',
+                        component: AddExam
+                    },
+                    {
+                        path: '/main/examinations/listExaminations',
+                        component: Examguan
+                    },
+                ]
             },
+    
             {
                 component: ClassManagement,
                 path: '/main/classManagement',
@@ -82,10 +118,7 @@ export default [{
                 component: Marking,
                 path: '/main/Marking'
             },
-            {
-                path: '/main',
-                redirect: '/main/test'
-            },
+            
         ],
         component: Main,
         path: '/main'

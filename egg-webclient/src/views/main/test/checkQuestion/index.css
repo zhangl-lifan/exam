@@ -244,7 +244,7 @@
         width: 90px;
         color: #2f54eb;
         background: #f0f5ff;
-        border-color: #adc6ff;
+        border-color: hsl(222, 100%, 84%);
     }
     
     .list-subject-item li>div:nth-child(2) p:nth-child(1)>span:nth-child(3) {
@@ -257,19 +257,22 @@
     .list-subject-item li>div:nth-child(2) p:nth-child(2) {
         position: relative;
     }
+    /* .list-subject-item li>div:nth-child(2) {
+       
+    }
+     */
     
-    .write-box {
-        float: right;
+    .list-subject-item li>div:nth-child(2) .write-box {
         color: blue;
         margin-right: 5px;
-        position: absolute;
+        position: relative;
         right: 20px;
-        z-index: 999;
         width: 70px;
         height: 40px;
         text-align: center;
         cursor: pointer;
         top: 50%;
+        z-index: 999;
     }
     
     .list-subject-item li>div:nth-child(3) span {
