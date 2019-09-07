@@ -1,0 +1,24 @@
+#components-layout-demo-side .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+.ant-layout {
+    position: relative;
+}
+
+.ant-layout .ant-layout-header {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1px;
+    float: left;
+}
+
+.ant-menu-submenu a {
+    color: #fff;
+}
+
+.ant-menu-submenu-active a {
+    color: #fff;
+}
