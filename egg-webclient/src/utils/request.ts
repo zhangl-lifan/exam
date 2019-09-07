@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-03 20:29:10
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-05 08:45:16
+ * @LastEditTime: 2019-09-07 07:40:40
  */
 
 import axios from 'axios';
@@ -26,7 +26,7 @@ instance.interceptors.request.use((config: any) => {
 
 //响应拦截器
 instance.interceptors.response.use((Response: AxiosResponse<any>) => {
-    console.log(Response);
+ //   console.log(Response);
     return Response.data;
 }, (error) => {
     return Promise.reject(error);
