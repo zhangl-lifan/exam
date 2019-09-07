@@ -25,10 +25,8 @@ class Marking extends React.Component<Props>{
     };
     
   }
-    
     public render() {
-      
-       
+        
       const {newarr,num,obj}:any=this.state;
      
       return (
@@ -63,6 +61,7 @@ class Marking extends React.Component<Props>{
             </div>
         )
     }
+
     componentDidMount(){
       const result=this.props.mark.getmark();
       result.then((res:any)=>{

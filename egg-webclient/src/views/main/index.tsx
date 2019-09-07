@@ -81,7 +81,7 @@ class Main extends React.Component<BooleanInfo> {
                             })}
                         </Menu>
                     </Sider>
-                    <Content className="content" style={{ padding: '0 24px', background:"#f0f2f5"}}>
+                    <Content style={{ padding: '0 24px', background:"#f0f2f5"}}>
                          <RouterView routes={this.props.children}></RouterView>
                     </Content>
                 </Layout>

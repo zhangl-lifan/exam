@@ -42,19 +42,35 @@
 .topbox{
     margin-top: 20px;
     height: 121px;
-    width: 80%;
+    width: 93%;
     background-color: white;
     border-radius: 10px;
-    display: flex;
 }
 
-.topbox div{
-    flex: 1;
+.topbox>div{
+    display: inline-block;
+    margin-left: 40px;
 }
+
+.topbox div .ant-select-selection.ant-select-selection--single{
+    margin-top: 30px;
+}
+
+.topbox div button.ant-btn.addbtn.ant-btn-primary.ant-btn-lg{
+    margin-top: 30px;
+    width: 132px;
+
+}
+
+.topbox div span{
+    font-size: 17px;
+    margin-left: 15px;
+}
+
 .bottbox {
     margin-top: 20px;
     height: 298px;
-    width: 80%;
+    width: 93%;
     background-color: white;
     border-radius: 10px;
     display: flex;
@@ -80,14 +96,7 @@
     flex: 1;
     margin-left: 242px;
 }
-.topbox div .ant-select-selection.ant-select-selection--single{
-    margin-top: 30px;
-}
 
-.topbox div span{
-    font-size: 17px;
-    margin-left: 15px;
-}
 .contenttitle {
     width: 95%;
     height: auto;
