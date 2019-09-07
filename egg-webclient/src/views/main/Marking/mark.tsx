@@ -69,9 +69,9 @@ class Marking extends React.Component<Props>{
       
         if(res.code===1){
           const arr=res.exam[0].grade_name;
-          // for(let i =2;i<33;i++){
-          //  arr.push(i);
-          // }
+          for(let i =2;i<33;i++){
+           arr.push(i);
+          }
          this.setState({num:arr.length});
           const newarr=Object.create(arr).splice(0,10);
           this.setState({newarr});

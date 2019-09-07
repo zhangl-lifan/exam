@@ -2,18 +2,13 @@
     width: 100%;
     height: 100%;
 }
-<<<<<<< HEAD
 
-.allju {
-=======
 .allju{
->>>>>>> dc3eaad19f20694ae9f8895c48f0cab54635d6d1
     width: 100%;
     height: 100%;
     background-color: blue;
 }
 
-<<<<<<< HEAD
 #components-form-demo-normal-login .login-form {
     max-width: 300px;
 }
@@ -45,33 +40,10 @@ span.ant-input-affix-wrapper {
 .login-form {
     width: 500px;
     height: 375px;
-=======
-  #components-form-demo-normal-login .login-form {
-    max-width: 300px;
-  }
-  #components-form-demo-normal-login .login-form-forgot {
-    float: right;
-  }
-  #components-form-demo-normal-login .login-form-button {
-    width: 100%;
-  }
-  .ant-form-item-control{
-    margin-left: 50px;
-  }
-  .ant-input-affix-wrapper{
-    width: 350px;
-  }
-  
-  .login-form{
-    width: 500px;
-    height: 375px;
-    margin: 0 auto;
->>>>>>> dc3eaad19f20694ae9f8895c48f0cab54635d6d1
     position: relative;
     top: 200px;
     border-radius: 8px;
     background: white;
-<<<<<<< HEAD
 }
 
 form.ant-form.ant-form-horizontal.login-form {
@@ -93,8 +65,6 @@ form.ant-form.ant-form-horizontal.login-form {
 
 .ant-row.ant-form-item.formitem {
     padding-top: 30px;
-}
-=======
   }
   
   .login-form-forgot{
@@ -109,4 +79,3 @@ form.ant-form.ant-form-horizontal.login-form {
   .formitem{
     padding-top: 30px;
   }
->>>>>>> dc3eaad19f20694ae9f8895c48f0cab54635d6d1

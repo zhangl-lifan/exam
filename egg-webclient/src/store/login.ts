@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-07 15:01:20
+ * @LastEditTime: 2019-09-07 15:22:45
  */
 
 // 引入user模块
@@ -71,7 +71,7 @@ export default {
     getViews,
     getIDlist,
     getPorts,
-    getuserlist
+    getuserlist,
     mark,
     page,
     room
