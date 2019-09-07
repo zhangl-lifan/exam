@@ -74,10 +74,17 @@ class CheckQuestion extends React.Component<Listinfo> {
         });
     };
      
+    // 跳详情
     dropDatil = (id:any,item:any)=>{
         //   console.log(id);
           this.props.history.push({pathname:"/main/test/testDatail",state:{id,item}})
           
+    }
+
+    // 编辑数据
+    reWriteFn(id:any,item:any){
+        console.log(item)
+        this.props.history.push({pathname:"/main/test/reWrite",state:{id,item}})
     }
 
     public render() {
@@ -168,11 +175,11 @@ class CheckQuestion extends React.Component<Listinfo> {
                         {list &&
                             list.map((item: any) => {
                                 return (
-                                    <li key={item.questions_id} onClick={this.dropDatil.bind(this,item.questions_id,item)}>
+                                    <li key={item.questions_id}>
                                         <div>
                                             <span>{item.title}</span>
                                         </div>
-                                        <div>
+                                        <div  onClick={this.dropDatil.bind(this,item.questions_id,item)}>
                                             <p>
                                                 <span>
                                                     {item.questions_type_text}
@@ -180,10 +187,8 @@ class CheckQuestion extends React.Component<Listinfo> {
                                                 <span>{item.subject_text}</span>
                                                 <span>{item.exam_name}</span>
                                             </p>
-                                            <p>
-                                                <span>编辑</span>
-                                            </p>
                                         </div>
+                                        <span className="write-box" onClick={this.reWriteFn.bind(this,item.questions_id,item)}>编辑</span>
                                         <div>
                                             <span>{item.user_name}发布</span>
                                         </div>

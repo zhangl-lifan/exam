@@ -50,7 +50,6 @@ class TestDatail extends React.Component<Datailinfo> {
     public render() {
       
        let {item} = this.props.location.state
-        console.log(item)
         return (
          <div className="DatailPage">
          <header className="header">试题详情</header>
@@ -71,11 +70,22 @@ class TestDatail extends React.Component<Datailinfo> {
                   </div>
                   <div className="test-question">
                        <h4>{item.title}</h4>
-                       <div className="test-content">{item.questions_stem.slice(0,65)}</div>
-                       <div className="test-content">{item.questions_stem.slice(66,148)}</div>
+                       <div className="test-content">{item.questions_stem}</div>
+                        {/*<div className="test-content">{item.questions_stem.slice(66,148)}</div>
+                       <div className="anli-content">
+                           <p>{item.questions_stem.slice(149,155)}</p>
+                           <div className="anli-stem-box">
+                                
+                           </div>
+                       </div> */}
                   </div>
               </div>
-              <div className="content-right"></div>
+              <div className="content-right">
+                  <h3>答案信息</h3>
+                  <div className="answer-box">
+                      <div>{item.questions_answer}</div>
+                  </div>
+              </div>
          </main>
      </div>
         )

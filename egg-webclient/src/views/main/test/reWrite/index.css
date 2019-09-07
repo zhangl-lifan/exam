@@ -1,0 +1,81 @@
+.addPage {
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+    font-size: 20px;
+}
+
+.add-content {
+    width: 100%;
+    background: rgb(255, 255, 255);
+    padding: 24px;
+    margin: 0px 0px 20px;
+    border-radius: 10px;
+}
+
+.ti-type-box {
+    width: 100%;
+}
+
+.antds-input {
+    width: 450px;
+    height: 40px;
+    border: 1px solid #ccc;
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    /* border-radius: 8px; */
+    padding-left: 13px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.text-area {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.select-box {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.select-box div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.select-box div select {
+    width: 200px;
+    margin-top: 11px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.answer-type-box {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.btn-box {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.btn-box button {
+    height: 44px;
+    width: 120px;
+    padding: 0 40px!important;
+    border-radius: 4px!important;
+    border: 0!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background: linear-gradient(-90deg, #4e75ff, #0139fd)!important;
+}

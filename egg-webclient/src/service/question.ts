@@ -49,3 +49,9 @@ export let addQuestions = (params:any)=>{
 export let getUser = ()=>{
     return request.get('/user/userInfo');
 }
+
+// 更新试题
+// /exam/questions/update
+export let questionUpdate = (params:any)=>{
+    return request.put('/exam/questions/update',{questions_id:params});
+}

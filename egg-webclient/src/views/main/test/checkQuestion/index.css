@@ -206,6 +206,8 @@
         display: flex;
         flex-direction: column;
         border-bottom: 1px solid #ccc;
+        position: relative;
+        z-index: 1;
     }
     
     .list-subject-item li>div {
@@ -252,10 +254,22 @@
         border-color: #ffd591;
     }
     
-    .list-subject-item li>div:nth-child(2) p:nth-child(2) span {
+    .list-subject-item li>div:nth-child(2) p:nth-child(2) {
+        position: relative;
+    }
+    
+    .write-box {
         float: right;
         color: blue;
         margin-right: 5px;
+        position: absolute;
+        right: 20px;
+        z-index: 999;
+        width: 70px;
+        height: 40px;
+        text-align: center;
+        cursor: pointer;
+        top: 50%;
     }
     
     .list-subject-item li>div:nth-child(3) span {

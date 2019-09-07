@@ -8,7 +8,8 @@ import AddRoom from "./modules/addRoom";
 import AddGide from "./modules/addGide";
 import InsertQuestionsType from "./modules/insertQuestionsType";
 import AddQuestions from "./modules/addQuestions";
-import GetUser from "./modules/getUser"
+import GetUser from "./modules/getUser";
+import QuestionUpdate from "./modules/questionUpdate"
 
 // 实例化
 const user =new User()   
@@ -20,7 +21,8 @@ const addRoom = new AddRoom();
 const addGide = new AddGide() 
 const insertQuestionsType = new InsertQuestionsType()
 const addQuestions = new AddQuestions();
-const getUser = new GetUser()
+const getUser = new GetUser();
+const questionUpdate = new QuestionUpdate()
 
 
 export default {
@@ -33,5 +35,6 @@ export default {
     addGide,
     insertQuestionsType,
     addQuestions,
-    getUser
+    getUser,
+    questionUpdate
 };

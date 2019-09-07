@@ -78,11 +78,23 @@
     margin-top: 20px;
 }
 
+.anli-content {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.anli-stem-box {
+    width: 100%;
+    padding: 15px;
+}
+
 .content-right {
     background: rgb(255, 255, 255);
     padding: 24px;
     margin: 0px 0px 20px;
     border-radius: 10px;
     width: 500px;
+    height: 100%;
     margin-left: 25px;
 }

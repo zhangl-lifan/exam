@@ -12,6 +12,7 @@ import ClassRoom from 'src/views/main/classManagement/classRoom';
 import Classment from 'src/views/main/classManagement/classment';
 import StudentManagement from 'src/views/main/classManagement/studentManagement';
 import TestDatail from 'src/views/main/test/testDatail';
+import RiWite from 'src/views/main/test/reWrite';
 
 export default [{
         component: Login,
@@ -42,6 +43,9 @@ export default [{
                     {
                         component: TestDatail,
                         path: '/main/test/testDatail'
+                    },{
+                        component: RiWite,
+                        path: '/main/test/reWrite'
                     }
                 ]
             },
