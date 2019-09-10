@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-07 15:41:20
+ * @LastEditTime: 2019-09-09 20:38:26
  */
 
 // 引入user模块
@@ -29,6 +29,10 @@ import Getuserlist from './modules/getuserlist';
 import Mark from "./modules/marking";
 import Detail from './modules/student'
 import Room from './modules/room'
+import CreateExam from './modules/create';
+import SelectExam from './modules/selectExam';
+import GetQuestions from './modules/getquestions';
+import Updateexam from './modules/updateExam';
 
 // 实例化
 const user = new User()
@@ -52,6 +56,10 @@ const getuserlist = new Getuserlist();
 const mark = new Mark();
 const page = new Detail();
 const room = new Room();
+const createExam = new CreateExam();
+const selectExam = new SelectExam();
+const getquestions = new GetQuestions();
+const updateExam = new Updateexam();
 
 export default {
     user,
@@ -74,5 +82,9 @@ export default {
     getuserlist,
     mark,
     page,
-    room
+    room,
+    createExam,
+    selectExam,
+    getquestions,
+    updateExam
 };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Radio, Input, Select } from 'antd';
+import { Radio, Table } from 'antd';
 import { inject, observer } from 'mobx-react';
 
 interface Props {
@@ -7,7 +7,8 @@ interface Props {
     getuserlist: any,
     size: any,
     userlist: Array<object>,
-    titledata: object
+    titledata: object,
+    count: number
 }
 
 @inject('getuserlist')
@@ -18,87 +19,190 @@ class UserShow extends React.Component<Props>{
         size: '用户数据',
         userlist: [],
         title: '用户数据',
-        titledata: {
-            name: '用户名',
-            pwd: '密码',
-            ID: "身份"
-        }
-    }
-
-    handleSizeChange = (e: any) => {
-        e.preventDefault();
-        this.props.form.validateFieldsAndScroll((err: Error, values: any) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-                console.log(values);
+        count: 0,
+        list: [
+            {
+                type: 0,
+                tabTitle: "用户数据",
+                children: [
+                    {
+                        title: '用户名',
+                        dataIndex: "user_name",
+                        key: "user_name"
+                    },
+                    {
+                        title: '密码',
+                        dataIndex: "user_pwd",
+                        key: "user_pwd"
+                    },
+                    {
+                        title: '身份',
+                        dataIndex: "identity_text",
+                        key: "identity_text"
+                    }
+                ],
+                url: "/user/user"
+            },
+            {
+                type: 1,
+                tabTitle: "身份数据",
+                children: [
+                    {
+                        title: '身份名称',
+                        dataIndex: "identity_text",
+                        key: "identity_text"
+                    }
+                ],
+                url: "/user/identity"
+            },
+            {
+                type: 2,
+                tabTitle: "API接口权限",
+                children: [
+                    {
+                        title: 'api权限名称',
+                        dataIndex: "api_authority_text",
+                        key: "api_authority_text"
+                    },
+                    {
+                        title: 'api权限url',
+                        dataIndex: "api_authority_url",
+                        key: "api_authority_url"
+                    },
+                    {
+                        title: 'api权限方法',
+                        dataIndex: "api_authority_method",
+                        key: "api_authority_method"
+                    }
+                ],
+                url: "/user/api_authority"
+            },
+            {
+                type: 3,
+                tabTitle: "身份和api接口关系",
+                children: [
+                    {
+                        title: '身份名称',
+                        dataIndex: "identity_text",
+                        key: "identity_text"
+                    },
+                    {
+                        title: 'api权限名称',
+                        dataIndex: "api_authority_text",
+                        key: "api_authority_text"
+                    },
+                    {
+                        title: 'api权限url',
+                        dataIndex: "api_authority_url",
+                        key: "api_authority_url"
+                    },
+                    {
+                        title: 'api权限方法',
+                        dataIndex: "api_authority_method",
+                        key: "api_authority_method"
+                    }
+                ],
+                url: '/user/identity_api_authority_relation'
+            },
+            {
+                type: 4,
+                tabTitle: "视图接口权限",
+                children: [
+                    {
+                        title: '视图权限名称',
+                        dataIndex: "view_authority_text",
+                        key: "view_authority_text"
+                    },
+                    {
+                        title: '视图id',
+                        dataIndex: "view_id",
+                        key: "view_id"
+                    }
+                ],
+                url: '/useriew_authority'
+            },
+            {
+                type: 5,
+                tabTitle: "身份和视图权限关系",
+                children: [
+                    {
+                        title: '身份',
+                        dataIndex: "identity_text",
+                        key: "identity_text"
+                    },
+                    {
+                        title: '视图名称',
+                        dataIndex: "view_authority_text",
+                        key: "view_authority_text"
+                    },
+                    {
+                        title: '视图id',
+                        dataIndex: "view_id",
+                        key: "view_id"
+                    }
+                ],
+                url: "/user/identity_view_authority_relation"
             }
-        });
+        ],
     }
 
     componentDidMount() {
         this.tabdata();
     }
 
-    getUSers = async () => {
+    getUSers = async (url: string) => {
         const { getuserlist } = this.props.getuserlist;
-        let result = await getuserlist();
+        let result = await getuserlist(url);
+        result.data.map((item: any, index: any) => {
+            return item.key = index;
+        })
         if (result.code === 1) {
             this.setState({
                 userlist: result.data
-            },()=>{
+            }, () => {
                 console.log(this.state.userlist);
             })
         }
     }
 
-    handlebtnChange = (e: any) => {
+    handlebtnChange = (obj: any): void => {
+        const { index, value } = obj;
         this.setState({
-            size: e.target.value,
-            title: e.target.value
+            count: index,
+            title: value
         }, () => {
             this.tabdata();
         })
+
     }
 
     tabdata = () => {
-        const { size } = this.state;
-        if (size === '用户数据') {
-            this.getUSers();
-        }
+        const { count, list } = this.state;
+        const index = list.findIndex(item => item.type === count);
+        let url = list[index].url;
+        this.getUSers(url);
     }
 
     public render() {
-        const { title, userlist, titledata } = this.state;
+        const { title, userlist, list } = this.state;
         return (
             <div className='box'>
                 <div className='h2'>用户展示</div>
                 <div>
-                    <Radio.Group onChange={this.handlebtnChange} size='large'>
-                        <Radio.Button value="用户数据">用户数据</Radio.Button>
-                        <Radio.Button value="身份数据">身份数据</Radio.Button>
-                        <Radio.Button value="api接口权限">api接口权限</Radio.Button>
-                        <Radio.Button value="身份和api接口关系">身份和api接口关系</Radio.Button>
-                        <Radio.Button value="视图接口权限">视图接口权限</Radio.Button>
-                        <Radio.Button value="身份和视图权限关系">身份和视图权限关系</Radio.Button>
+                    <Radio.Group size='large'>
+                        {
+                            list.map((item: any) => {
+                                let params = {
+                                    index: item.type,
+                                    value: item.tabTitle
+                                }
+                                return <Radio.Button value={item.tabTitle} onChange={() => { this.handlebtnChange(params) }} key={item.type}>{item.tabTitle}</Radio.Button>
+                            })
+                        }
                     </Radio.Group>
                 </div>
                 <div className="h1">{title}</div>
-                <ul className='contenttitle'>
-                    <li className='titleone'>
-                        <p className='classname'>{titledata.name}</p>
-                        <p className='coursename'>{titledata.pwd}</p>
-                        <p className='root'>{titledata.ID}</p>
-                    </li>
-                    {
-                        userlist && userlist.map((item: any) => {
-                            return <li key={item.user_id}>
-                                <p className='classname'>{item.user_name}</p>
-                                <p className='coursename'>{item.user_pwd}</p>
-                                <p className='root'>{item.identity_text}</p>
-                            </li>
-                        })
-                    }
-                </ul>
+                <Table columns={list[0].children} dataSource={userlist} />
             </div>
         )
     }
