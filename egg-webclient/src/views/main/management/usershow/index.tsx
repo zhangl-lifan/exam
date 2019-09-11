@@ -8,6 +8,7 @@ interface Props {
     size: any,
     userlist: Array<object>,
     titledata: object,
+    isShow: boolean,
     count: number
 }
 
@@ -19,6 +20,7 @@ class UserShow extends React.Component<Props>{
         size: '用户数据',
         userlist: [],
         title: '用户数据',
+        isShow: false,
         count: 0,
         list: [
             {
@@ -143,7 +145,7 @@ class UserShow extends React.Component<Props>{
                 ],
                 url: "/user/identity_view_authority_relation"
             }
-        ],
+        ]
     }
 
     componentDidMount() {
@@ -153,14 +155,16 @@ class UserShow extends React.Component<Props>{
     getUSers = async (url: string) => {
         const { getuserlist } = this.props.getuserlist;
         let result = await getuserlist(url);
-        result.data.map((item: any, index: any) => {
-            return item.key = index;
-        })
         if (result.code === 1) {
             this.setState({
                 userlist: result.data
-            }, () => {
-                console.log(this.state.userlist);
+            })
+            result.data.map((item: any, index: any) => {
+                return item.key = index;
+            })
+        } else {
+            this.setState({
+                isShow: true
             })
         }
     }
@@ -175,7 +179,12 @@ class UserShow extends React.Component<Props>{
         })
 
     }
-
+    showalert = () => {
+        alert('没有权限');
+        this.setState({
+            isShow: false
+        })
+    }
     tabdata = () => {
         const { count, list } = this.state;
         const index = list.findIndex(item => item.type === count);
@@ -184,7 +193,7 @@ class UserShow extends React.Component<Props>{
     }
 
     public render() {
-        const { title, userlist, list } = this.state;
+        const { title, userlist, list, count } = this.state;
         return (
             <div className='box'>
                 <div className='h2'>用户展示</div>
@@ -202,7 +211,10 @@ class UserShow extends React.Component<Props>{
                     </Radio.Group>
                 </div>
                 <div className="h1">{title}</div>
-                <Table columns={list[0].children} dataSource={userlist} />
+                {
+                    this.state.isShow ? this.showalert() : null
+                }
+                <Table columns={list[count].children} dataSource={userlist} />
             </div>
         )
     }

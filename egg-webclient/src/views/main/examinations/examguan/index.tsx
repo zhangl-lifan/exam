@@ -195,16 +195,6 @@ class ClassExam extends React.Component<Props> {
                     </div>
                 </div>
                 <Table columns={columns} dataSource={examlist} pagination={false} />
-                <ul className='contenttitle'>
-                    <li className='titleone'>
-                        <p className='classname'>试卷信息</p>
-                        <p className='coursename'>班级</p>
-                        <p className='root'>创建人</p>
-                        <p className='operation'>开始时间</p>
-                        <p className='operation'>结束时间</p>
-                        <p className='operation'>操作</p>
-                    </li>
-                </ul>
             </div>
         </div>
     }
