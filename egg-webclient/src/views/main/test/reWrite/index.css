@@ -1,7 +1,6 @@
 .addPage {
     width: 100%;
     height: 100%;
-    padding-top: 20px;
     box-sizing: border-box;
 }
 
@@ -32,8 +31,12 @@
     font-size: 14px;
     /* border-radius: 8px; */
     padding-left: 13px;
-    color: #ccc;
+    color: #666;
     margin-bottom: 30px;
+}
+
+.antds-input::placeholder {
+    color: #ccc;
 }
 
 .text-area {

@@ -16,6 +16,7 @@
         "member-access": false,
         "array-type": [true, "generic"],
         "prefer-const": false,
+        "no-invalid-this": false,
         "ordered-imports": [
             false,
             {

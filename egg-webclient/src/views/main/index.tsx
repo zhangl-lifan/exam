@@ -1,86 +1,36 @@
 import * as React from 'react';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import { NavLink } from 'react-router-dom';
-import { sliderBar } from '../../config/index';
+import { Layout} from 'antd';
+import {observer, inject} from 'mobx-react';
+
+
 import RouterView from '../../router/RouterView';
-const { Header, Sider, Content, Footer } = Layout;
-const { SubMenu } = Menu;
+const { Header, Content } = Layout;
+import Memu from "../../components/memu"
 
 import './index.css';
 
 interface BooleanInfo {
     collapsed: boolean;
     collapsible: boolean;
-    props: any
+    props: any,
+    global:any
 }
+
+@inject('global')
 
 class Main extends React.Component<BooleanInfo> {
     props: any;
-    state = {
-        sliderBar,
-        collapsed: false
-    };
-
-    onCollapse = (collapsed: any) => {
-        console.log(collapsed);
-        this.setState({ collapsed });
-    };
 
     public render() {
+        const {locale} = this.props.global;
         return (
             <Layout>
                 <Header className="title">
                     北京八维研修学院
+                    <button onClick={()=>this.props.global.changeLocale(locale==='zh'?'en':'zh')}>{locale==='zh'?'英文':'中文'}</button>
                 </Header>
                 <Layout style={{ minHeight: '90vh' }}>
-                    <Sider className="slider" trigger={null} collapsed={this.state.collapsed}>
-                        <Menu
-                            theme="dark"
-                            defaultSelectedKeys={['1']}
-                            mode="inline"
-                        >
-                            {this.state.sliderBar.map(slider => {
-                                return slider.children === undefined ||
-                                    slider.children.length < 1 ? (
-                                    <Menu.Item key={slider.id}>
-                                        <Icon type={slider.icon} />
-                                            <NavLink to={slider.path}>
-                                                {slider.name}
-                                            </NavLink>
-                                    </Menu.Item>
-                                ) : (
-                                    <SubMenu
-                                        key={slider.id}
-                                        title={
-                                            <div>
-                                                <Icon type={slider.icon} />
-                                                    <NavLink to={slider.path}>
-                                                        {slider.name}
-                                                    </NavLink>
-                                            </div>
-                                        }
-                                    >
-                                        {slider.children &&
-                                            slider.children.map(children => {
-                                                return (
-                                                    <Menu.Item
-                                                        key={children.id}
-                                                    >
-                                                            <NavLink
-                                                                to={
-                                                                    children.path
-                                                                }
-                                                            >
-                                                                {children.name}
-                                                            </NavLink>
-                                                    </Menu.Item>
-                                                );
-                                            })}
-                                    </SubMenu>
-                                );
-                            })}
-                        </Menu>
-                    </Sider>
+                    <Memu></Memu>
                     <Content style={{ padding: '0 24px', background:"#f0f2f5"}}>
                          <RouterView routes={this.props.children}></RouterView>
                     </Content>

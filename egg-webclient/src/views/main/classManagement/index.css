@@ -1,18 +1,21 @@
-*{
+* {
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
 .box {
     width: 100%;
     height: 100%;
 }
-.box h1{
+
+.box h1 {
     margin-left: 10px;
     margin-top: 10px;
     font-size: 25px;
 }
-.box .contentinner{
+
+.box .contentinner {
     width: 85%;
     height: auto;
     border-radius: 10px;
@@ -20,7 +23,8 @@
     margin-top: 20px;
     margin-left: 15px;
 }
-.addbtn{
+
+.addbtn {
     margin-left: 30px;
     margin-top: 30px;
     width: 158px;
@@ -34,34 +38,25 @@
     flex-direction: column;
     background-color: white;
 }
+
 .contenttitle .titleone {
     background-color: #f4f7f9;
 }
-.contenttitle li{
-   flex:1;
-   display: flex;
-}
 
-.contenttitle li p{
+.contenttitle li {
     flex: 1;
     display: flex;
-   justify-content: center;
-   line-height: 60px;
 }
 
-.mask{
+.contenttitle li p {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    line-height: 60px;
+}
+
+.mask {
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
 }
-
-/* Form{
-    height: 520px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -260px;
-    margin-top: -260px;
-    background-color: white;
-    width: 521px;
-} */

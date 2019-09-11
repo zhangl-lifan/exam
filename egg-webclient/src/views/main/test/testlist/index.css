@@ -1,17 +1,17 @@
-.TypePage {
+.TypePage-box {
     width: 100%;
     height: 100%;
     padding-top: 20px;
     box-sizing: border-box;
 }
 
-.header {
+.header-content {
     width: 100%;
     height: 70px;
     font-size: 20px;
 }
 
-.type-content {
+.type-content-table {
     width: 100%;
     background: rgb(255, 255, 255);
     padding: 24px;
@@ -19,11 +19,22 @@
     border-radius: 10px;
 }
 
-.btn-type-add {
+.btn-add-plus {
     margin-bottom: 30px;
 }
 
-.anyd-modal {
+
+/* 
+.btn-icon-pus {
+    /* width: 200px; */
+
+
+/* height: 100%; */
+
+
+/* } */
+
+.anyd-modal-exam {
     text-align: center;
 }
 
@@ -31,8 +42,16 @@
     padding: 20px;
 }
 
-.anyd-modal input {
+.anyd-modal-exam .ant-input {
     width: 100%;
     height: 40px;
     border: 1px solid #ccc;
+    padding-left: 15px;
+    border-radius: 7px;
+}
+
+.ant-form-item-control {
+    height: 100%;
+    text-align: center;
+    margin-left: 0;
 }

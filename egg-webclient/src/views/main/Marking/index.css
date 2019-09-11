@@ -1,24 +1,23 @@
-
-table{
-    width:100%;
-   height:auto;
-    
-}
-tbody{
-    width:100%;
-    overflow-y:auto;
-    
+.marking-apge table {
+    width: 100%;
+    height: auto;
 }
 
-tr{
-    width:100%;
-    height:40px;
-    border-bottom:solid 1px #ccc;
+.marking-apge table tbody {
+    width: 100%;
+    overflow-y: auto;
 }
-tr th{
+
+.marking-apge table tr {
+    width: 100%;
+    height: 40px;
+    border-bottom: solid 1px #ccc;
+}
+
+.marking-apge table tr th {
     float: left;
-    width:100px;
-    height:40px;
+    width: 100px;
+    height: 40px;
     text-align: center;
-    line-height:40px;
+    line-height: 40px;
 }

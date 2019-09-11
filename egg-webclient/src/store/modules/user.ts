@@ -7,7 +7,8 @@
  * @LastEditTime: 2019-09-06 07:40:57
  */
 import { observable, action } from 'mobx';
-import { login } from '../../service/index';
+import {login, getUserInfo, getViewAuthority} from '../../service/index';
+// import { login } from '../../service/index';
 import { setToken, removeToken, setOnceToken } from '../../utils/index';
 let account = {};
 if (window.localStorage.getItem('account')) {
@@ -17,6 +18,8 @@ class User {
 
     @observable isLogin: boolean = false;
     @observable account: any = account;
+    @observable userInfo: any = {};
+    @observable viewAuthority: Array<object> = []; 
 
     @action async login(form: any): Promise<any> {
         let result: any = await login(form);
@@ -41,6 +44,21 @@ class User {
     // 退出登陆，移除token
     @action async loginout(): Promise<any> {
         removeToken()
+    }
+
+     // 获取用户信息
+     @action async getUserInfo(): Promise<any>{
+        let userInfo:any = await getUserInfo();
+        console.log('userInfo...', userInfo);
+        this.userInfo = userInfo.data;
+        this.getViewAuthority();
+    }
+
+    // 获取用户权限
+    @action async getViewAuthority(): Promise<any>{
+        let viewAuthority: any = await getViewAuthority();
+        console.log('viewAuthority...', viewAuthority);
+        this.viewAuthority = viewAuthority.data;
     }
 }
 

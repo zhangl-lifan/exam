@@ -1,29 +1,17 @@
-.form-box-class {
-    text-align: left;
-}
-
-.form-item-boc {
-    text-align: left;
-}
-
-.TypePage-classRoom {
+.TypePage-class {
     width: 100%;
     height: 100%;
     padding-top: 20px;
     box-sizing: border-box;
 }
 
-.ant-form .ant-row.ant-form-item {
-    display: block;
-}
-
-.header-classRoom {
+.header-class {
     width: 100%;
     height: 70px;
     font-size: 20px;
 }
 
-.type-content-classRoom {
+.type-content-class {
     width: 100%;
     background: rgb(255, 255, 255);
     padding: 24px;
@@ -31,11 +19,11 @@
     border-radius: 10px;
 }
 
-.btn-classRoom-add {
+.btn-class-add {
     margin-bottom: 30px;
 }
 
-.btn-classRoom-add .class-ads-btn {
+.btn-class-add .class-ads-btn {
     height: 40px;
 }
 

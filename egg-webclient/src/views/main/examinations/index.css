@@ -1,17 +1,21 @@
-*{
+* {
     margin: 0;
     padding: 0;
     list-style: none;
 }
-.titleh2{
+
+.titleh2 {
     margin-left: 10px;
     margin-top: 20px;
 }
-.content{
+
+.content {
     width: 100%;
-    height: 100%;;
+    height: 100%;
+    text-align: left
 }
-.form-top{
+
+.form-top {
     width: 90%;
     height: 95%;
     border-radius: 10px;
@@ -19,27 +23,39 @@
     margin-top: 20px;
     margin-left: 15px;
 }
+
 .contentinner ul li .examname {
     width: 230px;
     height: 32px;
 }
 
-.ant-row.ant-form-item{
+.ant-row.ant-form-item {
     display: flex;
     flex-direction: column;
 }
 
-.ant-row.ant-form-item label.ant-form-item-required{
+.ant-row.ant-form-item label.ant-form-item-required {
     font-size: 17px;
 }
 
-.ant-col.ant-form-item-label.ant-col-xs-24.ant-col-sm-8{
+.ant-col.ant-form-item-label.ant-col-xs-24.ant-col-sm-8 {
     text-align: left;
-    margin-left: 40px;
+    margin-left: 50px;
     margin-top: 5px;
     font-size: 25px;
 }
-.topbox{
+
+
+/* .ant-col,
+.ant-form-item-control-wrapper,
+.ant-col-xs-24,
+.ant-col-xs-offset-0,
+.ant-col-sm-16,
+.ant-col-sm-offset-8 {
+    margin: 0;
+} */
+
+.topbox {
     margin-top: 20px;
     height: 121px;
     width: 93%;
@@ -47,22 +63,21 @@
     border-radius: 10px;
 }
 
-.topbox>div{
+.topbox>div {
     display: inline-block;
     margin-left: 40px;
 }
 
-.topbox div .ant-select-selection.ant-select-selection--single{
+.topbox div .ant-select-selection.ant-select-selection--single {
     margin-top: 30px;
 }
 
-.topbox div button.ant-btn.addbtn.ant-btn-primary.ant-btn-lg{
+.topbox div button.ant-btn.addbtn.ant-btn-primary.ant-btn-lg {
     margin-top: 30px;
     width: 132px;
-
 }
 
-.topbox div span{
+.topbox div span {
     font-size: 17px;
     margin-left: 15px;
 }
@@ -76,23 +91,27 @@
     display: flex;
     flex-direction: column;
 }
-.bottbox .toplist{
+
+.bottbox .toplist {
     position: relative;
     margin-bottom: 25px;
     display: flex;
     width: 100%;
 }
-.bottbox .toplist div{
+
+.bottbox .toplist div {
     display: flex;
     margin-left: 20px;
     width: 100%;
     margin-top: 20px;
 }
-.bottbox .toplist div h4{
+
+.bottbox .toplist div h4 {
     flex: 1;
     margin-top: 20px;
 }
-.bottbox .toplist div .ant-radio-group.ant-radio-group-outline.ant-radio-group-large{
+
+.bottbox .toplist div .ant-radio-group.ant-radio-group-outline.ant-radio-group-large {
     flex: 1;
     margin-left: 242px;
 }
@@ -105,19 +124,20 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-
 }
+
 .contenttitle .titleone {
     background-color: #f4f7f9;
 }
-.contenttitle li{
-   flex:1;
-   display: flex;
-}
 
-.contenttitle li p{
+.contenttitle li {
     flex: 1;
     display: flex;
-   justify-content: center;
-   line-height: 73px;
+}
+
+.contenttitle li p {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    line-height: 73px;
 }

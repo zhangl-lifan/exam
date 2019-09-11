@@ -10,25 +10,32 @@
 // 引入user模块
 import User from "./modules/user";
 import Question from "./modules/question";
-import Subject from "./modules/subject";
-import ExamType from "./modules/examType";
-import QuestionsType from "./modules/QuestionsType";
-import AddRoom from "./modules/addRoom";
-import AddGide from "./modules/addGide";
-import InsertQuestionsType from "./modules/insertQuestionsType";
-import AddQuestions from "./modules/addQuestions";
-import GetUser from "./modules/getUser";
-import QuestionUpdate from "./modules/questionUpdate"
-import Getexamtype from './modules/getExamType';
-import Getcourselist from './modules/getcourselist';
-import Getclasslist from './modules/getcClassnamelist';
-import GetViews from './modules/getviews';
-import GetIDlist from './modules/getldlist';
-import GetPorts from './modules/getports';
-import Getuserlist from './modules/getuserlist';
-import Mark from "./modules/marking";
-import Detail from './modules/student'
-import Room from './modules/room'
+import AddGide from "./modules/question";
+import Condition from "./modules/question";
+import AddQuestions from "./modules/question";
+import AddRoom from "./modules/question";
+import ExamType from "./modules/question";
+import Getclasslist from './modules/question';
+import Getcourselist from './modules/question';
+import Getexamtype from './modules/question';
+import GetIDlist from './modules/question';
+import GetPorts from './modules/question';
+import GetUser from "./modules/question";
+import Getuserlist from './modules/question';
+import GetViews from './modules/question';
+import InsertQuestionsType from "./modules/question";
+import Mark from "./modules/question";
+import QuestionsType from "./modules/question";
+import QuestionUpdate from "./modules/question"
+import Getroom from './modules/question';
+import Detail from './modules/question'
+import Subject from "./modules/question";
+import GradeRoom from "./modules/question";
+import DeleteGide from "./modules/question";
+import GradeUpdate from "./modules/question";
+import AddClassRoom from "./modules/question"
+import DeleteRoom from "./modules/question";
+import Global from './modules/global';
 
 // 实例化
 const user = new User()
@@ -51,7 +58,14 @@ const getPorts = new GetPorts();
 const getuserlist = new Getuserlist();
 const mark = new Mark();
 const page = new Detail();
-const room = new Room();
+const getroom = new Getroom();
+const condition = new Condition();
+const gradeRoom = new GradeRoom();
+const deleteGide = new DeleteGide();
+const gradeUpdate = new GradeUpdate();
+const addClassRoom = new AddClassRoom();
+const deleteRoom = new DeleteRoom();
+const global = new Global();
 
 export default {
     user,
@@ -74,5 +88,12 @@ export default {
     getuserlist,
     mark,
     page,
-    room
+    getroom,
+    condition,
+    deleteGide,
+    gradeRoom,
+    gradeUpdate,
+    addClassRoom,
+    deleteRoom,
+    global
 };

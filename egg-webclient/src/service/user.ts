@@ -13,3 +13,13 @@ export function login(params: object) {
     return request.post('/user/login', params);
 }
 
+// 获取用户信息
+export let getUserInfo = ()=>{
+    return request.get('/user/userInfo');
+}
+
+// 获取用户权限
+export let getViewAuthority = ()=>{
+    return request.get('/user/view_authority');
+}
+

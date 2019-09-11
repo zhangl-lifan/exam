@@ -36,18 +36,22 @@ export default [{
 {
     children: [
         {
+            title: 'menu.question',
             component: Test,
             path: '/main/test',
             children: [
                 {
+                    title: 'menu.question.viewQuestion',
                     path: '/main/test',
                     redirect: '/main/test/checkQuestion'
                 },
                 {
+                    title: 'menu.question.addQuestion',
                     component: AddQuestion,
                     path: '/main/test/addQuestion'
                 },
                 {
+                    title: 'menu.question.typeQuestion',
                     component: Testlist,
                     path: '/main/test/testlist'
                 },
@@ -56,6 +60,7 @@ export default [{
                     path: '/main/test/checkQuestion'
                 },
                 {
+                    title: 'menu.question',
                     component: TestDatail,
                     path: '/main/test/testDatail'
                 }, {
@@ -80,7 +85,6 @@ export default [{
                     path: "/main/management/showuser",
                     component: UserShow
                 }
-
             ],
 
         },

@@ -8,11 +8,12 @@ interface Listinfo {
     data: Array<object>;
     subject: any;
     questionsType: any;
-    examType: any,
-    history: any
+    examType: any;
+    history: any;
+    condition:any
 }
 
-@inject('question', 'subject', "examType", "questionsType")
+@inject('question', 'subject', 'examType', 'questionsType','condition')
 @observer
 class CheckQuestion extends React.Component<Listinfo> {
     state = {
@@ -21,7 +22,13 @@ class CheckQuestion extends React.Component<Listinfo> {
         // 考试类型
         examTypeList: [],
         //  试题类型
-        questionsTypeList: []
+        questionsTypeList: [],
+        data: [],
+        vality:false,
+        subject_id:'',
+        exam_id:'',
+        questions_type_id:'',
+        questions_id:''
     };
 
     constructor(props: any) {
@@ -32,7 +39,8 @@ class CheckQuestion extends React.Component<Listinfo> {
         this.getQuestion();
         this.getSubject();
         this.getExamType();
-        this.getQuestionsType()
+        this.getQuestionsType();
+        this.getCondition();
     }
 
     getQuestion = async () => {
@@ -51,24 +59,41 @@ class CheckQuestion extends React.Component<Listinfo> {
             subjectList: result.data
         });
     };
+    
+    // 获取全部试题
+    getCondition = async()=>{
+        const { condition } = this.props.condition;
+        const result = await condition();
+    }
+
+    // 按条件查找试题
+    getCondType = async(opt:any)=>{
+        const { condition } = this.props.condition;
+        const result = await condition(opt);
+        // console.log(result)
+        this.setState({
+            list:result.data
+        })
+    }
 
     // 获取考试类型的数据
+    // {exam_id: "8sc5d7-7p5f9e-cb2zii-ahe5i", exam_name: "周考1"}
     getExamType = async () => {
         const { examType } = this.props.examType;
         const result = await examType();
-        console.log("getExamType", result);
-        // {exam_id: "8sc5d7-7p5f9e-cb2zii-ahe5i", exam_name: "周考1"}
+        
         this.setState({
             examTypeList: result.data
         });
     };
 
     // 获取考试类型的数据
+    // {questions_type_id: "774318-730z8m", questions_type_text: "简答题", questions_type_sort: 1}
     getQuestionsType = async () => {
         const { questionsType } = this.props.questionsType;
         const result = await questionsType();
-        console.log("getQuestionsType", result);
-        // {questions_type_id: "774318-730z8m", questions_type_text: "简答题", questions_type_sort: 1}
+        // console.log("getQuestionsType",result);
+
         this.setState({
             questionsTypeList: result.data
         });
@@ -76,100 +101,147 @@ class CheckQuestion extends React.Component<Listinfo> {
 
     // 跳详情
     dropDatil = (id: any, item: any) => {
-        //   console.log(id);
-        this.props.history.push({ pathname: "/main/test/testDatail", state: { id, item } })
-
-    }
+        this.props.history.push({
+            pathname: '/main/test/testDatail',
+            state: { id, item }
+        });
+    };
 
     // 编辑数据
     reWriteFn(id: any, item: any) {
-        console.log(item)
-        this.props.history.push({ pathname: "/main/test/reWrite", state: { id, item } })
+        this.props.history.push({
+            pathname: '/main/test/reWrite',
+            state: { id, item }
+        });
+    }
+
+    // 点击课程时获取值
+    getValue(value:any){
+        this.setState({
+             subject_id:value,
+            //  vality:!this.state.vality
+        })
+    }
+
+    // 课程id的获取
+    examValue=(e:any)=>{
+        this.setState({
+            exam_id:e.target.value
+        })
+    }
+
+    // 课程类型id的获取
+    questionsType=(e:any)=>{
+        this.setState({
+            questions_type_id:e.target.value
+        })
+    }
+
+    // 查询
+    searchExty = ()=>{
+            /*
+             *   questions_id		    试题id
+                 questions_type_id		课程类型id
+                 subject_id	            课程id
+                 exam_id
+             * 
+             */
+
+             let {questions_id,questions_type_id,subject_id,exam_id} = this.state
+             let opt = {
+                // questions_id,
+                questions_type_id,
+                subject_id,
+                exam_id
+             }
+            this.getCondType(opt)
+
     }
 
     public render() {
-        const { list, subjectList, examTypeList, questionsTypeList } = this.state;
-
+        const {
+            list,
+            subjectList,
+            examTypeList,
+            questionsTypeList
+        } = this.state;
         return (
             <div className="conentPage">
                 <header className="header">查看试卷</header>
-                <div className="subjectBox">
-                    <div className="ant-form-horizontal">
-                        <div className="cont-subject">
-                            <div className="subject-list-item">
-                                <div className="ant-row">
-                                    <div className="row">
-                                        <div className="ant-row ant-form-item">
-                                            <div className="ant-col-2 ant-form-item-label">
-                                                <label title="课程类型">
-                                                    课程类型
-                                                </label>
-                                            </div>
-                                            <div className="ant-col-22 ant-form-item-control-wrapper">
-                                                <div className="ant-form-item-control">
-                                                    <span className="ant-form-item-children">
-                                                        <div className="item-children">
-                                                            {subjectList &&
-                                                                subjectList.map(
-                                                                    (
-                                                                        item: any
-                                                                    ) => {
-                                                                        return (
-                                                                            <div
-                                                                                className="ant-tag ant-tag-checkable"
-                                                                                key={
-                                                                                    item.subject_id
-                                                                                }
-                                                                            >
-                                                                                {
-                                                                                    item.subject_text
-                                                                                }
-                                                                            </div>
-                                                                        );
-                                                                    }
-                                                                )}
-                                                        </div>
-                                                    </span>
+                <div className="subjectBox-search">
+                    <div className="form-horizontal">
+                        <div className="subject-list-item">
+                            <div className="subject-title">
+                                <label title="课程类型">课程类型：</label>
+                            </div>
+                            <div className="subject-content">
+                                <div className="item-children">
+                                    {subjectList &&
+                                        subjectList.map((item: any) => {
+                                            return (
+                                                <div
+                                                    className={this.state.vality?'text-change':'ant-tag ant-tag-checkable'}
+                                                    key={item.subject_id}
+                                                    onClick={()=>this.getValue(item.subject_id)}
+                                                >
+                                                    {item.subject_text}
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            );
+                                        })}
                                 </div>
                             </div>
-                            <div className="subject-select">
-                                <div className="shblist">
-                                    <div>
-                                        <span>考试类型</span>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                            {
-                                                examTypeList && examTypeList.map((item: any) => {
-                                                    return <option value="" key={item.exam_id}>{item.exam_name}</option>
-                                                })
-                                            }
-
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <span>题目类型</span>
-                                        <select name="" id="">
-                                            <option value=""></option>
-                                            {
-                                                questionsTypeList && questionsTypeList.map((item: any) => {
-                                                    return <option value="" key={item.questions_type_id}>{item.questions_type_text}</option>
-                                                })
-                                            }
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <button>查询</button>
-                                    </div>
+                        </div>
+                        <div className="subject-select">
+                            <div className="shblist">
+                                <div>
+                                    <span>考试类型：</span>
+                                    <select onChange={this.examValue}>
+                                        <option value="请选择">请选择</option>
+                                        {examTypeList &&
+                                            examTypeList.map((item: any) => {
+                                                return (
+                                                    <option
+                                                        value={item.exam_id}
+                                                        key={item.exam_id}
+                                                    >
+                                                        {item.exam_name}
+                                                    </option>
+                                                );
+                                            })}
+                                    </select>
+                                </div>
+                                <div>
+                                    <span>题目类型</span>
+                                    <select onChange={this.questionsType}>
+                                        <option value="请选择">请选择</option>
+                                        {questionsTypeList &&
+                                            questionsTypeList.map(
+                                                (item: any) => {
+                                                    return (
+                                                        <option
+                                                            value={
+                                                                item.questions_type_id
+                                                            }
+                                                            key={
+                                                                item.questions_type_id
+                                                            }
+                                                        >
+                                                            {
+                                                                item.questions_type_text
+                                                            }
+                                                        </option>
+                                                    );
+                                                }
+                                            )}
+                                    </select>
+                                </div>
+                                <div>
+                                    <button onClick={this.searchExty}>查询</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <main className="main">
                     <ul className="list-subject-item">
                         {list &&
@@ -179,15 +251,30 @@ class CheckQuestion extends React.Component<Listinfo> {
                                         <div>
                                             <span>{item.title}</span>
                                         </div>
-                                        <div  >
-                                            <p onClick={this.dropDatil.bind(this, item.questions_id, item)}>
+                                        <div>
+                                            <p
+                                                onClick={this.dropDatil.bind(
+                                                    this,
+                                                    item.questions_id,
+                                                    item
+                                                )}
+                                            >
                                                 <span>
                                                     {item.questions_type_text}
                                                 </span>
                                                 <span>{item.subject_text}</span>
                                                 <span>{item.exam_name}</span>
                                             </p>
-                                            <span className="write-box" onClick={this.reWriteFn.bind(this, item.questions_id, item)}>编辑</span>
+                                            <span
+                                                className="write-box"
+                                                onClick={this.reWriteFn.bind(
+                                                    this,
+                                                    item.questions_id,
+                                                    item
+                                                )}
+                                            >
+                                                编辑
+                                            </span>
                                         </div>
 
                                         <div>
@@ -204,3 +291,5 @@ class CheckQuestion extends React.Component<Listinfo> {
 }
 
 export default CheckQuestion;
+
+
