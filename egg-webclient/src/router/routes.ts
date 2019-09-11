@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-07 14:54:04
+ * @LastEditTime: 2019-09-09 21:20:38
  */
 import Login from "../views/login";
 import Main from '../views/main';
@@ -27,7 +27,7 @@ import Examguan from 'src/views/main/examinations/examguan';
 import AddExam from 'src/views/main/examinations/addexam';
 import Page from '../views/main/Marking/mark';
 import Detail from '../views/main/Marking/detail';
-
+import Details from '../views/main/examinations/addexam/details';
 
 export default [{
     component: Login,
@@ -104,6 +104,10 @@ export default [{
                     path: '/main/examinations/listExaminations',
                     component: Examguan
                 },
+                {
+                    path: '/main/examinations/questions',
+                    component: Details
+                }
             ]
         },
 

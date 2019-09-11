@@ -11,13 +11,13 @@ interface Listinfo {
     questionsType: any;
     examType: any;
     key: any;
-    getUser:any;
-    addQuestions:any,
-    location:any,
-    questionUpdate:any
+    getUser: any;
+    addQuestions: any,
+    location: any,
+    questionUpdate: any
 }
 
-@inject('subject', 'examType', 'questionsType','addQuestions','getUser',"questionUpdate")
+@inject('subject', 'examType', 'questionsType', 'addQuestions', 'getUser', "questionUpdate")
 @observer
 class RiWite extends React.Component<Listinfo> {
 
@@ -29,14 +29,14 @@ class RiWite extends React.Component<Listinfo> {
         examTypeList: [],
         //  试题类型
         questionsTypeList: [],
-        exam_id:'',
-        questions_type_id:'',
-        subject_id:'',
-        title:this.props.location.state.item.title,
-        questions_stem:this.props.location.state.item.questions_stem,
-        questions_answer:this.props.location.state.item.questions_answer,
-        user_id:'',
-        questions_id:this.props.location.state.item.questions_id
+        exam_id: '',
+        questions_type_id: '',
+        subject_id: '',
+        title: this.props.location.state.item.title,
+        questions_stem: this.props.location.state.item.questions_stem,
+        questions_answer: this.props.location.state.item.questions_answer,
+        user_id: '',
+        questions_id: this.props.location.state.item.questions_id
     };
 
     constructor(props: any) {
@@ -79,58 +79,58 @@ class RiWite extends React.Component<Listinfo> {
     };
 
 
-    questionUpdate = async (parmas:any) => {
+    questionUpdate = async (parmas: any) => {
         const { questionUpdate } = this.props.questionUpdate;
         const result = await questionUpdate(parmas);
-         // user_id: "w6l6n-cbvl6s"
-         // user_name: "chenmanjie"
+        // user_id: "w6l6n-cbvl6s"
+        // user_name: "chenmanjie"
     };
 
     // 编辑工具方法
     handleChange = (value: any) => {
         this.setState({
-            questions_stem:value
+            questions_stem: value
         });
     };
 
     // 编辑答案
     handleAnswer = (value: any) => {
         this.setState({
-            questions_answer:value
+            questions_answer: value
         });
     };
 
     // 试卷标题
-    questTitle= (e:any) => {
+    questTitle = (e: any) => {
         this.setState({
-            title:e.target.value
+            title: e.target.value
         });
     }
 
     // 考试类型
-    examTypeValue= (e:any) => {
+    examTypeValue = (e: any) => {
         this.setState({
             exam_id: e.target.value
         });
     }
 
     // 课程类型
-    subjectValue= (e: any) => {
+    subjectValue = (e: any) => {
         this.setState({
             subject_id: e.target.value
         });
     }
 
     // 题目类型
-    questionsTypeValue= (e: any) => {
+    questionsTypeValue = (e: any) => {
         this.setState({
             questions_type_id: e.target.value
         });
     }
 
     // 添加试题的提交
-    submitClick = ()=> {
-        let {questions_id} = this.state;
+    submitClick = () => {
+        let { questions_id } = this.state;
         // console.log(this.state)
 
         this.questionUpdate(questions_id)
@@ -145,7 +145,7 @@ class RiWite extends React.Component<Listinfo> {
             questions_stem,
             questions_answer
         } = this.state;
-       
+
         return (
             <div className="addPage">
                 <header className="header">编辑试题</header>
@@ -178,7 +178,7 @@ class RiWite extends React.Component<Listinfo> {
                                 <label title="请选择考试类型">
                                     请选择考试类型
                                 </label>
-                                <select onChange ={this.examTypeValue}>
+                                <select onChange={this.examTypeValue}>
                                     {examTypeList &&
                                         examTypeList.map((item: any) => {
                                             return (

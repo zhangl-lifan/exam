@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-07 15:41:20
+ * @LastEditTime: 2019-09-09 20:38:26
  */
 
 // 引入user模块
@@ -36,6 +36,29 @@ import GradeUpdate from "./modules/question";
 import AddClassRoom from "./modules/question"
 import DeleteRoom from "./modules/question";
 import Global from './modules/global';
+import Subject from "./modules/subject";
+import ExamType from "./modules/examType";
+import QuestionsType from "./modules/QuestionsType";
+import AddRoom from "./modules/addRoom";
+import AddGide from "./modules/addGide";
+import InsertQuestionsType from "./modules/insertQuestionsType";
+import AddQuestions from "./modules/addQuestions";
+import GetUser from "./modules/getUser";
+import QuestionUpdate from "./modules/questionUpdate"
+import Getexamtype from './modules/getExamType';
+import Getcourselist from './modules/getcourselist';
+import Getclasslist from './modules/getcClassnamelist';
+import GetViews from './modules/getviews';
+import GetIDlist from './modules/getldlist';
+import GetPorts from './modules/getports';
+import Getuserlist from './modules/getuserlist';
+import Mark from "./modules/marking";
+import Detail from './modules/student'
+import Room from './modules/room'
+import CreateExam from './modules/create';
+import SelectExam from './modules/selectExam';
+import GetQuestions from './modules/getquestions';
+import Updateexam from './modules/updateExam';
 
 // 实例化
 const user = new User()
@@ -66,6 +89,11 @@ const gradeUpdate = new GradeUpdate();
 const addClassRoom = new AddClassRoom();
 const deleteRoom = new DeleteRoom();
 const global = new Global();
+const room = new Room();
+const createExam = new CreateExam();
+const selectExam = new SelectExam();
+const getquestions = new GetQuestions();
+const updateExam = new Updateexam();
 
 export default {
     user,
@@ -96,4 +124,9 @@ export default {
     addClassRoom,
     deleteRoom,
     global
+    room,
+    createExam,
+    selectExam,
+    getquestions,
+    updateExam
 };
