@@ -153,11 +153,14 @@ class UserShow extends React.Component<Props>{
     }
 
     getUSers = async (url: string) => {
+        console.log(url);
         const { getuserlist } = this.props.getuserlist;
         let result = await getuserlist(url);
         if (result.code === 1) {
             this.setState({
                 userlist: result.data
+            },()=>{
+                console.log(this.state.userlist);
             })
             result.data.map((item: any, index: any) => {
                 return item.key = index;
@@ -177,7 +180,6 @@ class UserShow extends React.Component<Props>{
         }, () => {
             this.tabdata();
         })
-
     }
     showalert = () => {
         alert('没有权限');

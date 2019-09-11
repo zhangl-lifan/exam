@@ -1,4 +1,4 @@
-import {observable, action} from 'mobx';
+import { observable, action } from 'mobx';
 import {
     question,
     getPorts,
@@ -12,7 +12,6 @@ import {
     getexamtype,
     getIDlist,
     getUser,
-    getuserlist,
     getViews,
     insertQuestionsType,
     getmark,
@@ -27,36 +26,36 @@ import {
     addClassRoom,
     deleteRoom
 } from '../../service/index';
-
+import { getuserlist } from '../../service/getusers';
 // 引入mobx
-class Question{
+class Question {
 
-    @action async question(): Promise<any>{
+    @action async question(): Promise<any> {
         const result: any = await question();
         return result;
     }
 
-    @action async addGide(): Promise<any>{
+    @action async addGide(): Promise<any> {
         const result: any = await addGide();
         return result;
     }
 
-    @action async condition(params:any):Promise<any>{
+    @action async condition(params: any): Promise<any> {
         const result: any = await condition(params);
         return result;
     }
 
-    @action async addQuestions(params:any): Promise<any>{
+    @action async addQuestions(params: any): Promise<any> {
         const result: any = await addQuestions(params);
         return result;
     }
 
-    @action async addRoom(): Promise<any>{
+    @action async addRoom(): Promise<any> {
         const result: any = await addRoom();
         return result;
     }
 
-    @action async examType(): Promise<any>{
+    @action async examType(): Promise<any> {
         const result: any = await examType();
         return result;
     }
@@ -71,7 +70,7 @@ class Question{
         return result;
     }
 
-    @action async getexamtype(): Promise<any>{
+    @action async getexamtype(): Promise<any> {
         const result: any = await getexamtype();
         return result;
     }
@@ -86,13 +85,13 @@ class Question{
         return result;
     }
 
-    @action async getUser(): Promise<any>{
+    @action async getUser(): Promise<any> {
         const result: any = await getUser();
         return result;
     }
 
-    @action async getuserlist(): Promise<any> {
-        const result: any = await getuserlist();
+    @action async getuserlist(url: any): Promise<any> {
+        const result: any = await getuserlist(url);
         return result;
     }
 
@@ -101,68 +100,68 @@ class Question{
         return result;
     }
 
-    @action async insertQuestionsType(params:any): Promise<any>{
+    @action async insertQuestionsType(params: any): Promise<any> {
         console.log(params)
         const result: any = await insertQuestionsType(params);
         return result;
     }
 
-    @action async getmark() :Promise<any>{
+    @action async getmark(): Promise<any> {
         return await getmark();
-     }
+    }
 
-     @action async questionsType(): Promise<any>{
+    @action async questionsType(): Promise<any> {
         const result: any = await questionsType();
         return result;
     }
 
-    @action async questionUpdate(params:any): Promise<any>{
+    @action async questionUpdate(params: any): Promise<any> {
         const result: any = await questionUpdate(params);
         return result;
     }
 
-    @action async getroom() :Promise<any>{
+    @action async getroom(): Promise<any> {
         return await getroom();
-     }
+    }
 
-     @action async getstudent() :Promise<any>{
+    @action async getstudent(): Promise<any> {
         return await getstudent();
-     }
+    }
 
-     @action async subject(): Promise<any>{
+    @action async subject(): Promise<any> {
         const result: any = await subject();
         return result;
     }
 
-    @action async gradeRoom(params:any): Promise<any>{
+    @action async gradeRoom(params: any): Promise<any> {
         const result: any = await gradeRoom(params);
         return result;
     }
 
     // deleteGide
-    @action async deleteGide(params:any): Promise<any>{
+    @action async deleteGide(params: any): Promise<any> {
         const result: any = await deleteGide(params);
         return result;
     }
 
     // gradeUpdate
-    @action async gradeUpdate(params:any): Promise<any>{
+    @action async gradeUpdate(params: any): Promise<any> {
         const result: any = await gradeUpdate(params);
         return result;
     }
 
     // addClassRoom
-    @action async addClassRoom(params:any): Promise<any>{
+    @action async addClassRoom(params: any): Promise<any> {
         const result: any = await addClassRoom(params);
         return result;
     }
 
     // deleteRoom
-    @action async deleteRoom(params:any): Promise<any>{
+    @action async deleteRoom(params: any): Promise<any> {
         const result: any = await deleteRoom(params);
         return result;
     }
-    
+
 }
 
 export default Question;
