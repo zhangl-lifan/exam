@@ -2,12 +2,13 @@ import {
     Select,
     Button,
     Radio,
-    Table
+    Table,
 } from 'antd';
 import '../index.css';
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 let { Option } = Select;
+let { Column } = Table;
 interface Props {
     getexamtype: any,
     getcourselist: any,
@@ -19,6 +20,7 @@ interface Props {
     typestr: string,
     courId: any,
     typeId: any,
+    getFullYear: any,
     examlist: Array<object>
 }
 
@@ -40,6 +42,8 @@ class ClassExam extends React.Component<Props> {
         this.getexamtypes();
         this.getcourdata();
         this.getSelectData()
+
+        //      console.log(this."startTime"transition(15232323652))
     }
 
     getexamtypes = async () => {
@@ -65,9 +69,17 @@ class ClassExam extends React.Component<Props> {
     getSelectData = async (params?: any) => {
         const { selectExam } = this.props.selectExam;
         const result = await selectExam(params);
-        console.log(result);
         result.exam.map((item: any, index: any) => {
             return item.key = index + 1
+        })
+        result.exam.map((item: any) => {
+            return item.start_time = this.timetransition(item.start_time)
+        })
+        result.exam.map((item: any) => {
+            return item.end_time = this.timetransition(item.end_time)
+        })
+        result.exam.map((item: any) => {
+            return item.options = '详情'
         })
         this.setState({
             examlist: result.exam
@@ -79,14 +91,17 @@ class ClassExam extends React.Component<Props> {
         const courobj = courlist.filter((item: any) => {
             return item.subject_text === courstr;
         })
+
         const typeobj = examtype.filter((item: any) => {
             return item.exam_name === typestr;
         })
+
         courobj.forEach((item: any) => {
             this.setState({
                 courId: item.subject_id
             })
         })
+
         typeobj.forEach((item: any) => {
             this.setState({
                 typeId: item.exam_id
@@ -111,8 +126,20 @@ class ClassExam extends React.Component<Props> {
         })
     }
 
+    timetransition = (time: any) => {
+        let times = Number(time);
+        let year = new Date(times).getFullYear();
+        let month = new Date(times).getMonth() + 1;
+        let date = new Date(times).getDate();
+        let hour = new Date(times).getHours();
+        let minute = new Date(times).getMinutes();
+        let second = new Date(times).getSeconds();
+        return year + "年" + month + "月" + date + "日 " + hour + ":" + minute + ":" + second;
+    }
+
     render() {
         const { courlist, examtype, examlist } = this.state;
+        console.log(examlist);
         const columns = [
             {
                 title: '试卷信息',
@@ -122,14 +149,7 @@ class ClassExam extends React.Component<Props> {
             {
                 title: '班级',
                 dataIndex: 'grade_name',
-                key: 'class',
-                // render: (grade_name: any) => {
-                //     return grade_name.map((item: any): void => {
-                //         <p>
-                //             {item}
-                //         </p>
-                //     })
-                // }
+                key: 'class'
             },
             {
                 title: '创建人',
@@ -138,19 +158,22 @@ class ClassExam extends React.Component<Props> {
             },
             {
                 title: '开始时间',
-                key: 'start_time',
-                dataIndex: 'startTime'
+                key: "startTime",
+                dataIndex: "start_time"
             },
             {
                 title: '结束时间',
-                key: 'end_time',
-                dataIndex: 'endTime'
+                key: "endTime",
+                dataIndex: "end_time"
             },
             {
                 title: '操作',
-                key: 'options',
                 dataIndex: 'options',
-                render: (text: any) => <a>{text}</a>,
+                render: (test: any, ) => {
+                    return <span>
+                        <a href='/main/examinations/questions'>{test}</a>
+                    </span>
+                }
             }
         ];
         return <div>
@@ -166,7 +189,6 @@ class ClassExam extends React.Component<Props> {
                                 return <Option key={item.exam_id} value={item.exam_name}>{item.exam_name}</Option>
                             })
                         }
-
                     </Select>
                 </div>
                 <div>
@@ -187,16 +209,17 @@ class ClassExam extends React.Component<Props> {
                 <div className="toplist">
                     <div>
                         <h4>考试列表</h4>
-                        <Radio.Group size='large'>
+                        <Radio.Group size='large' style={{ marginLeft: '40%' }}>
                             <Radio.Button value="add">全部</Radio.Button>
                             <Radio.Button value="underway">进行中</Radio.Button>
                             <Radio.Button value="end">已结束</Radio.Button>
                         </Radio.Group>
                     </div>
                 </div>
-                <Table columns={columns} dataSource={examlist} pagination={false} />
+                <Table columns={columns} dataSource={examlist} pagination={false} >
+                </Table>
             </div>
-        </div>
+        </div >
     }
 }
 

@@ -16,11 +16,11 @@ interface Props {
     datalist: Array<object>
 }
 const success = () => {
-    message.success('create exam succeed!');
+    message.success('update exam succeed!');
 };
 
 const warning = () => {
-    message.warning('create exam come to nothing!');
+    message.warning('update exam come to nothing!');
 };
 interface Props extends FormComponentProps {
     history: any
@@ -30,9 +30,11 @@ interface Props extends FormComponentProps {
 @observer
 
 class UserDetails extends React.Component<Props> {
+
     state = {
         datalist: []
     }
+
     componentDidMount() {
         this.getselectExam();
     }
@@ -45,16 +47,19 @@ class UserDetails extends React.Component<Props> {
     }
 
     handleClick = async () => {
-        const { saveparams } = this.props.selectExam;
         const { updateExam } = this.props.updateExam;
+        const { saveparams } = this.props.selectExam;
+        let arr: any = [];
+        this.state.datalist.map((item: any) => arr.push(item.questions_id))
         let obj = {
-            question_ids: saveparams.exam_id
+            question_ids: JSON.stringify(arr.join(","))
         }
-        const result = await updateExam(obj);
+        const result = await updateExam(saveparams.examid, obj);
+        //结果
         console.log(result);
         if (result.code === 1) {
             success();
-            //   this.props.history.push('/main/examinations/listExaminations');
+               this.props.history.push('/main/examinations/listExaminations');
         } else {
             warning();
         }

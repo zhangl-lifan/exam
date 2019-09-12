@@ -5,8 +5,8 @@ import { updateExam } from '../../service/createExam';
 // 引入mobx
 
 class UpdateExam {
-    @action async updateExam(params:any): Promise<any> {
-        const result: any = await updateExam(params);
+    @action async updateExam(id: any, params: any): Promise<any> {
+        const result: any = await updateExam(id, params);
         return result;
     }
 }

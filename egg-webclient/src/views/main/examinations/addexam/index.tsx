@@ -92,7 +92,7 @@ class RegistrationForm extends React.Component<Props> {
     createFun = async (params: any) => {
         const { createExam } = this.props.createExam;
         const result = await createExam(params);
-        console.log(result);
+        params.examid = result.data.exam_exam_id;
         this.props.createExam.addQuestions(result.data.questions);
         window.sessionStorage.setItem('params', JSON.stringify(params));
         this.props.selectExam.changeParams(params);

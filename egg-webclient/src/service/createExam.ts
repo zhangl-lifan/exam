@@ -22,7 +22,6 @@ export function getquestions() {
     return request.get('/exam/exam/w5tcy-g2dts')
 }
 
-export function updateExam(params: any) {
-    console.log(params);
-    return request.put('/exam/exam/w5tcy-g2dts', params)
+export function updateExam( id: any, params: any) {
+    return request.put(`/exam/exam/${id}`, params)
 }

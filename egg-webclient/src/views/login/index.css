@@ -6,7 +6,7 @@
 .allju {
     width: 100%;
     height: 100%;
-    background-color: blue;
+    background-image: url("https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1439929676,2562571871&fm=26&gp=0.jpg");
 }
 
 #components-form-demo-normal-login .login-form {
@@ -21,16 +21,12 @@
     width: 100%;
 }
 
-.ant-form-item-control {
-    margin-left: 50px;
+.ant-form-item-control.has-success {
+    text-align: center;
 }
 
 span.ant-input-affix-wrapper {
     width: 350px;
-}
-
-.ant-form-item-control {
-    margin-left: 50px;
 }
 
 span.ant-input-affix-wrapper {
@@ -45,7 +41,6 @@ span.ant-input-affix-wrapper {
     border-radius: 8px;
     background: white;
 }
-
 form.ant-form.ant-form-horizontal.login-form {
     margin: 0 auto;
 }

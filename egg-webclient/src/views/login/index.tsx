@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-02 20:11:41
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-07 15:10:34
+ * @LastEditTime: 2019-09-12 07:57:53
  */
 import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
@@ -92,6 +92,7 @@ class Login extends React.Component<Propsinfo>{
                             <Input
                                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 placeholder="Password"
+                                className='loginipt'
                             />,
                         )}
                     </Form.Item>
@@ -104,13 +105,9 @@ class Login extends React.Component<Propsinfo>{
                             valuePropName: 'checked',
                             initialValue: true,
                         })(<Checkbox>auto login in 7 days</Checkbox>)}
-                        <a className="login-form-forgot" href="">
-                            Forgot password
-              </a>
                         <Button type="primary" htmlType="submit" className="login-form-button">
                             Log in
               </Button>
-                        Or <a href="">register now!</a>
                     </Form.Item>
                 </Form>
             </div>

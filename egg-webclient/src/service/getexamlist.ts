@@ -1,3 +1,4 @@
+
 /*
  * @Descripttion: 
  * @version: 
@@ -6,6 +7,7 @@
  * @LastEditors: sueRimn
  * @LastEditTime: 2019-09-09 14:45:39
  */
+
 import request from '../utils/request';
 
 // 获取考试类型列表

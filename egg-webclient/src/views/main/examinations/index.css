@@ -46,15 +46,6 @@
 }
 
 
-/* .ant-col,
-.ant-form-item-control-wrapper,
-.ant-col-xs-24,
-.ant-col-xs-offset-0,
-.ant-col-sm-16,
-.ant-col-sm-offset-8 {
-    margin: 0;
-} */
-
 .topbox {
     margin-top: 20px;
     height: 121px;
@@ -126,6 +117,15 @@
     background-color: white;
 }
 
+.ant-col.ant-form-item-control-wrapper.ant-col-xs-24.ant-col-sm-16{
+    margin-left: 50px;
+}
+
+.ant-form-item-control{
+    height: 100%;
+    text-align: left;
+    margin-left: 0;
+}
 .contenttitle .titleone {
     background-color: #f4f7f9;
 }

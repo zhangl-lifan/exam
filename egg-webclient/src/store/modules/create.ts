@@ -21,7 +21,6 @@ class CreateExam {
 
     @action addQuestions(arr: any) {
         if (arr !== []) {
-            console.log(arr);
             window.sessionStorage.setItem('questions', JSON.stringify(arr));
         }
         this.questions = arr;
