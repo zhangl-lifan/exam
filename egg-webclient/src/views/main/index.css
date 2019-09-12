@@ -10,13 +10,13 @@
     margin-bottom: 1px;
     float: left;
     width: 100%;
-    height: 65px;
+    height: 70px;
     position: fixed;
 }
 
 .slider-box-drop {
     position: fixed;
-    top: 65px;
+    top: 70px;
     bottom: 0;
     left: 0;
     width: 200px;
@@ -24,7 +24,7 @@
 
 .ant-layout-content {
     position: fixed;
-    top: 65px;
+    top: 70px;
     right: 0;
     bottom: 0;
     left: 201px;
@@ -37,4 +37,30 @@
 
 .ant-menu-submenu-active a {
     color: #fff;
+}
+
+.titles-head {
+    width: 100%;
+    display: flex;
+}
+
+.titles-head .title-contents-text {
+    flex: 1;
+}
+
+.titles-head .userImg {
+    flex: 1;
+}
+
+.userImg .img-users {
+    width: 65px;
+    height: 65px;
+    float: right;
+}
+
+.img-users #userimgs {
+    width: 65px;
+    height: 100%;
+    border-radius: 50%;
+    font-size: 14px;
 }

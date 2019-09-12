@@ -31,6 +31,7 @@ import {
     gradeUpdate,
     addClassRoom,
     deleteRoom,
+<<<<<<< HEAD
     questionsType,
     getuserlist,
     getquestions,
@@ -38,6 +39,12 @@ import {
     addUser,
     updateExam
 } from '../../service/question';
+=======
+    upLoadImg,
+    deleteStudent
+} from '../../service/index';
+
+>>>>>>> a91a9a0f7006d52bbfcb2b833be34395c00a2df9
 // 引入mobx
 class Question {
     @action async getquestions(): Promise<any> {
@@ -187,6 +194,21 @@ class Question {
         return result;
     }
 
+<<<<<<< HEAD
+=======
+    // upLoadImg
+    @action async upLoadImg(params:any): Promise<any>{
+        const result: any = await upLoadImg(params);
+        return result;
+    }
+
+    // deleteStudent
+    @action async deleteStudent(params:any): Promise<any>{
+        console.log(params)
+        const result: any = await deleteStudent(params);
+        return result;
+    }
+>>>>>>> a91a9a0f7006d52bbfcb2b833be34395c00a2df9
 }
 
 export default Question;

@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-12 10:01:22
+ * @LastEditTime: 2019-09-12 11:05:01
  */
 
 // 引入user模块
@@ -35,13 +35,16 @@ import GetIDlist from './modules/question';
 import GetPorts from './modules/question';
 import Getuserlist from './modules/question';
 import Mark from "./modules/question";
-import Detail from './modules/question';
-import Room from './modules/question';
+import AddUser from './modules/question';
+import Detail from './modules/question'
+import Room from './modules/question'
 import CreateExam from './modules/create';
 import SelectExam from './modules/selectExam';
 import GetQuestions from './modules/question';
 import Updateexam from './modules/question';
-import AddUser from './modules/question';
+import UpLoadImg from "./modules/question";
+import Getstudent from "./modules/question";
+import DeleteStudent from "./modules/question";
 
 // 实例化
 const user = new User()
@@ -78,6 +81,9 @@ const createExam = new CreateExam();
 const selectExam = new SelectExam();
 const getquestions = new GetQuestions();
 const updateExam = new Updateexam();
+const upLoadImg = new UpLoadImg();
+const getstudent = new Getstudent();
+const deleteStudent = new DeleteStudent()
 
 export default {
     user,
@@ -113,5 +119,8 @@ export default {
     createExam,
     selectExam,
     getquestions,
-    updateExam
+    updateExam,
+    getstudent,
+    upLoadImg,
+    deleteStudent
 };

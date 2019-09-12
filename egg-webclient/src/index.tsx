@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import registerServiceWorker from './registerServiceWorker';
 
 // 引入全局样式
 import './index.css';
@@ -51,10 +52,5 @@ ReactDOM.render(
     <Provider {...store}>
         <Intl/>
     </Provider>,
-    // <Provider {...store}>
-    //   <Router history={history}>
-    //     <RouterView routes={myRoutes}/>
-    //   </Router>
-    // </Provider>,
     document.getElementById('root') as HTMLElement
 );

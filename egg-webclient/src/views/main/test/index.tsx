@@ -1,5 +1,6 @@
 import * as React from 'react';
-import RouterView from "../../../router/RouterView"
+import RouterView from "../../../router/RouterView";
+import "./index.css"
 
 class Test extends React.Component {
     public render() {

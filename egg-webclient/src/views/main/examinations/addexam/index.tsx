@@ -19,7 +19,8 @@ interface Props {
     examID: any,
     selectExam: any,
     sessionStorage: any,
-    createExam: any
+    createExam: any,
+    Session:any
 }
 interface Props extends FormComponentProps {
     history: any
@@ -65,6 +66,9 @@ class RegistrationForm extends React.Component<Props> {
         }
     };
     
+    NumChange = (value: any) => {
+        console.log('changed', value);
+    };
     handleSubmit = (e: any) => {
         const { startValue, endValue, subjectId, examID } = this.state;
         e.preventDefault();

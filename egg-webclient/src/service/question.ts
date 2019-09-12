@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-07 14:27:02
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-12 09:49:42
+ * @LastEditTime: 2019-09-12 11:03:08
  */
 import request from '../utils/request';
 
@@ -120,6 +120,7 @@ export let getstudent = () => {
     return request.get('/manger/student');
 }
 
+
 // 删除班级的接口
 // /manger/grade/delete
 export let deleteGide = (params: any) => {
@@ -185,4 +186,18 @@ export let getViewAuthority = () => {
 // 添加用户
 export let addUser = (params: any) => {
     return request.post('/user', params)
+}
+
+// 删除学生
+// /manger/student/:id=>student_id
+export let deleteStudent= (id:any)=>{
+    return request.delete(`/manger/student/${id}`);
+}
+
+export let upLoadImg = (form:any)=>{
+    return request({
+        method: 'post',
+        url: 'http://123.206.55.50:11000/upload',
+        data: form
+    })
 }
