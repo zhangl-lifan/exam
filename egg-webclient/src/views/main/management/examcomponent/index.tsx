@@ -1,6 +1,6 @@
 import * as React from 'react';
 import '../index.css';
-import { Button, Radio, Input, Select } from 'antd';
+import { Button, Radio, Input, Select,Form } from 'antd';
 import { inject, observer } from 'mobx-react';
 
 let { Option } = Select;
@@ -23,6 +23,7 @@ interface Props {
 @observer
 
 class Management extends React.Component<Props> {
+
     state = {
         size: 'add',
         viewlist: [],
@@ -31,6 +32,7 @@ class Management extends React.Component<Props> {
         userlist: [],
         isShow: false
     };
+    
     componentDidMount() {
         this.getViewlist();
         this.getIDs();
@@ -88,8 +90,8 @@ class Management extends React.Component<Props> {
                 isShow: false
             })
         }
-
     }
+    
     handleClick = (e:any) => {
         console.log(e);
     }
