@@ -3,7 +3,6 @@ import '../index.css';
 import { inject, observer } from 'mobx-react';
 import { FormComponentProps } from 'antd/lib/form';
 import * as React from 'react';
-import { Session } from 'inspector';
 const { Option } = Select;
 
 interface Props {
@@ -65,6 +64,7 @@ class RegistrationForm extends React.Component<Props> {
             });
         }
     };
+    
     handleSubmit = (e: any) => {
         const { startValue, endValue, subjectId, examID } = this.state;
         e.preventDefault();

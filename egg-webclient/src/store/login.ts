@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-09 20:38:26
+ * @LastEditTime: 2019-09-12 10:01:22
  */
 
 // 引入user模块
@@ -25,7 +25,7 @@ import AddRoom from "./modules/question";
 import AddGide from "./modules/question";
 import InsertQuestionsType from "./modules/question";
 import AddQuestions from "./modules/question";
-import GetUser from "./modules/getUser";
+import GetUser from "./modules/question";
 import QuestionUpdate from "./modules/question"
 import Getexamtype from './modules/question';
 import Getcourselist from './modules/question';
@@ -39,8 +39,9 @@ import Detail from './modules/question';
 import Room from './modules/question';
 import CreateExam from './modules/create';
 import SelectExam from './modules/selectExam';
-import GetQuestions from './modules/getquestions';
-import Updateexam from './modules/updateExam';
+import GetQuestions from './modules/question';
+import Updateexam from './modules/question';
+import AddUser from './modules/question';
 
 // 实例化
 const user = new User()
@@ -49,6 +50,7 @@ const subject = new Subject();
 const examType = new ExamType();
 const questionsType = new QuestionsType();
 const addRoom = new AddRoom();
+const addUser = new AddUser();
 const addGide = new AddGide()
 const insertQuestionsType = new InsertQuestionsType()
 const addQuestions = new AddQuestions();
@@ -98,6 +100,7 @@ export default {
     getuserlist,
     mark,
     page,
+    addUser,
     getroom,
     condition,
     deleteGide,

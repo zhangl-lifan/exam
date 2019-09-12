@@ -50,7 +50,6 @@ class Testlist extends React.Component<ListTypeinfo> {
     getQuestionsType = async () => {
         const { questionsType } = this.props.questionsType;
         const result = await questionsType();
-
         // {questions_type_id: "774318-730z8m", questions_type_text: "简答题", questions_type_sort: 1}
         const data = result.data.map((item: any, index: number) => {
             return {

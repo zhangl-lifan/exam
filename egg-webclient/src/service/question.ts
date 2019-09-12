@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-07 14:27:02
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-07 14:56:22
+ * @LastEditTime: 2019-09-12 09:49:42
  */
 import request from '../utils/request';
 
@@ -40,8 +40,8 @@ export let addRoom = () => {
 }
 
 // 添加班级
-export let gradeRoom = (params:any) => {
-    return request.post('/manger/grade',params);
+export let gradeRoom = (params: any) => {
+    return request.post('/manger/grade', params);
 }
 
 // 添加试题类型
@@ -71,13 +71,8 @@ export let questionUpdate = (params: any) => {
 // 按条件获取试题
 // /exam/questions/condition
 
-export let condition = (params:any) => {
-    return request.get('/exam/questions/condition',{params});
-}
-
-// 获取用户列表
-export function getuserlist() {
-    return request.get('/user/user')
+export let condition = (params: any) => {
+    return request.get('/exam/questions/condition', { params });
 }
 
 // 获取视图接口权限数据
@@ -111,24 +106,24 @@ export function getcourselist() {
 }
 
 // 获取所有的试题类型
-export let getmark= ()=>{
+export let getmark = () => {
     return request.get('/exam/exam');
 }
 
 // 获取所有的班级
-export let getroom= ()=>{
+export let getroom = () => {
     return request.get('/manger/room');
 }
 
 // 获取所有已经分班的学生的接口
-export let getstudent= ()=>{
+export let getstudent = () => {
     return request.get('/manger/student');
 }
 
 // 删除班级的接口
 // /manger/grade/delete
-export let deleteGide= (params:any)=>{
-    return request.delete('/manger/grade/delete',{data:params});
+export let deleteGide = (params: any) => {
+    return request.delete('/manger/grade/delete', { data: params });
 }
 
 // 更新班级信息
@@ -139,13 +134,55 @@ export let gradeUpdate = (params: any) => {
 
 // 添加教室的接口
 // /manger/room
-export let addClassRoom = (params:any) => {
-    return request.post('/manger/room',params);
+export let addClassRoom = (params: any) => {
+    return request.post('/manger/room', params);
 }
 
 // 删除教室的接口
 // /manger/room/delete
-export let deleteRoom= (params:any)=>{
-    return request.delete('/manger/room/delete',{data:params});
+export let deleteRoom = (params: any) => {
+    return request.delete('/manger/room/delete', { data: params });
 }
 
+export function createExam(params: any) {
+    return request.post('exam/exam', params)
+}
+
+export function selectExam(params?: any) {
+    return request.get('exam/exam', {
+        params
+    })
+}
+
+export function getquestions() {
+    return request.get('/exam/exam/w5tcy-g2dts')
+}
+
+export function updateExam(id: any, params: any) {
+    return request.put(`/exam/exam/${id}`, params)
+}
+
+export function getuserlist(url: any) {
+    return request.get(url)
+}
+
+//登陆
+export function login(params: any) {
+    console.log(params);
+    return request.post('/user/login', params);
+}
+
+// 获取用户信息
+export let getUserInfo = () => {
+    return request.get('/user/userInfo');
+}
+
+// 获取用户权限
+export let getViewAuthority = () => {
+    return request.get('/user/view_authority');
+}
+
+// 添加用户
+export let addUser = (params: any) => {
+    return request.post('/user', params)
+}

@@ -4,22 +4,21 @@
  * @Author: sueRimn
  * @Date: 2019-09-03 20:16:29
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-06 07:40:57
+ * @LastEditTime: 2019-09-12 08:51:52
  */
 import { observable, action } from 'mobx';
-import {login, getUserInfo, getViewAuthority} from '../../service/index';
-// import { login } from '../../service/index';
+import {login, getUserInfo, getViewAuthority} from '../../service/question';
 import { setToken, removeToken, setOnceToken } from '../../utils/index';
+
 let account = {};
+
 if (window.localStorage.getItem('account')) {
     account = JSON.parse(window.localStorage.getItem('account') + "")
 }
 class User {
-
-    @observable isLogin: boolean = false;
     @observable account: any = account;
     @observable userInfo: any = {};
-    @observable viewAuthority: Array<object> = []; 
+    @observable viewAuthority: Array<object> = [];
 
     @action async login(form: any): Promise<any> {
         let result: any = await login(form);

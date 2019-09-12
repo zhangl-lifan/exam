@@ -8,7 +8,7 @@
  */
 
 import { action, observable } from 'mobx';
-import { selectExam } from '../../service/createExam';
+import { selectExam } from '../../service/question';
 
 let parameter = {};
 if (window.sessionStorage.getItem('params')) {

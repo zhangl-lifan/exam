@@ -4,11 +4,11 @@
  * @Author: sueRimn
  * @Date: 2019-09-09 14:19:11
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-09 14:59:35
+ * @LastEditTime: 2019-09-12 08:49:32
  */
 
 import { observable, action } from 'mobx';
-import { createExam } from '../../service/createExam';
+import { createExam } from '../../service/question';
 
 let element: any = [];
 

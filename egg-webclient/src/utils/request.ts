@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-03 20:29:10
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-12 07:45:19
+ * @LastEditTime: 2019-09-12 08:07:15
  */
 
 import axios from 'axios';
@@ -13,7 +13,7 @@ import { getToken } from './index';
 
 
 const instance = axios.create({
-    baseURL: 'http://172.20.10.11:7001',
+    baseURL: 'http://169.254.88.18:7001',
     timeout: 1000,
     headers: { 'authorization': getToken() }
 })

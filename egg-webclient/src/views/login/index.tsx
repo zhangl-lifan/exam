@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-02 20:11:41
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-12 07:57:53
+ * @LastEditTime: 2019-09-12 08:28:02
  */
 import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
@@ -54,6 +54,7 @@ class Login extends React.Component<Propsinfo>{
                     remember: values.remember,
                     autologin:values.autologin
                 }
+                console.log(params);
                 const result = await this.props.user.login(params);
                 if (result.code === 1) {
                     success()

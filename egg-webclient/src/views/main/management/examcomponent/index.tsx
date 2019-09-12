@@ -2,7 +2,6 @@ import * as React from 'react';
 import '../index.css';
 import { Button, Radio, Input, Select } from 'antd';
 import { inject, observer } from 'mobx-react';
-import Tab from 'src/components/tab';
 
 let { Option } = Select;
 
@@ -15,10 +14,12 @@ interface Props {
     viewlist: Array<object>,
     IDlist: Array<object>,
     portlist: Array<object>,
-    props: any
+    props: any,
+    addUser: any,
+    userlist: Array<object>
 }
 
-@inject('getViews', 'getIDlist', 'getPorts', 'getuserlist')
+@inject('getViews', 'getIDlist', 'getPorts', 'getuserlist', 'addUser')
 @observer
 
 class Management extends React.Component<Props> {
@@ -26,7 +27,9 @@ class Management extends React.Component<Props> {
         size: 'add',
         viewlist: [],
         IDlist: [],
-        portlist: []
+        portlist: [],
+        userlist: [],
+        isShow: false
     };
     componentDidMount() {
         this.getViewlist();
@@ -47,14 +50,10 @@ class Management extends React.Component<Props> {
 
     getUSers = async () => {
         const { getuserlist } = this.props.getuserlist;
-        console.log(getuserlist);
-        // let result = await getuserlist();
-        // console.log(result);
-        // if (result.code === 1) {
-        //     this.setState({
-        //         viewlist: result.data
-        //     })
-        // }
+        const result = await getuserlist('/user/user');
+        this.setState({
+            userlist: result.data
+        })
     }
 
     getIDs = async () => {
@@ -78,12 +77,25 @@ class Management extends React.Component<Props> {
     }
 
     handleSizeChange = (e: any) => {
-        this.setState({
-            size: e.target.value
-        })
+        if (e.target.value === "update") {
+            this.setState({
+                size: e.target.value,
+                isShow: true
+            })
+        } else {
+            this.setState({
+                size: e.target.value,
+                isShow: false
+            })
+        }
+
     }
+    handleClick = (e:any) => {
+        console.log(e);
+    }
+
     public render() {
-        const { viewlist, IDlist, portlist } = this.state;
+        const { viewlist, IDlist, portlist, userlist, isShow } = this.state;
         return (
             <div className='wrap'>
                 <div className='h2'>添加用户</div>
@@ -93,7 +105,28 @@ class Management extends React.Component<Props> {
                             <Radio.Button value="add">添加用户</Radio.Button>
                             <Radio.Button value="update">更新用户</Radio.Button>
                         </Radio.Group>
-                        <Tab IDlist={IDlist}></Tab>
+                        {
+                            isShow ? <Select style={{ width: 160 }} value="请选择用户" className='selectID'>
+                                {
+                                    userlist && userlist.map((item: any) => {
+                                        return <Option key={item.user_id}>{item.user_name}</Option>
+                                    })
+                                }
+                            </Select> : null
+                        }
+                        <Input placeholder='请输入用户名' className='ipts' />
+                        <Input placeholder='请输入用密码' className='ipts' />
+                        <Select style={{ width: 160 }} value="请选择身份id" className='selectID'>
+                            {
+                                IDlist && IDlist.map((item: any) => {
+                                    return <Option key={item.identity_id}>{item.identity_text}</Option>
+                                })
+                            }
+                        </Select>
+                        <div className='btnbox'>
+                            <Button type="primary" className='affirmbtn' onClick={this.handleClick}>确认</Button>
+                            <Button>重置</Button>
+                        </div>
                     </div>
                     <div className='form-center'>
                         <Radio.Group onChange={this.handleSizeChange} size='large'>

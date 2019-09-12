@@ -1,4 +1,12 @@
-import { observable, action } from 'mobx';
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-09-07 14:27:02
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-09-12 09:57:24
+ */
+import { action } from 'mobx';
 import {
     question,
     getPorts,
@@ -11,11 +19,9 @@ import {
     getcourselist,
     getexamtype,
     getIDlist,
-    getUser,
     getViews,
     insertQuestionsType,
     getmark,
-    questionsType,
     questionUpdate,
     getroom,
     getstudent,
@@ -24,12 +30,30 @@ import {
     deleteGide,
     gradeUpdate,
     addClassRoom,
-    deleteRoom
-} from '../../service/index';
-import { getuserlist } from '../../service/getusers';
-
+    deleteRoom,
+    questionsType,
+    getuserlist,
+    getquestions,
+    getUser,
+    addUser,
+    updateExam
+} from '../../service/question';
 // 引入mobx
 class Question {
+    @action async getquestions(): Promise<any> {
+        const result: any = await getquestions();
+        return result;
+    }
+    
+    @action async addUser(params: any): Promise<any> {
+        const result: any = await addUser(params);
+        return result;
+    }
+
+    @action async updateExam(id: any, params: any): Promise<any> {
+        const result: any = await updateExam(id, params);
+        return result;
+    }
 
     @action async question(): Promise<any> {
         const result: any = await question();
