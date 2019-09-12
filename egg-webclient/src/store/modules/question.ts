@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-09-07 14:27:02
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-12 09:57:24
+ * @LastEditTime: 2019-09-12 11:27:31
  */
 import { action } from 'mobx';
 import {
@@ -31,20 +31,16 @@ import {
     gradeUpdate,
     addClassRoom,
     deleteRoom,
-<<<<<<< HEAD
     questionsType,
     getuserlist,
     getquestions,
     getUser,
     addUser,
-    updateExam
-} from '../../service/question';
-=======
+    updateExam,
     upLoadImg,
     deleteStudent
-} from '../../service/index';
+} from '../../service/question';
 
->>>>>>> a91a9a0f7006d52bbfcb2b833be34395c00a2df9
 // 引入mobx
 class Question {
     @action async getquestions(): Promise<any> {
@@ -194,8 +190,6 @@ class Question {
         return result;
     }
 
-<<<<<<< HEAD
-=======
     // upLoadImg
     @action async upLoadImg(params:any): Promise<any>{
         const result: any = await upLoadImg(params);
@@ -208,7 +202,6 @@ class Question {
         const result: any = await deleteStudent(params);
         return result;
     }
->>>>>>> a91a9a0f7006d52bbfcb2b833be34395c00a2df9
 }
 
 export default Question;
