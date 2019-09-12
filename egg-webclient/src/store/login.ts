@@ -10,55 +10,40 @@
 // 引入user模块
 import User from "./modules/user";
 import Question from "./modules/question";
-import AddGide from "./modules/question";
 import Condition from "./modules/question";
-import AddQuestions from "./modules/question";
-import AddRoom from "./modules/question";
-import ExamType from "./modules/question";
-import Getclasslist from './modules/question';
-import Getcourselist from './modules/question';
-import Getexamtype from './modules/question';
-import GetIDlist from './modules/question';
-import GetPorts from './modules/question';
-import GetUser from "./modules/question";
-import Getuserlist from './modules/question';
-import GetViews from './modules/question';
-import InsertQuestionsType from "./modules/question";
-import Mark from "./modules/question";
-import QuestionsType from "./modules/question";
-import QuestionUpdate from "./modules/question"
 import Getroom from './modules/question';
-import Detail from './modules/question'
-import Subject from "./modules/question";
 import GradeRoom from "./modules/question";
 import DeleteGide from "./modules/question";
 import GradeUpdate from "./modules/question";
 import AddClassRoom from "./modules/question"
 import DeleteRoom from "./modules/question";
 import Global from './modules/global';
-import Subject from "./modules/subject";
-import ExamType from "./modules/examType";
-import QuestionsType from "./modules/QuestionsType";
-import AddRoom from "./modules/addRoom";
-import AddGide from "./modules/addGide";
-import InsertQuestionsType from "./modules/insertQuestionsType";
-import AddQuestions from "./modules/addQuestions";
+import Subject from "./modules/question";
+import ExamType from "./modules/question";
+import QuestionsType from "./modules/question";
+import AddRoom from "./modules/question";
+import AddGide from "./modules/question";
+import InsertQuestionsType from "./modules/question";
+import AddQuestions from "./modules/question";
 import GetUser from "./modules/getUser";
-import QuestionUpdate from "./modules/questionUpdate"
-import Getexamtype from './modules/getExamType';
-import Getcourselist from './modules/getcourselist';
-import Getclasslist from './modules/getcClassnamelist';
-import GetViews from './modules/getviews';
-import GetIDlist from './modules/getldlist';
-import GetPorts from './modules/getports';
-import Getuserlist from './modules/getuserlist';
-import Mark from "./modules/marking";
-import Detail from './modules/student'
-import Room from './modules/room'
+import QuestionUpdate from "./modules/question"
+import Getexamtype from './modules/question';
+import Getcourselist from './modules/question';
+import Getclasslist from './modules/question';
+import GetViews from './modules/question';
+import GetIDlist from './modules/question';
+import GetPorts from './modules/question';
+import Getuserlist from './modules/question';
+import Mark from "./modules/question";
+import Detail from './modules/question'
+import Room from './modules/question'
 import CreateExam from './modules/create';
 import SelectExam from './modules/selectExam';
 import GetQuestions from './modules/getquestions';
 import Updateexam from './modules/updateExam';
+import UpLoadImg from "./modules/question";
+import Getstudent from "./modules/question";
+import DeleteStudent from "./modules/question";
 
 // 实例化
 const user = new User()
@@ -94,6 +79,9 @@ const createExam = new CreateExam();
 const selectExam = new SelectExam();
 const getquestions = new GetQuestions();
 const updateExam = new Updateexam();
+const upLoadImg = new UpLoadImg();
+const getstudent = new Getstudent();
+const deleteStudent = new DeleteStudent()
 
 export default {
     user,
@@ -123,10 +111,13 @@ export default {
     gradeUpdate,
     addClassRoom,
     deleteRoom,
-    global
+    global,
     room,
     createExam,
     selectExam,
     getquestions,
-    updateExam
+    updateExam,
+    getstudent,
+    upLoadImg,
+    deleteStudent
 };

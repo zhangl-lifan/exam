@@ -25,7 +25,9 @@ import {
     deleteGide,
     gradeUpdate,
     addClassRoom,
-    deleteRoom
+    deleteRoom,
+    upLoadImg,
+    deleteStudent
 } from '../../service/index';
 
 // 引入mobx
@@ -162,7 +164,19 @@ class Question{
         const result: any = await deleteRoom(params);
         return result;
     }
-    
+
+    // upLoadImg
+    @action async upLoadImg(params:any): Promise<any>{
+        const result: any = await upLoadImg(params);
+        return result;
+    }
+
+    // deleteStudent
+    @action async deleteStudent(params:any): Promise<any>{
+        console.log(params)
+        const result: any = await deleteStudent(params);
+        return result;
+    }
 }
 
 export default Question;

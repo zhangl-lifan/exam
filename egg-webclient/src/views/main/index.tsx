@@ -1,38 +1,61 @@
 import * as React from 'react';
-import { Layout} from 'antd';
-import {observer, inject} from 'mobx-react';
-
-
+import { Layout, Avatar ,Menu, Dropdown, Button} from 'antd';
+import { observer, inject } from 'mobx-react';
 import RouterView from '../../router/RouterView';
 const { Header, Content } = Layout;
-import Memu from "../../components/memu"
-
-import './index.css';
+import Memu from '../../components/memu';
+import MyHeader from 'src/components/myHeader';
+import "./index.css"
 
 interface BooleanInfo {
-    collapsed: boolean;
-    collapsible: boolean;
-    props: any,
-    global:any
+    collapsed?: boolean;
+    collapsible?: boolean;
+    props?: any;
+    global?: any;
 }
 
-@inject('global')
-
+@inject('global','upLoadImg')
 class Main extends React.Component<BooleanInfo> {
     props: any;
+    state = {
+        value: ''
+    };
+
+    
+
+    upLoadImg = async (form:any) => {
+        const { upLoadImg } = this.props.upLoadImg;
+        const result = await upLoadImg(form);
+        console.log(result.data[0]);
+        // this.setState({
+        //     value: result.data[0].path
+        // })
+    };
+
+    upLoad = (e: any) => {
+        // console.log(e.target.files);
+        let form = new FormData();
+        let files = e.target.files;
+        for (let i = 0, len = files.length; i < len; i++) {
+            form.append(files[i].name, files[i]);
+        }
+
+        this.upLoadImg(form)
+    };
 
     public render() {
-        const {locale} = this.props.global;
+        const { locale } = this.props.global;
+        
+
         return (
             <Layout>
-                <Header className="title">
-                    北京八维研修学院
-                    <button onClick={()=>this.props.global.changeLocale(locale==='zh'?'en':'zh')}>{locale==='zh'?'英文':'中文'}</button>
-                </Header>
+                <MyHeader/>
                 <Layout style={{ minHeight: '90vh' }}>
                     <Memu></Memu>
-                    <Content style={{ padding: '0 24px', background:"#f0f2f5"}}>
-                         <RouterView routes={this.props.children}></RouterView>
+                    <Content
+                        style={{ padding: '0 24px', background: '#f0f2f5' }}
+                    >
+                        <RouterView routes={this.props.children}></RouterView>
                     </Content>
                 </Layout>
             </Layout>

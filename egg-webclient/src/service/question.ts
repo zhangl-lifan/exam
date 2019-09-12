@@ -125,6 +125,7 @@ export let getstudent= ()=>{
     return request.get('/manger/student');
 }
 
+
 // 删除班级的接口
 // /manger/grade/delete
 export let deleteGide= (params:any)=>{
@@ -149,3 +150,17 @@ export let deleteRoom= (params:any)=>{
     return request.delete('/manger/room/delete',{data:params});
 }
 
+
+// 删除学生
+// /manger/student/:id=>student_id
+export let deleteStudent= (id:any)=>{
+    return request.delete(`/manger/student/${id}`);
+}
+
+export let upLoadImg = (form:any)=>{
+    return request({
+        method: 'post',
+        url: 'http://123.206.55.50:11000/upload',
+        data: form
+    })
+}

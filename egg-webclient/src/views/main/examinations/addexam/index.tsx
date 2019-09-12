@@ -7,19 +7,6 @@ import { Session } from 'inspector';
 const { Option } = Select;
 
 interface Props {
-<<<<<<< HEAD
-    form: any;
-    getexamtype: any;
-    getcourselist: any;
-    examtype: Array<object>;
-    courlist: Array<object>;
-    startValue: any;
-    endValue: any;
-    endOpen: boolean;
-}
-
-@inject('getexamtype', 'getcourselist')
-=======
     form: any,
     getexamtype: any,
     getcourselist: any,
@@ -33,14 +20,14 @@ interface Props {
     examID: any,
     selectExam: any,
     sessionStorage: any,
-    createExam: any
+    createExam: any,
+    Session:any
 }
 interface Props extends FormComponentProps {
     history: any
 }
 
 @inject('getexamtype', "getcourselist", 'selectExam', 'createExam')
->>>>>>> e7233a00df3b25537703b41769235829d1913205
 @observer
 class RegistrationForm extends React.Component<Props> {
     state = {
@@ -50,13 +37,9 @@ class RegistrationForm extends React.Component<Props> {
         courlist: [],
         startValue: undefined,
         endValue: undefined,
-<<<<<<< HEAD
-        endOpen: false
-=======
         endOpen: false,
         subjectId: undefined,
         examID: undefined
->>>>>>> e7233a00df3b25537703b41769235829d1913205
     };
 
     componentDidMount() {
@@ -72,11 +55,7 @@ class RegistrationForm extends React.Component<Props> {
                 examtype: result.data
             });
         }
-<<<<<<< HEAD
-    };
-=======
     }
->>>>>>> e7233a00df3b25537703b41769235829d1913205
 
     getcourdata = async () => {
         const { getcourselist } = this.props.getcourselist;
@@ -86,15 +65,10 @@ class RegistrationForm extends React.Component<Props> {
                 courlist: result.data
             });
         }
-<<<<<<< HEAD
     };
     NumChange = (value: any) => {
         console.log('changed', value);
     };
-=======
-    }
-
->>>>>>> e7233a00df3b25537703b41769235829d1913205
     handleSubmit = (e: any) => {
         const { startValue, endValue, subjectId, examID } = this.state;
         e.preventDefault();
@@ -180,7 +154,6 @@ class RegistrationForm extends React.Component<Props> {
 
     render() {
         const { getFieldDecorator } = this.props.form;
-<<<<<<< HEAD
         const {
             examtype,
             courlist,
@@ -189,9 +162,6 @@ class RegistrationForm extends React.Component<Props> {
             endOpen
         } = this.state;
 
-=======
-        const { examtype, courlist, startValue, endValue, endOpen } = this.state;
->>>>>>> e7233a00df3b25537703b41769235829d1913205
         const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },
@@ -227,26 +197,14 @@ class RegistrationForm extends React.Component<Props> {
                         {getFieldDecorator('examName', {
                             rules: [
                                 {
-<<<<<<< HEAD
-                                    type: 'email',
-                                    message: 'The input is not valid E-mail!'
-                                },
-                                {
-                                    required: true,
-                                    message: 'Please input your E-mail!'
-                                }
-                            ]
-=======
                                     required: true,
                                     message: 'Please input your examName!',
                                 },
                             ],
->>>>>>> e7233a00df3b25537703b41769235829d1913205
                         })(<Input />)}
                     </Form.Item>
                     <Form.Item label="选择考试类型">
                         {getFieldDecorator('type', {
-<<<<<<< HEAD
                             rules: [
                                 {
                                     required: true,
@@ -271,16 +229,6 @@ class RegistrationForm extends React.Component<Props> {
                                     })}
                             </Select>
                         )}
-=======
-                            rules: [{ required: true, message: 'Please select your exam type!' }],
-                        })(<Select style={{ width: 100 }} onChange={this.typeChange}>
-                            {
-                                examtype && examtype.map((item: any) => {
-                                    return <Option key={item.exam_id} value={item.exam_name}>{item.exam_name}</Option>
-                                })
-                            }
-                        </Select>)}
->>>>>>> e7233a00df3b25537703b41769235829d1913205
                     </Form.Item>
                     <Form.Item label="选择课程">
                         {getFieldDecorator('course', {
@@ -311,7 +259,6 @@ class RegistrationForm extends React.Component<Props> {
                     </Form.Item>
                     <Form.Item label="设置题量">
                         {getFieldDecorator('settopic', {
-<<<<<<< HEAD
                             rules: [
                                 {
                                     required: true,
@@ -353,29 +300,6 @@ class RegistrationForm extends React.Component<Props> {
                                 />
                             </div>
                         )}
-=======
-                            rules: [{ required: true, message: 'Please input your exam number!' }],
-                        })(<InputNumber min={3} max={10} />)}
-                    </Form.Item>
-                    <Form.Item label="考试时间">
-                        {getFieldDecorator('time')(<div>
-                            <DatePicker
-                                format="YYYY-MM-DD HH:mm:ss"
-                                value={startValue}
-                                onOpenChange={this.handleStartOpenChange}
-                                placeholder="开始时间"
-                                onChange={this.onStartChange}
-                            />
-                            <DatePicker
-                                format="YYYY-MM-DD HH:mm:ss"
-                                value={endValue}
-                                placeholder="结束时间"
-                                onChange={this.onEndChange}
-                                onOpenChange={this.handleEndOpenChange}
-                                open={endOpen}
-                            />
-                        </div>)}
->>>>>>> e7233a00df3b25537703b41769235829d1913205
                     </Form.Item>
                     <Form.Item {...tailFormItemLayout} id="btn-submit-primary">
                         <Button type="primary" htmlType="submit">
