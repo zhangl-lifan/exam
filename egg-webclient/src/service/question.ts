@@ -4,21 +4,42 @@
  * @Author: sueRimn
  * @Date: 2019-09-07 14:27:02
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-12 11:03:08
+ * @LastEditTime: 2019-09-15 09:51:07
  */
 import request from '../utils/request';
 
 // 获取所有的试题
-// /exam/questions/new
 export let question = () => {
     return request.get('/exam/questions/new');
 }
-
+// 添加视图接口权限
+export let addView = (params: any) => {
+    return request.get('/user/authorityView/edit', {
+        params
+    });
+}
+//更新用户信息
+export let updateUser = (params: any) => {
+    return request.put('/user/user', params);
+}
+// 给身份设定api接口权限
+export let setApi = (params: any) => {
+    return request.post('/user/setIdentityApi', params);
+}
+// 给身份设定视图权限
+export let setView = (params: any) => {
+    return request.post('/user/setIdentityView', params);
+}
 // 获取所有的考试类型
 export function examType() {
     return request.get('/exam/examType');
 }
-
+// 添加api接口
+export function addApi(params: any) {
+    return request.get('/user/authorityApi/edit', {
+        params
+    })
+}
 // 获取所有的试题类型
 export let questionsType = () => {
     return request.get('/exam/getQuestionsType');
@@ -190,14 +211,25 @@ export let addUser = (params: any) => {
 
 // 删除学生
 // /manger/student/:id=>student_id
-export let deleteStudent= (id:any)=>{
+export let deleteStudent = (id: any) => {
     return request.delete(`/manger/student/${id}`);
 }
 
-export let upLoadImg = (form:any)=>{
+export let upLoadImg = (form: any) => {
     return request({
         method: 'post',
         url: 'http://123.206.55.50:11000/upload',
         data: form
+    })
+}
+// 添加用户
+
+export let userAdd = (params: any) => {
+    return request.post('/user', params);
+}
+//添加身份
+export let addidentity = (params: any) => {
+    return request.get('/user/identity/edit', {
+        params
     })
 }

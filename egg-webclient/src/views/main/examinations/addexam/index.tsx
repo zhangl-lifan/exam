@@ -28,6 +28,7 @@ interface Props extends FormComponentProps {
 
 @inject('getexamtype', "getcourselist", 'selectExam', 'createExam')
 @observer
+
 class RegistrationForm extends React.Component<Props> {
     state = {
         confirmDirty: false,

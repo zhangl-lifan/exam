@@ -4,10 +4,10 @@
  * @Author: sueRimn
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-12 11:05:01
+ * @LastEditTime: 2019-09-15 09:53:00
  */
 
-// 引入user模块
+// 引入模块
 import User from "./modules/user";
 import Question from "./modules/question";
 import Condition from "./modules/question";
@@ -45,7 +45,13 @@ import Updateexam from './modules/question';
 import UpLoadImg from "./modules/question";
 import Getstudent from "./modules/question";
 import DeleteStudent from "./modules/question";
-
+import Useradd from './modules/question';
+import Addidentity from './modules/question';
+import AddApi from './modules/question';
+import AddView from './modules/question';
+import SetApi from './modules/question';
+import SetView from './modules/question';
+import UpdateUser from './modules/question';
 // 实例化
 const user = new User()
 const question = new Question();
@@ -84,6 +90,13 @@ const updateExam = new Updateexam();
 const upLoadImg = new UpLoadImg();
 const getstudent = new Getstudent();
 const deleteStudent = new DeleteStudent()
+const userAdd = new Useradd();
+const addidentity = new Addidentity();
+const addApi = new AddApi();
+const addView = new AddView()
+const setApi = new SetApi();
+const setView = new SetView();
+const updateUser = new UpdateUser()
 
 export default {
     user,
@@ -122,5 +135,12 @@ export default {
     updateExam,
     getstudent,
     upLoadImg,
-    deleteStudent
+    addApi,
+    deleteStudent,
+    userAdd,
+    addidentity,
+    addView,
+    setApi,
+    setView,
+    updateUser
 };
