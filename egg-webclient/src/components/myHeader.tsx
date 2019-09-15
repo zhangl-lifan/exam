@@ -8,7 +8,9 @@ import {
     Modal,
     Form,
     Input,
-    Upload
+    Upload,
+    Icon,
+    message
 } from 'antd';
 const { Header } = Layout;
 import './index.css';
@@ -16,8 +18,9 @@ import './index.css';
 interface BooleanInfo {
     collapsed: boolean;
     collapsible: boolean;
-    props: any;
     user?: any;
+    loading?: any;
+    value?:any
 }
 
 @inject('user', 'global')
@@ -27,6 +30,7 @@ class MyHeader extends React.Component<BooleanInfo> {
     state = {
         value: '',
         visible: false,
+        loading: false,
         language: [
             {
                 lang: '中文'
@@ -37,20 +41,17 @@ class MyHeader extends React.Component<BooleanInfo> {
         ]
     };
 
-    handleOk = (e: any) => {
-        this.setState({
-            visible: false
-        });
-    };
-
-    handleCancel = (e: any) => {
-        this.setState({
-            visible: false
-        });
-    };
+    constructor(props: any) {
+        super(props);
+        this.handChange = this.handChange.bind(this);
+        this.beforeUpload = this.beforeUpload.bind(this)
+        this.upLoadUser = this.upLoadUser.bind(this);
+        this.handleOk = this.handleOk.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
+    }
 
     //国际化的更改事件
-    handChange = () => {
+    handChange() {
         let { locale } = this.props.global;
         this.props.global.changeLocale(locale === 'zh' ? 'en' : 'zh');
         // if(locale==='zh'){
@@ -58,7 +59,66 @@ class MyHeader extends React.Component<BooleanInfo> {
         // }else{
         //     locale = 'en'
         // }
+    }
+
+    UpLoadUser = async (params: any) => {
+        console.log(this.props);
+        const { uploadUser } = this.props.user;
+        const result = await uploadUser(params);
+        console.log(result);
+        if(result.code===1){
+            this.setState({
+                visible: false
+            });
+            message.success(result.msg)
+        }
     };
+
+    handleOk(e: any) {
+        // user_id
+        this.props.form.validateFields(async (err: Error, values: any) => {
+            if (err) {
+                return;
+            }
+
+            values.avatar = this.props.user.avatar;
+            this.UpLoadUser(values);
+        });
+
+       
+    }
+
+    handleCancel(e: any) {
+        this.setState({
+            visible: false
+        });
+    }
+
+    beforeUpload(file:any) {
+        const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
+        if (!isJpgOrPng) {
+          message.error('You can only upload JPG/PNG file!');
+        }
+        const isLt2M = file.size / 1024 / 1024 < 2;
+        if (!isLt2M) {
+          message.error('Image must smaller than 2MB!');
+        }
+        return isJpgOrPng && isLt2M;
+      }
+
+    // 上传用户头像
+    upLoadUser(user: any) {
+        // status: "done"
+        console.log('userLoading----',user)
+        if (user.file.status === 'done') {
+            //上传成功
+            // response.data[0].path
+            // console.log('path---',user.file.response.data[0].path)
+            this.props.user.changAuthority(user.file.response.data[0].path);
+        } else {
+            console.log('loading---',user.file)
+        }
+    }
 
     public render() {
         const menu = (
@@ -76,6 +136,13 @@ class MyHeader extends React.Component<BooleanInfo> {
             </Menu>
         );
 
+        const uploadButton = (
+            <div>
+                <Icon type={this.state.loading ? 'loading' : 'plus'} />
+                <div className="ant-upload-text">upload</div>
+            </div>
+        );
+
         const { userInfo, avatar } = this.props.user;
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = {
@@ -83,7 +150,7 @@ class MyHeader extends React.Component<BooleanInfo> {
             wrapperCol: { span: 12 }
         };
 
-        console.log('name------', userInfo.user_name);
+        // console.log('avatar------', avatar);
 
         return (
             <Header className="titles-head">
@@ -107,12 +174,17 @@ class MyHeader extends React.Component<BooleanInfo> {
                     <div className="userImg">
                         <Dropdown overlay={menu} placement="bottomCenter">
                             <div className="user-contents-page">
-                                <Avatar size="large" icon="user" />
+                                {/* {avatar ? (
+                                    <img className="img-loading" src={userInfo.avatar} />
+                                ) : (
+                                    <Avatar size="large" icon="user" />
+                                )} */}
+                                <img className="img-loading" src={userInfo.avatar}/>
                                 <span>{userInfo.user_name}</span>
                             </div>
                         </Dropdown>
                         <Modal
-                            title="Basic Modal"
+                            title="更新用户信息"
                             visible={this.state.visible}
                             onOk={this.handleOk}
                             onCancel={this.handleCancel}
@@ -124,28 +196,22 @@ class MyHeader extends React.Component<BooleanInfo> {
                                     })(
                                         <Upload
                                             name="avatar"
-                                            // headers={{"content-type": "multipart/form-data"}}
                                             listType="picture-card"
                                             className="avatar-uploader"
                                             action="http://123.206.55.50:11000/upload"
                                             showUploadList={false}
-                                            // beforeUpload={this.beforeUpload}
-                                            // onChange={this.handleChange}
+                                            beforeUpload={this.beforeUpload}
+                                            onChange={this.upLoadUser}
                                         >
-                                            {/* {avatar ? (
-                                            <img
-                                                src={avatar}
-                                                alt="avatar"
-                                                style={{ width: '100%' }}
-                                            />
-                                        ) : (
-                                            uploadButton
-                                        )} */}
-                                            <img
-                                                src={avatar}
-                                                alt="avatar"
-                                                style={{ width: '100%' }}
-                                            />
+                                            {avatar ? (
+                                                <img
+                                                    src={avatar}
+                                                    alt="avatar"
+                                                    style={{ width: '100%' }}
+                                                />
+                                            ) : (
+                                                uploadButton
+                                            )}
                                         </Upload>
                                     )}
                                 </Form.Item>
@@ -175,10 +241,6 @@ class MyHeader extends React.Component<BooleanInfo> {
                                                     value: string,
                                                     callback: any
                                                 ) => {
-                                                    console.log(
-                                                        'value...',
-                                                        value
-                                                    );
                                                     if (
                                                         value &&
                                                         /^(?![a-z]+$)(?![A-Z]+$)(?!([^(a-zA-Z\!\*\.\#)])+$)^.{8,16}$/.test(

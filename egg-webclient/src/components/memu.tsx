@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NavLink,Link } from 'react-router-dom';
 import { Layout, Menu, Icon, Button } from 'antd';
-import { sliderBar } from '../config/index';
 import { inject, observer } from 'mobx-react';
 
 // 引入用户路由
@@ -24,7 +23,6 @@ interface MemuProps {
 @observer
 class Memu extends React.Component<MemuProps> {
     state = {
-        sliderBar,
         collapsed: false
     };
 

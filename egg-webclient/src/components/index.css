@@ -40,6 +40,14 @@
     line-height: 70px;
 }
 
+.user-contents-page .img-loading {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    border: 0;
+}
+
 .user-contents-page span {
     margin-left: 10px;
 }

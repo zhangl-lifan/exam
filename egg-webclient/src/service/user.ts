@@ -24,6 +24,11 @@ export let getViewAuthority = ()=>{
     return request.get('/user/view_authority');
 }
 
+// 更新用户信息
+// /user/user
+export let uploadUser = (params:any)=>{
+    return request.put('/user/user',params);
+}
 
 
 

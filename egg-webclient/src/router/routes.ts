@@ -88,6 +88,7 @@ export default [
                 component: Management,
                 path: '/main/management',
                 name: "用户管理",
+                title:"menu.management",
                 children: [
                     {
                         from: '/main/management',
@@ -97,13 +98,15 @@ export default [
                         path: '/main/management/adduser',
                         component: AddUser,
                         view_id: "main-addUser",
-                        name: "添加用户"
+                        name: "添加用户",
+                        title:"menu.management.adduser"
                     },
                     {
                         name: "用户展示",
                         path: '/main/management/showuser',
                         component: UserShow,
-                        view_id: "main-showUser"
+                        view_id: "main-showUser",
+                        title:"menu.management.showuser"
                     }
                 ]
             },
@@ -111,6 +114,7 @@ export default [
                 component: Examinations,
                 path: '/main/examinations',
                 name: "考试管理",
+                title:"menu.examination",
                 children: [
                     {
                         from: '/main/examinations',
@@ -121,12 +125,14 @@ export default [
                         component: AddExam,
                         name: "添加考试",
                         view_id: "main-addExam",
+                        title:"menu.examination.addExam"
                     },
                     {
                         name: "试卷列表",
                         path: '/main/examinations/listExaminations',
                         component: Examguan,
-                        view_id: "main-examList"
+                        view_id: "main-examList",
+                        title:"menu.examination.listExam"
                     },
 
                     {
@@ -141,6 +147,7 @@ export default [
                 component: ClassManagement,
                 path: '/main/classManagement',
                 name: "班级管理",
+                title:"menu.classManage",
                 children: [
                     {
                         from: '/main/classManagement',
@@ -150,18 +157,21 @@ export default [
                         path: '/main/classManagement/classRoom',
                         component: ClassRoom,
                         name: "班级管理",
+                        title:"menu.classManage.classRoom",
                         view_id: "main-grade"
                     },
                     {
                         path: '/main/classManagement/classment',
                         component: Classment,
                         name: "教室管理",
+                        title:"menu.classManage.classment",
                         view_id: "main-room"
                     },
                     {
                         path: '/main/classManagement/studentManagement',
                         component: StudentManagement,
                         name: "学生管理",
+                        title:"menu.classManage.studentManage",
                         view_id: "main-student"
                     }
                 ]
@@ -170,6 +180,7 @@ export default [
                 component: Marking,
                 path: '/main/Marking',
                 name: "阅卷管理",
+                title:"menu.Marking",
                 view_id: "main-examinationPapers",
                 children: [
                     {
@@ -180,6 +191,7 @@ export default [
                         path: '/main/marking/Page',
                         component: Page,
                         name: "待批班级",
+                        title:"menu.Marking.classRoom",
                         view_id: "main-examPaperClassmate"
                     },
                     {

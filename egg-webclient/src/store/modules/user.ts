@@ -7,7 +7,7 @@
  * @LastEditTime: 2019-09-12 08:51:52
  */
 import { observable, action } from 'mobx';
-import {login,getUserInfo,getViewAuthority} from '../../service/index';
+import {login,getUserInfo,getViewAuthority,uploadUser} from '../../service/index';
 import { setToken, removeToken, setOnceToken} from '../../utils/index';
 
 let account = {};
@@ -19,6 +19,7 @@ class User {
     @observable account: any = account
     @observable userInfo: any = {};
     @observable viewAuthority:Array<object>=[];
+    @observable avatar:string = ''
 
     @action async login(form: any): Promise<any> {
         let result: any = await login(form);
@@ -50,15 +51,28 @@ class User {
         let userInfo:any = await getUserInfo()
         console.log('userInfo',userInfo)
         this.userInfo = userInfo.data;
-        console.log(this)
+        this.avatar = userInfo.data.avatar;
         this.getViewAuthority()
     }
 
     // 获取用户权限
     @action async getViewAuthority(): Promise<any>{
         let viewAuthority: any = await getViewAuthority();
-        console.log('viewAuthority...', viewAuthority);
+        // console.log('viewAuthority...', viewAuthority);
         this.viewAuthority = viewAuthority.data;
+    }
+
+    // 更改头像
+    @action changAuthority(avatar:any):any{
+        this.avatar = avatar
+    }
+
+    //更新用户信息
+     @action async uploadUser(params:any): Promise<any>{
+        // let rest:any = await this.getUserInfo();
+        // console.log('User--',this)
+        let result: any = await uploadUser(params);
+        return result
     }
 
 }
