@@ -174,12 +174,12 @@ class MyHeader extends React.Component<BooleanInfo> {
                     <div className="userImg">
                         <Dropdown overlay={menu} placement="bottomCenter">
                             <div className="user-contents-page">
-                                {/* {avatar ? (
+                                {avatar ? (
                                     <img className="img-loading" src={userInfo.avatar} />
                                 ) : (
                                     <Avatar size="large" icon="user" />
-                                )} */}
-                                <img className="img-loading" src={userInfo.avatar}/>
+                                )}
+                                {/* <img className="img-loading" src={userInfo.avatar}/> */}
                                 <span>{userInfo.user_name}</span>
                             </div>
                         </Dropdown>
