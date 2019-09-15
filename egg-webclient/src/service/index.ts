@@ -7,3 +7,4 @@
  * @LastEditTime: 2019-09-12 11:00:17
  */
 export * from "./question";
+export * from "./user";

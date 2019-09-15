@@ -1,0 +1,45 @@
+.titles-head {
+    width: 100%;
+    display: flex;
+}
+
+.titles-head .title-contents-text {
+    flex: 5;
+}
+
+.title-contents-text span {
+    float: left;
+}
+
+.title-contents-text .languages-switch {
+    float: left;
+    margin-left: 20px;
+}
+
+.title-contents-text .languages-switch select {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    padding-left: 26px;
+    font-size: 17px;
+}
+
+.titles-head .user-upload-box {
+    flex: 5;
+}
+
+.user-upload-box .userImg {
+    width: 150px;
+    float: right;
+    margin-right: 20px;
+}
+
+.userImg .user-contents-page {
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+}
+
+.user-contents-page span {
+    margin-left: 10px;
+}

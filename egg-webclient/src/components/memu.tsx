@@ -1,18 +1,28 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,Link } from 'react-router-dom';
 import { Layout, Menu, Icon, Button } from 'antd';
 import { sliderBar } from '../config/index';
+import { inject, observer } from 'mobx-react';
+
+// 引入用户路由
+import { filterView } from '../utils/permission';
+import routes from '../router/routes';
+
+// 国际化
+import {injectIntl} from "react-intl"
+
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
-import { injectIntl } from 'react-intl';
-
-interface Props {
+interface MemuProps {
     user?: any;
-    intl?: any;
+    children?: any;
+    intl?:any
 }
 
-class Memu extends React.Component {
+@inject('user')
+@observer
+class Memu extends React.Component<MemuProps> {
     state = {
         sliderBar,
         collapsed: false
@@ -25,7 +35,12 @@ class Memu extends React.Component {
     };
 
     public render() {
-        console.log(this.props)
+
+        let {formatMessage} = this.props.intl;
+        const { viewAuthority } = this.props.user;
+        let MyRouter = filterView(routes, viewAuthority);
+        console.log('props',this.props)
+
         return (
             <Sider
                 className="slider-box-drop"
@@ -44,38 +59,57 @@ class Memu extends React.Component {
                     />
                 </Button>
                 <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                    {this.state.sliderBar.map(slider => {
-                        return slider.children === undefined ||
-                            slider.children.length < 1 ? (
-                            <Menu.Item key={slider.id}>
-                                <Icon type={slider.icon} />
-                                <NavLink to={slider.path}>
-                                    {slider.name}
-                                </NavLink>
-                            </Menu.Item>
-                        ) : (
-                            <SubMenu
-                                key={slider.id}
-                                title={
-                                    <div>
-                                        <Icon type={slider.icon} />
-                                        <NavLink to={slider.path}>
-                                            {slider.name}
-                                        </NavLink>
-                                    </div>
-                                }
-                            >
-                                {slider.children &&
-                                    slider.children.map(children => {
-                                        return (
-                                            <Menu.Item key={children.id}>
-                                                <NavLink to={children.path}>
-                                                    {children.name}
-                                                </NavLink>
-                                            </Menu.Item>
-                                        );
-                                    })}
-                            </SubMenu>
+                    {MyRouter.map((item: any, index: number) => {
+                        return (
+                            item.children &&
+                            item.children.map((child: any, index: any) => {
+                                return child.children ? (
+                                    <SubMenu
+                                        key={child.path}
+                                        title={
+                                            <div>
+                                                <Icon type={child.icon} />
+                                                <span>{child.title?formatMessage({id:child.title}):child.name}</span>
+                                            </div>
+                                        }
+                                    >
+                                        {child.children &&
+                                            child.children.map(
+                                                (slider: any, index: any) => {
+                                                       
+                                                    if(slider.name===undefined){
+                                                        return
+                                                    }else{
+                                                        
+                                                        if(slider.path===undefined){
+                                                            return
+                                                        }
+                                                        return (
+                                                            <Menu.Item
+                                                                key={slider.path}
+                                                            >
+                                                                <NavLink
+                                                                    to={
+                                                                        slider.path
+                                                                    }
+                                                                >
+                                                                    {slider.title?formatMessage({id:slider.title}):slider.name}
+                                                                </NavLink>
+                                                            </Menu.Item>
+                                                        ) 
+                                                    }
+                                                  
+                                                }
+                                            )}
+                                    </SubMenu>
+                                ) : (
+                                    child.name && (
+                                        <Menu.Item key={child.path}>
+                                            <span>{child.title?formatMessage({id:child.title}):child.name}</span>
+                                        </Menu.Item>
+                                    )
+                                );
+                            })
                         );
                     })}
                 </Menu>

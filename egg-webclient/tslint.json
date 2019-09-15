@@ -1,4 +1,5 @@
 {
+    "defaultSeverity": "warning",
     "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
     "linterOptions": {
         "exclude": [
@@ -16,7 +17,6 @@
         "member-access": false,
         "array-type": [true, "generic"],
         "prefer-const": false,
-        "no-invalid-this": false,
         "ordered-imports": [
             false,
             {
@@ -27,6 +27,7 @@
         "comment-format": [
             false,
             "check-space"
-        ]
+        ],
+        "no-implicit-dependencies": ["optional", ["src"]]
     }
 }

@@ -34,12 +34,12 @@ import {
     questionsType,
     getuserlist,
     getquestions,
-    getUser,
     addUser,
+    getUser,
     updateExam,
     upLoadImg,
     deleteStudent
-} from '../../service/question';
+} from '../../service/index';
 
 // 引入mobx
 class Question {
@@ -113,13 +113,16 @@ class Question {
         return result;
     }
 
-    @action async getUser(): Promise<any> {
-        const result: any = await getUser();
-        return result;
-    }
+
 
     @action async getuserlist(url: any): Promise<any> {
         const result: any = await getuserlist(url);
+        return result;
+    }
+
+    // getUser
+    @action async getUser(): Promise<any> {
+        const result: any = await getUser();
         return result;
     }
 

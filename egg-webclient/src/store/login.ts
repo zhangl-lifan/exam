@@ -5,6 +5,7 @@
  * @Date: 2019-09-05 15:43:06
  * @LastEditors: sueRimn
  * @LastEditTime: 2019-09-12 11:05:01
+ * 
  */
 
 // 引入user模块
@@ -17,6 +18,7 @@ import DeleteGide from "./modules/question";
 import GradeUpdate from "./modules/question";
 import AddClassRoom from "./modules/question"
 import DeleteRoom from "./modules/question";
+import GetUser from "./modules/question"
 import Global from './modules/global';
 import Subject from "./modules/question";
 import ExamType from "./modules/question";
@@ -25,7 +27,6 @@ import AddRoom from "./modules/question";
 import AddGide from "./modules/question";
 import InsertQuestionsType from "./modules/question";
 import AddQuestions from "./modules/question";
-import GetUser from "./modules/question";
 import QuestionUpdate from "./modules/question"
 import Getexamtype from './modules/question';
 import Getcourselist from './modules/question';

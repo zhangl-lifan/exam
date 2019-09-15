@@ -7,8 +7,8 @@
  * @LastEditTime: 2019-09-12 08:51:52
  */
 import { observable, action } from 'mobx';
-import {login, getUserInfo, getViewAuthority} from '../../service/question';
-import { setToken, removeToken, setOnceToken } from '../../utils/index';
+import {login,getUserInfo,getViewAuthority} from '../../service/index';
+import { setToken, removeToken, setOnceToken} from '../../utils/index';
 
 let account = {};
 
@@ -16,9 +16,9 @@ if (window.localStorage.getItem('account')) {
     account = JSON.parse(window.localStorage.getItem('account') + "")
 }
 class User {
-    @observable account: any = account;
+    @observable account: any = account
     @observable userInfo: any = {};
-    @observable viewAuthority: Array<object> = [];
+    @observable viewAuthority:Array<object>=[];
 
     @action async login(form: any): Promise<any> {
         let result: any = await login(form);
@@ -45,12 +45,13 @@ class User {
         removeToken()
     }
 
-     // 获取用户信息
-     @action async getUserInfo(): Promise<any>{
-        let userInfo:any = await getUserInfo();
-        console.log('userInfo...', userInfo);
+    // 获取用户信息
+    @action async getUserInfo(): Promise<any> {
+        let userInfo:any = await getUserInfo()
+        console.log('userInfo',userInfo)
         this.userInfo = userInfo.data;
-        this.getViewAuthority();
+        console.log(this)
+        this.getViewAuthority()
     }
 
     // 获取用户权限
@@ -59,6 +60,7 @@ class User {
         console.log('viewAuthority...', viewAuthority);
         this.viewAuthority = viewAuthority.data;
     }
+
 }
 
 export default User;

@@ -59,7 +59,7 @@ export let addQuestions = (params: any) => {
 
 // 获取当前用户信息
 // /user/userInfo
-export let getUser = () => {
+export let  getUser= () => {
     return request.get('/user/userInfo');
 }
 
@@ -173,20 +173,7 @@ export function login(params: any) {
     return request.post('/user/login', params);
 }
 
-// 获取用户信息
-export let getUserInfo = () => {
-    return request.get('/user/userInfo');
-}
 
-// 获取用户权限
-export let getViewAuthority = () => {
-    return request.get('/user/view_authority');
-}
-
-// 添加用户
-export let addUser = (params: any) => {
-    return request.post('/user', params)
-}
 
 // 删除学生
 // /manger/student/:id=>student_id
@@ -201,3 +188,10 @@ export let upLoadImg = (form:any)=>{
         data: form
     })
 }
+
+
+
+// 获取当前用户信息
+
+
+

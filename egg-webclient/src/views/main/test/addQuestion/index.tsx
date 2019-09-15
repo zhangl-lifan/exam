@@ -17,7 +17,6 @@ interface Listinfo {
 }
 
 @inject('subject', 'examType', 'questionsType', 'addQuestions', 'getUser')
-@observer
 class AddQuestion extends React.Component<Listinfo> {
     state = {
         // 课程类型

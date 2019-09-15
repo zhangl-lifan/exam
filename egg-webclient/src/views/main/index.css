@@ -38,29 +38,3 @@
 .ant-menu-submenu-active a {
     color: #fff;
 }
-
-.titles-head {
-    width: 100%;
-    display: flex;
-}
-
-.titles-head .title-contents-text {
-    flex: 1;
-}
-
-.titles-head .userImg {
-    flex: 1;
-}
-
-.userImg .img-users {
-    width: 65px;
-    height: 65px;
-    float: right;
-}
-
-.img-users #userimgs {
-    width: 65px;
-    height: 100%;
-    border-radius: 50%;
-    font-size: 14px;
-}
