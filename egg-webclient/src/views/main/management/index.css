@@ -19,7 +19,9 @@
     height: 80%;
     margin-left: 10px;
 }
-
+.ant-form-item {
+    margin-bottom: 0px;
+}
 .form-left,.form-center,.form-right,
 .select-left,.select-center,.select-right{
     width: 33%;
@@ -35,7 +37,9 @@
     width: 90%;
     margin-top: 20px;
 }
-
+.ant-row.ant-form-item.moveleft{
+    margin-left: 10px;
+}
 .contentmodule div .ant-radio-group.ant-radio-group-outline.ant-radio-group-large{
     width: 100%;
 }
