@@ -15,13 +15,13 @@ import RouterView from './router/RouterView';
 import routes from './router/routes';
 import {Router} from "react-router";
 
-import {createBrowserHistory} from "history";
+import {createHashHistory} from "history";
 
 
 // 引入导航守卫
 import guardInit,{filterView} from "./utils/permission";
 // 创建一个brower
-const history = createBrowserHistory();
+const history = createHashHistory();
 const myRoutes = filterView(routes, store.user.viewAuthority);
 // console.log(myRoutes)
 
