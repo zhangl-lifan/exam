@@ -12,9 +12,10 @@ interface ClassRoominfo {
     addClassRoom:any;
     form:any;
     deleteRoom:any;
+    classRoom:any
 }
 
-@inject('addGide','addClassRoom','deleteRoom')
+@inject('classRoom')
 @observer
 
 class Classment extends React.Component<ClassRoominfo> {
@@ -52,8 +53,8 @@ class Classment extends React.Component<ClassRoominfo> {
 
     // 获取考试类型的数据
     AddGide = async () => {
-        console.log(this.props)
-        const { addGide } = this.props.addGide;
+        console.log('class--props--------',this.props)
+        const { addGide } = this.props.classRoom;
         const result = await addGide();
         const data = result.data.map((item: any) => {
             return {
@@ -102,7 +103,7 @@ class Classment extends React.Component<ClassRoominfo> {
     }
     // 添加教室的接口
     AddClassRoom = async (params:any) => {
-        const { addClassRoom } = this.props.addClassRoom;
+        const { addClassRoom } = this.props.classRoom;
         const result = await addClassRoom(params);
        if (result.code === 1) {
             message.success(result.msg);
@@ -112,7 +113,7 @@ class Classment extends React.Component<ClassRoominfo> {
 
     // 删除教室的接口
     DeleteRoom = async (params:any) => {
-        const { deleteRoom } = this.props.deleteRoom;
+        const { deleteRoom } = this.props.classRoom;
         const result = await deleteRoom(params);
         if (result.code === 1) {
             message.success(result.msg);

@@ -9,12 +9,10 @@ interface Props extends FormComponentProps {
     form: any,
     IDlist: any,
     viewlist: any,
-    getViews: any,
-    getIDlist: any,
-    setView:any
+    user:any
 }
 
-@inject('getViews', 'getIDlist','setView')
+@inject('user')
 @observer
 
 class Addshen extends React.Component<Props> {
@@ -31,7 +29,7 @@ class Addshen extends React.Component<Props> {
     }
 
     getIDs = async () => {
-        const { getIDlist } = this.props.getIDlist;
+        const { getIDlist } = this.props.user;
         let result = await getIDlist();
         if (result.code === 1) {
             this.setState({
@@ -41,7 +39,7 @@ class Addshen extends React.Component<Props> {
     }
 
     setIDfun = async (params:any) => {
-        const { setView } = this.props.setView;
+        const { setView } = this.props.user;
         let result = await setView(params);
         console.log(result);
         if(result.code === 1){
@@ -52,7 +50,7 @@ class Addshen extends React.Component<Props> {
     }
 
     getViewlist = async () => {
-        const { getViews } = this.props.getViews;
+        const { getViews } = this.props.user;
         let result = await getViews();
         if (result.code === 1) {
             this.setState({

@@ -179,7 +179,6 @@ class MyHeader extends React.Component<BooleanInfo> {
                                 ) : (
                                     <Avatar size="large" icon="user" />
                                 )}
-                                {/* <img className="img-loading" src={userInfo.avatar}/> */}
                                 <span>{userInfo.user_name}</span>
                             </div>
                         </Dropdown>

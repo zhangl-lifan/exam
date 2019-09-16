@@ -6,10 +6,10 @@ import { FormComponentProps } from 'antd/lib/form';
 
 interface Props extends FormComponentProps {
     form: any,
-    addidentity: any
+    user:any
 }
 
-@inject('addidentity')
+@inject('user')
 @observer
 
 class Addshen extends React.Component<Props>{
@@ -28,7 +28,7 @@ class Addshen extends React.Component<Props>{
         });
     };
     addidentity = async (params: any) => {
-        const { addidentity } = this.props.addidentity;
+        const { addidentity } = this.props.user;
         const result = await addidentity(params);
         if (result.code === 1) {
             message.success(result.msg)

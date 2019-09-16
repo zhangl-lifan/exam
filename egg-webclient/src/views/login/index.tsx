@@ -54,7 +54,6 @@ class Login extends React.Component<Propsinfo>{
                     remember: values.remember,
                     autologin:values.autologin
                 }
-                console.log(params);
                 const result = await this.props.user.login(params);
                 if (result.code === 1) {
                     success()

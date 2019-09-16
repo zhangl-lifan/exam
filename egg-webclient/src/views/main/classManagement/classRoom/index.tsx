@@ -18,16 +18,12 @@ interface ProdTypeinfo {
     data: Array<object>;
     questionsType: any;
     key: any;
-    addRoom: any;
     form: any;
-    getroom: any;
-    subject: any;
-    gradeRoom: any;
-    deleteGide: any;
-    gradeUpdate:any;
+    classRoom:any;
+    question:any
 }
 
-@inject('addRoom', 'getroom', 'subject', 'gradeRoom', 'deleteGide','gradeUpdate')
+@inject('question','classRoom')
 @observer
 class ClassRoom extends React.Component<ProdTypeinfo> {
     state = {
@@ -84,7 +80,7 @@ class ClassRoom extends React.Component<ProdTypeinfo> {
 
     // 获取教室的数据
     AddRoom = async () => {
-        const { addRoom } = this.props.addRoom;
+        const { addRoom } = this.props.classRoom;
         const result = await addRoom();
         const data = result.data.map((item: any) => {
             return {
@@ -102,7 +98,7 @@ class ClassRoom extends React.Component<ProdTypeinfo> {
     // 获取教室名的数据
     //  {room_id: "idf126-po0y5l-y19vjj-y2ud6o",room_text: "34301"}
     Getroom = async () => {
-        const { getroom } = this.props.getroom;
+        const { getroom } = this.props.classRoom;
         const result = await getroom();
         this.setState({
             classRooms: result.data
@@ -112,7 +108,7 @@ class ClassRoom extends React.Component<ProdTypeinfo> {
     // 获取课程名的数据
     // {subject_id: "fqtktr-1lq5u",subject_text: "javaScript上"}
     Getcourselist = async () => {
-        const { subject } = this.props.subject;
+        const { subject } = this.props.question;
         const result = await subject();
         this.setState({
             subjectList: result.data
@@ -122,7 +118,7 @@ class ClassRoom extends React.Component<ProdTypeinfo> {
     // 删除班级的接口
     // grade_id
     TeleteGide = async (opt: any) => {
-        const { deleteGide } = this.props.deleteGide;
+        const { deleteGide } = this.props.classRoom;
         const result = await deleteGide(opt);
         if (result.code === 1) {
             message.success(result.msg);
@@ -132,7 +128,7 @@ class ClassRoom extends React.Component<ProdTypeinfo> {
     
     // 更新班级的接口
     GradeUpdate = async (opt: any) => {
-        const { gradeUpdate } = this.props.gradeUpdate;
+        const { gradeUpdate } = this.props.classRoom;
         const result = await gradeUpdate(opt);
         console.log(result)
         if (result.code === 1) {
@@ -164,7 +160,7 @@ class ClassRoom extends React.Component<ProdTypeinfo> {
     // gradeRoom
     // 添加班级的接口
     GradeRoom = async (opt: any) => {
-        const { gradeRoom } = this.props.gradeRoom;
+        const { gradeRoom } = this.props.classRoom;
         const result = await gradeRoom(opt);
         if (result.code === 1) {
             message.success(result.msg);

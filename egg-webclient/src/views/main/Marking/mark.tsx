@@ -45,27 +45,30 @@ class Marking extends React.Component<Props>{
      </table>
               <Pagination size="small" total={num} showSizeChanger={true}  showQuickJumper={true} onShowSizeChange={(current,size)=>{
                   const newobj:any=this.state;
-                  const arr=newobj.obj.grade_name;
-                  const list=Object.create(arr).splice((current-1)*size,size);
-                  this.setState({newarr:list});
+                  if(newobj){
+                    const arr=newobj.obj.grade_name;
+                    const list=Object.create(arr).splice((current-1)*size,size);
+                    this.setState({newarr:list});
+                  }
+                  
                   
                 }} onChange={(page,pageSize:number)=>{
                   const newobj:any=this.state;
-                  const arr=newobj.obj.grade_name;
-                  const list=Object.create(arr).splice((page-1)*pageSize,pageSize);
-                  this.setState({newarr:list});
-                 
-                   
+                  if(newobj){
+                    const arr=newobj.obj.grade_name;
+                    const list=Object.create(arr).splice((page-1)*pageSize,pageSize);
+                    this.setState({newarr:list});
+                  }
               }}/>
             </div>
         )
     }
 
-    componentDidMount(){
-      const result=this.props.mark.getmark();
-      result.then((res:any)=>{
-      
-        if(res.code===1){
+   componentDidMount(){
+     this.props.mark.getmark().then((res:any)=>{
+       
+        if(res.code===1 && res.exam.length>0){
+          console.log('res------',res)
           const arr=res.exam[0].grade_name;
           // for(let i =2;i<33;i++){
           //  arr.push(i);
@@ -73,13 +76,18 @@ class Marking extends React.Component<Props>{
          this.setState({num:arr.length});
           const newarr=Object.create(arr).splice(0,10);
           this.setState({newarr});
-          this.setState({obj:{exam_name:res.exam[0].exam_name,grade_name:arr,subject_text:res.exam[0].subject_text,status:res.exam[0].status}});
-          
-          
+          this.setState({
+              obj:{
+                exam_name:res.exam[0].exam_name,
+                grade_name:arr,
+                subject_text:res.exam[0].subject_text,
+                status:res.exam[0].status
+              }
+            });
+        }else{
+          return
         }
       })
-    
-      
      }
 }
 

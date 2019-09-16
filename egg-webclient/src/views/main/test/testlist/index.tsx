@@ -5,13 +5,12 @@ import './index.css';
 
 interface ListTypeinfo {
     data: Array<object>;
-    questionsType: any;
     key: any;
-    insertQuestionsType: any;
     form: any;
+    question:any
 }
 
-@inject('questionsType', 'insertQuestionsType')
+@inject('question')
 @observer
 class Testlist extends React.Component<ListTypeinfo> {
     state = {
@@ -48,7 +47,7 @@ class Testlist extends React.Component<ListTypeinfo> {
 
     // 获取考试类型的数据
     getQuestionsType = async () => {
-        const { questionsType } = this.props.questionsType;
+        const { questionsType } = this.props.question;
         const result = await questionsType();
         // {questions_type_id: "774318-730z8m", questions_type_text: "简答题", questions_type_sort: 1}
         const data = result.data.map((item: any, index: number) => {
@@ -66,7 +65,7 @@ class Testlist extends React.Component<ListTypeinfo> {
 
     // 添加试题类型
     AinsertQuestionsType = async (params: any) => {
-        const { insertQuestionsType } = this.props.insertQuestionsType;
+        const { insertQuestionsType } = this.props.question;
         const result = await insertQuestionsType(params);
     };
 

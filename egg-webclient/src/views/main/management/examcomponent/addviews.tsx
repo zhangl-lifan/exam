@@ -8,12 +8,12 @@ const { Option } = Select;
 
 interface Props extends FormComponentProps {
     form: any,
-    getViews: any,
     viewlist: any,
-    addView: any,
-    viewid: any
+    viewid: any,
+    user:any
 }
-@inject('getViews', 'addView')
+
+@inject('user')
 @observer
 class Addshen extends React.Component<Props>{
     form: any;
@@ -27,7 +27,7 @@ class Addshen extends React.Component<Props>{
         this.getViewlist();
     }
     getViewlist = async () => {
-        const { getViews } = this.props.getViews;
+        const { getViews } = this.props.user;
         let result = await getViews();
         if (result.code === 1) {
             this.setState({
@@ -51,7 +51,7 @@ class Addshen extends React.Component<Props>{
     };
 
     addViewfun = async (params: any) => {
-        const { addView } = this.props.addView;
+        const { addView } = this.props.user;
         let result = await addView(params);
         if(result.code === 1){
             message.success(result.msg)

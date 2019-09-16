@@ -14,6 +14,7 @@ interface Props {
     getcourselist: any,
     form: any,
     selectExam: any,
+    question:any,
     examtype: Array<object>,
     courlist: Array<object>,
     courstr: string,
@@ -24,7 +25,7 @@ interface Props {
     examlist: Array<object>
 }
 
-@inject('getexamtype', "getcourselist", 'selectExam')
+@inject('question', 'selectExam')
 @observer
 
 class ClassExam extends React.Component<Props> {
@@ -43,11 +44,10 @@ class ClassExam extends React.Component<Props> {
         this.getcourdata();
         this.getSelectData()
 
-        //      console.log(this."startTime"transition(15232323652))
     }
 
     getexamtypes = async () => {
-        const { getexamtype } = this.props.getexamtype;
+        const { getexamtype } = this.props.question;
         const result = await getexamtype();
         if (result.code === 1) {
             this.setState({
@@ -57,7 +57,7 @@ class ClassExam extends React.Component<Props> {
     }
 
     getcourdata = async () => {
-        const { getcourselist } = this.props.getcourselist;
+        const { getcourselist } = this.props.question;
         const result = await getcourselist();
         if (result.code === 1) {
             this.setState({

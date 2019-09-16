@@ -8,12 +8,10 @@ interface AddProps extends FormComponentProps<any> {
     form: any,
     isShow?: boolean,
     userList?: any,
-    userAdd: any,
-    IDlist: any,
-    updateUser: any
+    user:any
 }
 
-@inject('getIDlist', 'getuserlist', 'userAdd', 'updateUser')
+@inject('user')
 @observer
 
 class Addshen extends React.Component<AddProps> {
@@ -31,7 +29,7 @@ class Addshen extends React.Component<AddProps> {
     }
 
     getIDs = async () => {
-        const { getIDlist } = this.props.getIDlist;
+        const { getIDlist } = this.props.user;
         let result = await getIDlist();
         if (result.code === 1) {
             this.setState({
@@ -41,7 +39,7 @@ class Addshen extends React.Component<AddProps> {
     }
 
     getUSers = async () => {
-        const { getuserlist } = this.props.getuserlist;
+        const { getuserlist } = this.props.user;
         const result = await getuserlist('/user/user');
         this.setState({
             userlist: result.data
@@ -82,7 +80,7 @@ class Addshen extends React.Component<AddProps> {
         });
     };
     AddUser = async (params: any) => {
-        const { userAdd } = this.props.userAdd;
+        const { userAdd } = this.props.user;
         const result = await userAdd(params);
         if (result.code === 1) {
             message.success(result.msg)
@@ -92,7 +90,7 @@ class Addshen extends React.Component<AddProps> {
     }
 
     Updateuser = async (params: any) => {
-        const { updateUser } = this.props.updateUser;
+        const { updateUser } = this.props.user;
         const result = await updateUser(params);
         if (result.code === 1) {
             message.success(result.msg)

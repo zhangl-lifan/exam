@@ -7,8 +7,6 @@ const { Option } = Select;
 
 interface Props {
     form: any,
-    getexamtype: any,
-    getcourselist: any,
     examtype: Array<object>,
     subject: any,
     courlist: Array<object>,
@@ -19,14 +17,15 @@ interface Props {
     examID: any,
     selectExam: any,
     sessionStorage: any,
-    createExam: any,
-    Session:any
+    Session:any,
+    question:any,
+    create:any
 }
 interface Props extends FormComponentProps {
     history: any
 }
 
-@inject('getexamtype', "getcourselist", 'selectExam', 'createExam')
+@inject('selectExam','create','question')
 @observer
 
 class RegistrationForm extends React.Component<Props> {
@@ -48,7 +47,7 @@ class RegistrationForm extends React.Component<Props> {
     }
 
     getexamtypes = async () => {
-        const { getexamtype } = this.props.getexamtype;
+        const { getexamtype } = this.props.question;
         const result = await getexamtype();
         if (result.code === 1) {
             this.setState({
@@ -58,7 +57,7 @@ class RegistrationForm extends React.Component<Props> {
     };
 
     getcourdata = async () => {
-        const { getcourselist } = this.props.getcourselist;
+        const { getcourselist } = this.props.question;
         const result = await getcourselist();
         if (result.code === 1) {
             this.setState({
@@ -95,10 +94,10 @@ class RegistrationForm extends React.Component<Props> {
     }
 
     createFun = async (params: any) => {
-        const { createExam } = this.props.createExam;
+        const { createExam } = this.props.create;
         const result = await createExam(params);
         params.examid = result.data.exam_exam_id;
-        this.props.createExam.addQuestions(result.data.questions);
+        this.props.create.addQuestions(result.data.questions);
         window.sessionStorage.setItem('params', JSON.stringify(params));
         this.props.selectExam.changeParams(params);
         this.props.history.replace('/main/examinations/questions');

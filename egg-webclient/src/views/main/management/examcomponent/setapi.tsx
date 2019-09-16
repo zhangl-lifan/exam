@@ -6,14 +6,12 @@ import { FormComponentProps } from 'antd/lib/form';
 const { Option } = Select;
 interface Props extends FormComponentProps {
     form: any,
-    getIDlist: any,
-    getPorts: any,
     IDlist: any,
     portlist: any,
-    setApi: any
+    user:any
 }
 
-@inject('getIDlist', 'getPorts', 'setApi')
+@inject('user')
 @observer
 
 class Addshen extends React.Component<Props>{
@@ -27,7 +25,7 @@ class Addshen extends React.Component<Props>{
         this.getPortlist();
     }
     getIDs = async () => {
-        const { getIDlist } = this.props.getIDlist;
+        const { getIDlist } = this.props.user;
         let result = await getIDlist();
         if (result.code === 1) {
             this.setState({
@@ -37,7 +35,7 @@ class Addshen extends React.Component<Props>{
     }
 
     getPortlist = async () => {
-        const { getPorts } = this.props.getPorts;
+        const { getPorts } = this.props.user;
         let result = await getPorts();
         if (result.code === 1) {
             this.setState({
@@ -60,7 +58,7 @@ class Addshen extends React.Component<Props>{
     };
 
     setApifun = async (params: any) => {
-        const { setApi } = this.props.setApi;
+        const { setApi } = this.props.user;
         const result = await setApi(params);
         if(result.code === 1){
             message.success(result.msg)

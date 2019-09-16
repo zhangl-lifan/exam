@@ -13,14 +13,15 @@ import SetId from './setId';
 interface Props {
     props: any,
     addUser: any,
-    userlist: Array<object>
+    userlist: Array<object>,
+    user:any
 }
 
 interface Props extends FormComponentProps {
     form: any
 }
 
-@inject('getViews', 'getIDlist', 'getPorts', 'getuserlist', 'addUser')
+@inject('user')
 @observer
 
 class Management extends React.Component<Props> {

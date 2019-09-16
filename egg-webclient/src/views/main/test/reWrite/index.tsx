@@ -7,17 +7,15 @@ interface Listinfo {
     list: Array<object>;
     question: any;
     data: Array<object>;
-    subject: any;
-    questionsType: any;
-    examType: any;
     key: any;
-    getUser: any;
-    addQuestions: any,
     location: any,
-    questionUpdate: any
+    user:any,
+    create:any
+
 }
 
-@inject('subject', 'examType', 'questionsType', 'addQuestions', 'getUser', "questionUpdate")
+// question
+@inject('question','user','create')
 @observer
 class RiWite extends React.Component<Listinfo> {
 
@@ -51,7 +49,7 @@ class RiWite extends React.Component<Listinfo> {
     }
 
     getSubject = async () => {
-        const { subject } = this.props.subject;
+        const { subject } = this.props.question;
         const result = await subject();
         this.setState({
             subjectList: result.data
@@ -60,7 +58,7 @@ class RiWite extends React.Component<Listinfo> {
 
     // 获取考试类型的数据
     getExamType = async () => {
-        const { examType } = this.props.examType;
+        const { examType } = this.props.create;
         const result = await examType();
         // {exam_id: "8sc5d7-7p5f9e-cb2zii-ahe5i", exam_name: "周考1"}
         this.setState({
@@ -70,7 +68,7 @@ class RiWite extends React.Component<Listinfo> {
 
     // 获取考试类型的数据
     getQuestionsType = async () => {
-        const { questionsType } = this.props.questionsType;
+        const { questionsType } = this.props.question;
         const result = await questionsType();
         // {questions_type_id: "774318-730z8m", questions_type_text: "简答题", questions_type_sort: 1}
         this.setState({
@@ -80,7 +78,7 @@ class RiWite extends React.Component<Listinfo> {
 
 
     questionUpdate = async (parmas: any) => {
-        const { questionUpdate } = this.props.questionUpdate;
+        const { questionUpdate } = this.props.question;
         const result = await questionUpdate(parmas);
         // user_id: "w6l6n-cbvl6s"
         // user_name: "chenmanjie"

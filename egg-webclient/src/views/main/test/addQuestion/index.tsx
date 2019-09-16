@@ -8,15 +8,12 @@ interface Listinfo {
     list: Array<object>;
     question: any;
     data: Array<object>;
-    subject: any;
-    questionsType: any;
-    examType: any;
+    create:any,
     key: any;
-    getUser: any;
-    addQuestions: any;
+    user:any
 }
 
-@inject('subject', 'examType', 'questionsType', 'addQuestions', 'getUser')
+@inject('user','question','create')
 class AddQuestion extends React.Component<Listinfo> {
     state = {
         // 课程类型
@@ -45,7 +42,7 @@ class AddQuestion extends React.Component<Listinfo> {
     // {subject_id: "4pu32-vs796l"  subject_text: "node基础"}
 
     getSubject = async () => {
-        const { subject } = this.props.subject;
+        const { subject } = this.props.question;
         const result = await subject();
         this.setState({
             subjectList: result.data
@@ -56,7 +53,7 @@ class AddQuestion extends React.Component<Listinfo> {
     // {exam_id: "8sc5d7-7p5f9e-cb2zii-ahe5i", exam_name: "周考1"}
 
     getExamType = async () => {
-        const { examType } = this.props.examType;
+        const { examType } = this.props.create;
         const result = await examType();
         this.setState({
             examTypeList: result.data
@@ -67,7 +64,7 @@ class AddQuestion extends React.Component<Listinfo> {
     // {questions_type_id: "774318-730z8m", questions_type_text: "简答题", questions_type_sort: 1}
 
     getQuestionsType = async () => {
-        const { questionsType } = this.props.questionsType;
+        const { questionsType } = this.props.question;
         const result = await questionsType();
         this.setState({
             questionsTypeList: result.data
@@ -77,7 +74,7 @@ class AddQuestion extends React.Component<Listinfo> {
     // 获取当前用户
     // {user_id: "w6l6n-cbvl6s",user_name: "chenmanjie"}
     getUser = async () => {
-        const { getUser } = this.props.getUser;
+        const { getUser } = this.props.user;
         const result = await getUser();
         this.setState({
             user_id: result.data.user_id
@@ -129,7 +126,7 @@ class AddQuestion extends React.Component<Listinfo> {
     // 添加试题
     // 返回结果 {code: 1, msg: "试题添加成功"}
     addQuestions = async (parmas: any) => {
-        const { addQuestions } = this.props.addQuestions;
+        const { addQuestions } = this.props.question;
         const result = await addQuestions(parmas);
         console.log(result)
         message.success(result.msg);

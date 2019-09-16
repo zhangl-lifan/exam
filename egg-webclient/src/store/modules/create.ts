@@ -8,7 +8,7 @@
  */
 
 import { observable, action } from 'mobx';
-import { createExam } from '../../service/question';
+import { createExam,updateExam,examType } from '../../service/index';
 
 let element: any = [];
 
@@ -28,6 +28,18 @@ class CreateExam {
 
     @action async createExam(params: any): Promise<any> {
         const result: any = await createExam(params);
+        return result;
+    }
+    
+    //更新试卷 
+    @action async updateExam(id: any, params: any): Promise<any> {
+        const result: any = await updateExam(id, params);
+        return result;
+    }
+
+    // 试卷列表
+    @action async examType(): Promise<any> {
+        const result: any = await examType();
         return result;
     }
 }

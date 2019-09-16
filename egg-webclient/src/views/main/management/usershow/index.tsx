@@ -4,15 +4,15 @@ import { inject, observer } from 'mobx-react';
 
 interface Props {
     form: any,
-    getuserlist: any,
     size: any,
     userlist: Array<object>,
     titledata: object,
     isShow: boolean,
-    count: number
+    count: number,
+    user:any
 }
 
-@inject('getuserlist')
+@inject('user')
 @observer
 
 class UserShow extends React.Component<Props>{
@@ -153,8 +153,7 @@ class UserShow extends React.Component<Props>{
     }
 
     getUSers = async (url: string) => {
-        console.log(url);
-        const { getuserlist } = this.props.getuserlist;
+        const { getuserlist } = this.props.user;
         let result = await getuserlist(url);
         if (result.code === 1) {
             this.setState({

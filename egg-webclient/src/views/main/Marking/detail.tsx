@@ -7,9 +7,9 @@ const { Option } = Select;
 interface Props{
     props:any,
     page:any,
-    room:any
+    classRoom:any
 }
-@inject('page','room')
+@inject('classRoom')
 @observer
 class Management extends React.Component<Props>{
     constructor(props:any){
@@ -48,13 +48,13 @@ class Management extends React.Component<Props>{
     componentDidMount(){
        let list:any=[];
        let newlist=[];
-        this.props.page.getstudent().then((res:any)=>{
+        this.props.classRoom.getstudent().then((res:any)=>{
             if(res.code===1){
                 list=res.data.splice(0,10);  
                 this.setState({list})  
             }
         })
-        this.props.room.getroom().then((res:any)=>{
+        this.props.classRoom.getroom().then((res:any)=>{
             if(res.code===1){
                 newlist=res.data;
                this.setState({newlist})

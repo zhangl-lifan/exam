@@ -11,137 +11,29 @@
 // 引入模块
 import User from "./modules/user";
 import Question from "./modules/question";
-import Condition from "./modules/question";
-import Getroom from './modules/question';
-import GradeRoom from "./modules/question";
-import DeleteGide from "./modules/question";
-import GradeUpdate from "./modules/question";
-import AddClassRoom from "./modules/question"
-import DeleteRoom from "./modules/question";
-import GetUser from "./modules/question"
+import ClassRoom from "./modules/classroom";
+import Create from "./modules/create";
+import Mark from "./modules/mark"
+import SelectExam from "./modules/selectExam"
 import Global from './modules/global';
-import Subject from "./modules/question";
-import ExamType from "./modules/question";
-import QuestionsType from "./modules/question";
-import AddRoom from "./modules/question";
-import AddGide from "./modules/question";
-import InsertQuestionsType from "./modules/question";
-import AddQuestions from "./modules/question";
-import QuestionUpdate from "./modules/question"
-import Getexamtype from './modules/question';
-import Getcourselist from './modules/question';
-import Getclasslist from './modules/question';
-import GetViews from './modules/question';
-import GetIDlist from './modules/question';
-import GetPorts from './modules/question';
-import Getuserlist from './modules/question';
-import Mark from "./modules/question";
-import AddUser from './modules/question';
-import Detail from './modules/question'
-import Room from './modules/question'
-import CreateExam from './modules/create';
-import SelectExam from './modules/selectExam';
-import GetQuestions from './modules/question';
-import Updateexam from './modules/question';
-import UpLoadImg from "./modules/question";
-import Getstudent from "./modules/question";
-import DeleteStudent from "./modules/question";
-import Useradd from './modules/question';
-import Addidentity from './modules/question';
-import AddApi from './modules/question';
-import AddView from './modules/question';
-import SetApi from './modules/question';
-import SetView from './modules/question';
-import UpdateUser from './modules/question';
+
+
 // 实例化
 const user = new User()
 const question = new Question();
-const subject = new Subject();
-const examType = new ExamType();
-const questionsType = new QuestionsType();
-const addRoom = new AddRoom();
-const addUser = new AddUser();
-const addGide = new AddGide()
-const insertQuestionsType = new InsertQuestionsType()
-const addQuestions = new AddQuestions();
-const getUser = new GetUser();
-const questionUpdate = new QuestionUpdate()
-const getexamtype = new Getexamtype();
-const getcourselist = new Getcourselist();
-const getclasslist = new Getclasslist();
-const getViews = new GetViews();
-const getIDlist = new GetIDlist();
-const getPorts = new GetPorts();
-const getuserlist = new Getuserlist();
+const classRoom = new ClassRoom();
+const create = new Create()
 const mark = new Mark();
-const page = new Detail();
-const getroom = new Getroom();
-const condition = new Condition();
-const gradeRoom = new GradeRoom();
-const deleteGide = new DeleteGide();
-const gradeUpdate = new GradeUpdate();
-const addClassRoom = new AddClassRoom();
-const deleteRoom = new DeleteRoom();
 const global = new Global();
-const room = new Room();
-const createExam = new CreateExam();
 const selectExam = new SelectExam();
-const getquestions = new GetQuestions();
-const updateExam = new Updateexam();
-const upLoadImg = new UpLoadImg();
-const getstudent = new Getstudent();
-const deleteStudent = new DeleteStudent()
-const userAdd = new Useradd();
-const addidentity = new Addidentity();
-const addApi = new AddApi();
-const addView = new AddView()
-const setApi = new SetApi();
-const setView = new SetView();
-const updateUser = new UpdateUser()
+
 
 export default {
     user,
     question,
-    subject,
-    examType,
-    questionsType,
-    addRoom,
-    addGide,
-    insertQuestionsType,
-    addQuestions,
-    getUser,
-    questionUpdate,
-    getexamtype,
-    getcourselist,
-    getclasslist,
-    getViews,
-    getIDlist,
-    getPorts,
-    getuserlist,
+    classRoom,
+    create,
     mark,
-    page,
-    addUser,
-    getroom,
-    condition,
-    deleteGide,
-    gradeRoom,
-    gradeUpdate,
-    addClassRoom,
-    deleteRoom,
     global,
-    room,
-    createExam,
     selectExam,
-    getquestions,
-    updateExam,
-    getstudent,
-    upLoadImg,
-    addApi,
-    deleteStudent,
-    userAdd,
-    addidentity,
-    addView,
-    setApi,
-    setView,
-    updateUser
 };

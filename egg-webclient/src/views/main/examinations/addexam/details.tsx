@@ -23,10 +23,11 @@ const warning = () => {
     message.warning('update exam come to nothing!');
 };
 interface Props extends FormComponentProps {
-    history: any
+    history: any,
+    create:any
 }
 
-@inject('selectExam', 'createExam', 'updateExam')
+@inject('selectExam','create')
 @observer
 
 class UserDetails extends React.Component<Props> {
@@ -40,14 +41,14 @@ class UserDetails extends React.Component<Props> {
     }
 
     getselectExam = async () => {
-        const { questions } = this.props.createExam;
+        const { questions } = this.props.create;
         this.setState({
             datalist: questions
         })
     }
 
     handleClick = async () => {
-        const { updateExam } = this.props.updateExam;
+        const { updateExam } = this.props.create;
         const { saveparams } = this.props.selectExam;
         let arr: any = [];
         this.state.datalist.map((item: any) => arr.push(item.questions_id))

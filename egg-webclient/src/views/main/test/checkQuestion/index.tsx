@@ -10,10 +10,11 @@ interface Listinfo {
     questionsType: any;
     examType: any;
     history: any;
-    condition:any
+    condition:any;
+    create:any
 }
 
-@inject('question', 'subject', 'examType', 'questionsType','condition')
+@inject('question','create')
 @observer
 class CheckQuestion extends React.Component<Listinfo> {
     state = {
@@ -52,7 +53,7 @@ class CheckQuestion extends React.Component<Listinfo> {
     };
 
     getSubject = async () => {
-        const { subject } = this.props.subject;
+        const { subject } = this.props.question;
         const result = await subject();
 
         this.setState({
@@ -62,13 +63,13 @@ class CheckQuestion extends React.Component<Listinfo> {
     
     // 获取全部试题
     getCondition = async()=>{
-        const { condition } = this.props.condition;
+        const { condition } = this.props.question;
         const result = await condition();
     }
 
     // 按条件查找试题
     getCondType = async(opt:any)=>{
-        const { condition } = this.props.condition;
+        const { condition } = this.props.question;
         const result = await condition(opt);
         // console.log(result)
         this.setState({
@@ -79,7 +80,7 @@ class CheckQuestion extends React.Component<Listinfo> {
     // 获取考试类型的数据
     // {exam_id: "8sc5d7-7p5f9e-cb2zii-ahe5i", exam_name: "周考1"}
     getExamType = async () => {
-        const { examType } = this.props.examType;
+        const { examType } = this.props.create;
         const result = await examType();
         
         this.setState({
@@ -90,7 +91,7 @@ class CheckQuestion extends React.Component<Listinfo> {
     // 获取考试类型的数据
     // {questions_type_id: "774318-730z8m", questions_type_text: "简答题", questions_type_sort: 1}
     getQuestionsType = async () => {
-        const { questionsType } = this.props.questionsType;
+        const { questionsType } = this.props.question;
         const result = await questionsType();
         // console.log("getQuestionsType",result);
 
@@ -139,14 +140,6 @@ class CheckQuestion extends React.Component<Listinfo> {
 
     // 查询
     searchExty = ()=>{
-            /*
-             *   questions_id		    试题id
-                 questions_type_id		课程类型id
-                 subject_id	            课程id
-                 exam_id
-             * 
-             */
-
              let {questions_id,questions_type_id,subject_id,exam_id} = this.state
              let opt = {
                 // questions_id,

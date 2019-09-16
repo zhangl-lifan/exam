@@ -8,40 +8,21 @@ import {
 
 interface Prodsinfo {
     data: Array<object>;
-    questionsType: any;
     key: any;
-    addRoom: any;
     form: any;
-    getroom: any;
-    subject: any;
-    gradeRoom: any;
-    deleteGide: any;
-    gradeUpdate: any;
-    getstudent:any;
-    deleteStudent:any
+    classRoom:any
 }
 
 @inject(
-    'addRoom',
-    'getroom',
-    'getstudent',
-    'deleteStudent'
+    'classRoom'
 )
 class StudentManagement extends React.Component<Prodsinfo> {
 
     state = {
         //  试题类型
         data: [],
-        // visible: false,
-        // confirmDirty: false,
-        // autoCompleteResult: [],
         classRooms: [],
         studentList:[],
-        // subjectList: [],
-        // isShow: false,
-        // room_id:'',
-        // subject_id:'',
-        // grade_id:''
          student_id:''
     };
 
@@ -91,7 +72,7 @@ class StudentManagement extends React.Component<Prodsinfo> {
    
     // 教室列表
     Getroom = async () => {
-        const { getroom } = this.props.getroom;
+        const { getroom } = this.props.classRoom;
         const result = await getroom();
         this.setState({
             classRooms: result.data
@@ -101,7 +82,7 @@ class StudentManagement extends React.Component<Prodsinfo> {
 
    //  班级列表 
     AddRoom = async () => {
-        const { addRoom } = this.props.addRoom;
+        const { addRoom } = this.props.classRoom;
         const result = await addRoom();
         this.setState({
             data:result.data
@@ -110,7 +91,7 @@ class StudentManagement extends React.Component<Prodsinfo> {
 
     // 获取学生列表
     Getstudent =  async () => {
-        const { getstudent } = this.props.getstudent;
+        const { getstudent } = this.props.classRoom;
         const result = await getstudent();
         // console.log(result.data)
         const studentList = result.data.map((item: any,index:any) => {
@@ -132,7 +113,7 @@ class StudentManagement extends React.Component<Prodsinfo> {
     // 删除学生的接口
     // {code: 1 ,msg: "删除成功"}
     DeleteStudents = async (params:any) => {
-        const { deleteStudent } = this.props.deleteStudent;
+        const { deleteStudent } = this.props.classRoom;
         const result = await deleteStudent(params);
         console.log(result)
         if(result.code===1){
