@@ -4,13 +4,12 @@
  * @Author: sueRimn
  * @Date: 2019-09-03 20:29:10
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-09-15 07:51:00
+ * @LastEditTime: 2019-09-17 11:57:57
  */
 
 import axios from 'axios';
 import { AxiosResponse } from 'axios/index';
 import { getToken } from './index';
-
 
 const instance = axios.create({
     baseURL: ' http://169.254.88.18:7001',
